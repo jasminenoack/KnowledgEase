@@ -1,18 +1,17 @@
-# Flux-capacitr
+# Question Ease
 
-[Heroku link][heroku]
+<!-- [Heroku link][heroku]
 
-[heroku]: http://flux-capacitr.herokuapp.com
+[heroku]: http://flux-capacitr.herokuapp.com -->
 
 ## Minimum Viable Product
-Flux-capacitr is a clone of Tumblr built on Rails and Backbone. Users can:
+QuestionEase is a clone of Quora, which focuses on create a simple and intuitive user interface.
 
-<!-- This is a Markdown checklist. Use it to keep track of your progress! -->
 
-- [x] Create accounts
-- [x] Create sessions (log in)
-- [x] Create blogs
-- [x] Create blog posts
+- [ ] Create accounts
+- [ ] Create sessions (log in)
+- [ ] Create blogs
+- [ ] Create blog posts
 - [ ] View blogs and posts
 - [ ] Subscribe to blogs
 - [ ] View a feed of subscribed blogs
@@ -88,4 +87,3 @@ collections, but they will fetch from the new `search` routes.
 [phase-three]: ./docs/phases/phase3.md
 [phase-four]: ./docs/phases/phase4.md
 [phase-five]: ./docs/phases/phase5.md
-
