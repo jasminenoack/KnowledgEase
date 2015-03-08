@@ -1,20 +1,26 @@
-# Phase 4: User Feeds
+# Phase 4: Answers
 
 ## Rails
 ### Models
+Answers
 
 ### Controllers
-Api::PostsController (feed)
+Answers (index, create, destroy, update)
+Questions (index) (add an options hash allowing to request unanswered)
 
 ### Views
-posts/feed.json.jbuilder
+index.json.jbuilder(include comments)
 
 ## Backbone
 ### Models
+* Answers
 
 ### Collections
+* Answers(sent up with a question fetch, parsed)
 
 ### Views
-* FeedShow (composite view, contains PostsIndex subview)
+* AnswerShow (Inside question show view)
+* Unanswered Questions
+* AnswerForm
 
 ## Gems/Libraries
