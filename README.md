@@ -90,7 +90,8 @@ Blog
 
 
 ## Design Docs
-* [View Wireframes][views]
+* MVP Wireframes drawn by hand
+* [Bonus Wireframes][views]
 * [DB schema][schema]
 
 [views]: ./docs/views.md

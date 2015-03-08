@@ -1,4 +1,4 @@
-# Phase 5: Topics
+# Phase 6: Topics
 
 ## Rails
 ### Models
