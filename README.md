@@ -7,17 +7,87 @@
 ## Minimum Viable Product
 QuestionEase is a clone of Quora, which focuses on create a simple and intuitive user interface.
 
-
+Users
 - [ ] Create accounts
 - [ ] Create sessions (log in)
-- [ ] Create blogs
-- [ ] Create blog posts
-- [ ] View blogs and posts
-- [ ] Subscribe to blogs
-- [ ] View a feed of subscribed blogs
-- [ ] Tag blog posts
-- [ ] Search for blogs by title
-- [ ] Search for posts by tag
+- [ ] Create questions
+- [ ] Create answers
+- [ ] Comment on Questions and answers
+- [ ] Follow users topics and questions
+
+Questions
+- [ ] View questions
+- [ ] Can be listed as anonomous
+- [ ] Have answers and comments
+
+Answers
+- [ ] Can have comments
+- [ ] Are accessed nested under questions
+- [ ] User can choose the best answer
+
+Comments
+- [ ] Can be on users, questions, or answers
+
+Topics
+- [ ] Users can now about topics
+- [ ] Questions have many topics
+
+Following
+- [ ] Users can follow topics, questions or other users
+
+Search
+- [ ] Users can search by topic
+- [ ] Users can search by user
+- [ ] Users can search by question content
+- [ ] Users can complete an advanced search
+
+## Bonus Features
+
+Improvements
+- [ ] Text can be inputed in markdown with a preview
+- [ ] Pages show tips indicating additional features
+- [ ] Users can post links and pictures
+- [ ] Creates seperate user feeds for trending, following, etc.
+
+Votes
+- [ ] Users can vote on questions or answers
+- [ ] Users have credits based on the number of votes they get
+- [ ] Users user credits to request answers from other users
+- [ ] Users have stats based on votes
+
+Views
+- [ ] Users have stats based on when their pages are viewed.
+
+Messaging
+- [ ] Users can message other users
+
+Reading List/Answer Later
+- [ ] Users can move questions to their reading list
+- [ ] Users can mark a question as to answer later
+
+Edits
+- [ ] Question edits are tracked.
+
+Notification
+- [ ] Users are notified of answers to their questions
+- [ ] Users are notified of their new followers
+- [ ] Users are notified of votes for their content
+
+Action Mailer
+- [ ] Users confirm their accounts through email.
+- [ ] Users can reset their password through email
+
+Settings
+- [ ] Users can change their privacy settings
+- [ ] Users can change their notification settings
+
+Mentions
+- [ ] Users can mention another user in their posts
+
+Blog
+- [ ] Users can create blogs
+- [ ] Users can post on blogs
+
 
 ## Design Docs
 * [View Wireframes][views]
@@ -28,62 +98,48 @@ QuestionEase is a clone of Quora, which focuses on create a simple and intuitive
 
 ## Implementation Timeline
 
-### Phase 1: User Authentication, Blog Creation (~1 day)
-I will implement user authentication in Rails based on the practices learned at
-App Academy. By the end of this phase, users will be able to create blogs using
-a simple text form in a Rails view. The most important part of this phase will
-be pushing the app to Heroku and ensuring that everything works before moving on
-to phase 2.
+### Phase 1: Auth
+I will implement user authentication in Backbone and Rails. By the end of this phase, users will be able to create an account, sign in, edit their profile and view an index of other users and view other users profiles. I will create a modal view for sign up. I will also implement very basic CSS (background color margins) and ensure that I can push a working app to heroku with working assets.
 
 [Details][phase-one]
 
-### Phase 2: Viewing Blogs and Posts (~2 days)
-I will add API routes to serve blog and post data as JSON, then add Backbone
-models and collections that fetch data from those routes. By the end of this
-phase, users will be able to create blogs and view both blogs and posts, all
-inside a single Backbone app.
+### Phase 2: Questions
+I will implement API CRUD routes for questions. These will allow users to create, edit and view questions. A user will also be able to list his question as anonymous. The user landing page at the end of this phase will list a pagination of the most recent questions instead of the user index made in the previous phase. A user will be able to view and edit his own questions.
 
 [Details][phase-two]
 
-### Phase 3: Editing and Displaying Posts (~2 days)
-I plan to use third-party libraries to add functionality to the `PostForm` and
-`PostShow` views in this phase. First I'll need to add a Markdown editor to the
-`PostForm`, and make sure that the Markdown is properly escaped and formatted in
-the `PostShow` view. I also plan to integrate Filepicker for file upload so
-users can add images to blog posts.
+### Phase 3: User/Question Join Tables
+
+I plan to create a few different ways for users to interact with questions. I will create two join tables to implement primary relationships of wanting an answer and asking another user to answer. A user will be able to indicate that we wants an answer to a question by clicking a button on the question page. A user will also be able to ask another user on the site to answer his question.
 
 [Details][phase-three]
 
-### Phase 4: User Feeds (~1-2 days)
-I'll start by adding a `feed` route that uses the `current_user`'s
-`subscribed_blogs` association to serve a list of blog posts ordered
-chronologically. On the Backbone side, I'll make a `FeedShow` view whose `posts`
-collection fetches from the new route.  Ultimately, this will be the page users
-see after logging in.
+### Phase 4: answers
+In this phase I will add the ability for users to answer questions. I will create api routes that allow the user to find questions. I will make it possible for a user to view all answers to questions and add his own.
 
 [Details][phase-four]
 
-### Phase 5: Searching for Blogs and Posts (~2 days)
-I'll need to add `search` routes to both the Blogs and Posts controllers. On the
-Backbone side, there will be a `SearchResults` composite view has `BlogsIndex`
-and `PostsIndex` subviews. These views will use plain old `blogs` and `posts`
-collections, but they will fetch from the new `search` routes.
+### Phase 5: comments
+I will need to develop a polymorphic relationship to implement comments. Users will be able to post comments on questions, answers, and other users.
 
 [Details][phase-five]
 
-### Bonus Features (TBD)
-- [ ] "Like" button and counter for posts
-- [ ] Custom blog urls
-- [ ] Pagination/infinite scroll
-- [ ] Activity history (e.g. likes, reblogs, taggings)
-- [ ] Post types (image posts, quote posts, etc)
-- [ ] Reblogging
-- [ ] Multiple sessions/session management
-- [ ] User avatars
-- [ ] Typeahead search bar
+
+## Phase 6 topics
+I will implement topics which will include both a topic table and a join table allowing for a many to many relationship with questions. I will also create a join table that will let users indicate topics they know about. With this information I will implement the answer page which will list questions that a user has stated he knows about. I will also implement a topic page which will show topics that a user knows about.
+
+[Details][phase-six]
+
+## phase 7 following
+I will implelement a polymorphic join table that will connect users to topics, users, and questions which they want to follow. I will use this data to create the base views that will be used on the landing page of a signed in user designed to show topics which the user has indicated that he has an interest in.
+
+[Details][phase-seven]
+
 
 [phase-one]: ./docs/phases/phase1.md
 [phase-two]: ./docs/phases/phase2.md
 [phase-three]: ./docs/phases/phase3.md
 [phase-four]: ./docs/phases/phase4.md
 [phase-five]: ./docs/phases/phase5.md
+[phase-six]: ./docs/phases/phase6.md
+[phase-seven]: ./docs/phases/phase7.md
