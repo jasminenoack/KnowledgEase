@@ -1,26 +1,77 @@
 # View Wireframes
 
-## New Session
-![new-session]
+## Sign page
 
-## Feed Show (landing page)
-![feed-show]
+![sign-in]
+![sign-up]
+![about]
+![i-forgot]
 
-## Blog Show
-![blog-show]
+## navbar
+![navbar]
 
-## Post Show
-![post-show]
+## Landing Page
+![controversial]
+![following]
+![new]
+![topics]
+![trending]
+![writingnow]
+![saved]
+![not-loggedin]
 
-## Post Form
-![post-form]
+## Profile
+![profile]
+![activity]
+
+## want to answer page
+![answer]
+![unanswered]
 
 ## Search Results
 ![search-results]
 
-[new-session]: ./wireframes/new_session.png
-[feed-show]: ./wireframes/feed_show.png
-[blog-show]: ./wireframes/blog_show.png
-[post-show]: ./wireframes/post_show.png
-[post-form]: ./wireframes/post_form.png
-[search-results]: ./wireframes/search_results.png
+## Notifications
+![notifications]
+
+## Question
+![questionpage]
+
+## Question Form
+![questionbase]
+![afterclick]
+![expanded]
+
+## Answer Form
+
+## Comment Form
+
+## Topic Page
+![topic-page]
+
+## Topic Form
+
+[notifications]: ./wireframes/notifications.png
+[sign-in]: ./wireframes/signin.png
+[sign-up]: ./wireframes/signup.png
+[about]: ./wireframes/about.png
+[i-forgot]: ./wireframes/iforgot.png
+[controversial]: ./wireframes/controversial.png
+[following]: ./wireframes/following.png
+[new]: ./wireframes/new.png
+[topics]: ./wireframes/topics.png
+[trending]: ./wireframes/trending.png
+[writingnow]: ./wireframes/writingnow.png
+[saved]: ./wireframes/saved.png
+[not-loggedin]: ./wireframes/notloggedin.png
+[profile]: ./wireframes/profile.png
+[activity]: ./wireframes/profileactivity.png
+[questionbase]: ./wireframes/question.png
+[afterclick]: ./wireframes/questionclick.png
+[expanded]: ./wireframes/expandedquestion.png
+[navbar]: ./wireframes/navbar.png
+[answer]: ./wireframes/answer.png
+[unanswered]: ./wireframes/answerunanswered.png
+[search-results]: ./wireframes/search.png
+[questionpage]: ./wireframes/questionpage.png
+[topic-page]: ./wireframes/topic.png
