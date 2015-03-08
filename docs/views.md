@@ -24,6 +24,9 @@
 ![profile]
 ![activity]
 
+## User Form
+![user-form]
+
 ## want to answer page
 ![answer]
 ![unanswered]
@@ -43,14 +46,21 @@
 ![expanded]
 
 ## Answer Form
+![answer-form]
 
 ## Comment Form
+![comment-form]
 
 ## Topic Page
 ![topic-page]
 
 ## Topic Form
+![topic-form]
 
+[user-form]: ./wireframes/answerform.png
+[topic-form]: ./wireframes/answerform.png
+[answer-form]: ./wireframes/commentform.png
+[comment-form]: ./wireframes/topicform.png
 [notifications]: ./wireframes/notifications.png
 [sign-in]: ./wireframes/signin.png
 [sign-up]: ./wireframes/signup.png

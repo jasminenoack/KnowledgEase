@@ -9,7 +9,7 @@ fname       | string    |
 lname       | string    |
 username    | string    | not null, unique true
 pass_digest | string    | not null, password min 6, require number
-privacy     | boolean   | not null
+<!-- privacy     | boolean   | not null -->
 credits     | integer   |
 location    | string    |
 biography   | text      |
