@@ -57,7 +57,7 @@
 ## Topic Form
 ![topic-form]
 
-[user-form]: ./wireframes/answerform.png
+[user-form]: ./wireframes/userform.png
 [topic-form]: ./wireframes/answerform.png
 [answer-form]: ./wireframes/commentform.png
 [comment-form]: ./wireframes/topicform.png
