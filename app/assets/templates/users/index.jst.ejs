@@ -1,0 +1,14 @@
+<h1>Users</h1>
+
+<ul>
+<% users.each(function (user) { %>
+  <li>
+      <a href="#/users/<%= user.id %>">
+        <%= user.escape("name") %>
+      </a>
+    <ul>
+      <li><%= user.escape("location") %></li>
+    </ul>
+  </li>
+<% }) %>
+</ul>

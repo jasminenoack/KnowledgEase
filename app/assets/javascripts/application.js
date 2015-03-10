@@ -15,6 +15,7 @@
 //= require underscore
 //= require backbone
 //= require question_ease
+//= require_tree ./utils
 //= require_tree ../templates
 //= require_tree ./models
 //= require_tree ./collections
