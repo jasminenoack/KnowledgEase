@@ -1,8 +1,8 @@
 # Question Ease
 
-<!-- [Heroku link][heroku]
+[Heroku link][heroku]
 
-[heroku]: http://flux-capacitr.herokuapp.com -->
+[heroku]: https://questionease.herokuapp.com/
 
 ## Minimum Viable Product
 QuestionEase is a clone of Quora, which focuses on create a simple and intuitive user interface.

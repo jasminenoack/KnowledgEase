@@ -1,15 +1,29 @@
 <main class="backbone-content">
 
-  <nav class="navbar">
+  <nav class="navbar group">
+    <ul class="nav-right group">
+      <li>KnowledeEase</li>
+      <li><a href="#">Home</a></li>
+      <li>Answer</li>
+      <li>Notifications</li>
+    </ul>
+
     <nav class="userNav">
-    <% if current_user %>
-      Hello <%= current_user.name %>
-      <button class="sign-out">Sign Out</button>
-    <% else %>
-    <button class="sign-up">Sign Up</button>
-    <button class="sign-in">Sign In</button>
-    <% end %>
+      <ul>
+        <% if current_user %>
+          <li>
+            <a href="#/users/<%= current_user.id%>">
+              Profile
+            </a>
+          </li>
+          <li><button class="sign-out">Sign Out</button></li>
+        <% else %>
+          <li><button class="sign-up">Sign Up</button></li>
+          <li><button class="sign-in">Sign In</button></li>
+        <% end %>
+      </ul>
     </nav>
+
   </nav>
 
   <section class="modal"></section>

@@ -33,3 +33,4 @@
 * BCrypt
 * Underscore.js
 * serializeJSON
+* shoulda-matchers
