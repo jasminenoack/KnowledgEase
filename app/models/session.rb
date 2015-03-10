@@ -9,5 +9,4 @@ class Session < ActiveRecord::Base
     self.session_token = SecureRandom::urlsafe_base64
   end
 
-
 end
