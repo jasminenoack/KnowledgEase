@@ -4,9 +4,14 @@ window.QuestionEase = {
   Views: {},
   Routers: {},
   initialize: function() {
-    // alert('Hello from Backbone!');
+    new QuestionEase.Routers.AppRouter({$rootEl: $('.backbone-content')})
+    Backbone.history.start()
   }
 };
+
+
+
+
 
 $(document).ready(function(){
   QuestionEase.initialize();
