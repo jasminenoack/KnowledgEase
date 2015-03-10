@@ -6,7 +6,7 @@
 #   cities = City.create([{ name: 'Chicago' }, { name: 'Copenhagen' }])
 #   Mayor.create(name: 'Emanuel', city: cities.first)
 
-u1 = User.new(
+u1 = User.create!(
   email: "jasmine@example.com",
   first_name: "jasmine",
   last_name: "noack",
@@ -17,7 +17,7 @@ u1 = User.new(
   biography: "I am a Website Developer from New York. I have a background in philosophy and psychology. I enjoy programing and talking about the meaning of life"
 )
 
-u2 = User.new(
+u2 = User.create!(
   email: "bono@example.com",
   first_name: "Paul",
   last_name: "Hewson",
@@ -28,7 +28,7 @@ u2 = User.new(
   biography: "I am an Irish singer-songwriter, musician, venture capitalist, businessman, and philanthropist. I am an expert in music."
 )
 
-u3 = User.new(
+u3 = User.create!(
   email: "mrFront@example.com",
   first_name: "Damien",
   last_name: "Hess",
@@ -39,7 +39,7 @@ u3 = User.new(
   biography: "I am a New York based rapper. I am concerned with StarWars and First World Problems."
 )
 
-u4 = User.new(
+u4 = User.create!(
   email: "fred@example.com",
   first_name: "Fred",
   last_name: "Nietzsche",
@@ -50,7 +50,7 @@ u4 = User.new(
   biography: "I am a German philosopher. I am interested in living every moment like it will return eteranlly."
 )
 
-u5 = User.new(
+u5 = User.create!(
   email: "paul@example.com",
   first_name: "Jean",
   last_name: "Sartre",
@@ -61,7 +61,7 @@ u5 = User.new(
   biography: "I am a writer, whose main goal is to bring humanity together under a true humanism. I also would like to bring understanding to the importance of action over intention."
 )
 
-u6 = User.new(
+u6 = User.create!(
   email: "sennacy@example.com",
   first_name: "sennacy",
   last_name: "theCat",
@@ -73,7 +73,7 @@ u6 = User.new(
 )
 
 
-u7 = User.new(
+u7 = User.create!(
   email: "lydia@example.com",
   first_name: "lydia",
   last_name: "Stepanek",
