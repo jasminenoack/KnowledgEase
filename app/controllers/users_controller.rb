@@ -9,7 +9,7 @@ class UsersController < ApplicationController
       log_in(@user)
       render text: "IT'S A WINNER #{current_user.username}"
     else
-      render :new
+      redirect_to static_pages_url
     end
   end
 

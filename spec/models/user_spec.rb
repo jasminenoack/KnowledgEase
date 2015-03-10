@@ -67,4 +67,27 @@ RSpec.describe User, type: :model do
     it {should have_many(:sessions)}
   end
 
+  describe "User.find_user" do
+     before do
+       User.create!(
+         username: "google",
+         email: 'google@gmail.com',
+         password: "password1",
+         password_confirmation: "password1"
+       )
+     end
+
+    it 'finds a user based on credentials' do
+      user = User.find_user("google", "password1")
+      expect(user).to be_truthy
+    end
+
+    it 'does not find a user if given incorrect credentials' do
+      user = User.find_user("yahoo", "password1")
+      expect(user).to be_nil
+
+      user = User.find_user("google", "password")
+      expect(user).to be_nil
+    end
+  end
 end

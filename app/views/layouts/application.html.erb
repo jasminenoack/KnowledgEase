@@ -9,8 +9,8 @@
 <body>
   <% if current_user %>
     Hello <%= current_user.username %>
-    
-    <form action="<%= session_url(current_session) %>" method="get">
+
+    <form action="<%= session_url(current_session) %>" method="post">
       <input type="hidden" name="_method" value="delete">
       <input type="hidden" name="authenticity_token" value="<%= form_authenticity_token %>">
       <button>Log Out</button>

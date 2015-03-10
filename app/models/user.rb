@@ -5,7 +5,7 @@ class User < ActiveRecord::Base
 
   has_many :sessions, inverse_of: :user
 
-  def self.authenticate(username, password)
+  def self.find_user(username, password)
     user = User.find_by(username: username)
     if user && user.is_password?(password)
       return user
