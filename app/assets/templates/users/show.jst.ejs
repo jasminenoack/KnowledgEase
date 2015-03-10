@@ -3,6 +3,7 @@
 <p><%= user.escape("location") %></p>
 
 <% if (user.get("current_user")) { %>
+  <a href="#/users/<%= user.id %>/edit">edit</a>
 :p
 <% } %>
 

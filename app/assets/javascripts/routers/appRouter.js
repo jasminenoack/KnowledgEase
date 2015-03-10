@@ -14,7 +14,8 @@ QuestionEase.Routers.AppRouter = Backbone.Router.extend({
 
   routes: {
     "":"home",
-    "users/:id":"userShow"
+    "users/:id":"userShow",
+    "users/:id/edit":'userEdit'
   },
 
   home: function () {
@@ -29,6 +30,12 @@ QuestionEase.Routers.AppRouter = Backbone.Router.extend({
     var userShowView = new QuestionEase.Views.UserShow({model: user})
 
     this._swapContent(userShowView)
+  },
+
+  userEdit: function (id) {
+    var user = this.users.getOrFetch(id)
+    var userEditView = new QuestionEase.Views.UserEdit({model: user})
+    this._swapContent(userEditView)
   },
 
   startNavbar: function () {
