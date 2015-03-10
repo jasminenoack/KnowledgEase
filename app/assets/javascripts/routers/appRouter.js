@@ -24,6 +24,7 @@ QuestionEase.Routers.AppRouter = Backbone.Router.extend({
   },
 
   userShow: function (id) {
+
     var user = this.users.getOrFetch(id)
     var userShowView = new QuestionEase.Views.UserShow({model: user})
 
@@ -31,7 +32,6 @@ QuestionEase.Routers.AppRouter = Backbone.Router.extend({
   },
 
   startNavbar: function () {
-    console.log(this.users)
     var navbar = new QuestionEase.Views.Navbar({
       el: this.$navbar,
       $modal: this.$modal,

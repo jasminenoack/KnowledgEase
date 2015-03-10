@@ -14,7 +14,8 @@ class Api::SessionsController < ApplicationController
   end
 
   def destroy
+    @user = current_user
     log_out
-    render json: nil
+    render "api/users/show"
   end
 end

@@ -8,14 +8,10 @@ QuestionEase.Collections.Users = Backbone.Collection.extend({
 
     if (!model) {
       model = new this.model({id: id})
+      this.add(model)
     }
 
-    model.fetch({
-      success: function () {
-        this.add(model, {merge: true})
-      }.bind(this)
-    })
-
+    model.fetch()
     return model
   },
 })

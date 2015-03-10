@@ -14,6 +14,7 @@ QuestionEase.Views.Navbar = Backbone.CompositeView.extend({
   signIn: function () {
     var signIn = new QuestionEase.Views.SignIn({
       $userEl: this.$userEl,
+      collection: this.collection
     })
     this.$modal.html(signIn.render().$el)
   },
@@ -22,8 +23,11 @@ QuestionEase.Views.Navbar = Backbone.CompositeView.extend({
     $.ajax({
       url: "api/sessions/1",
       method: "delete",
-      success: function () {
+      success: function (json) {
+        var user = new QuestionEase.Models.User(json)
+        this.collection.add(user, {merge: true})
         this.$userEl.html(JST['navbar/signedOut'])
+        
       }.bind(this)
     })
   },

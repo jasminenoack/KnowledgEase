@@ -1,0 +1,18 @@
+<form class="edit-user">
+<label for="first_name">First Name</label>
+<input type="text" name="first_name" value="<%= user.escape("first_name") %>">
+
+<label for="last_name">Last Name</label>
+<input type="text" name="last_name" value="<%= user.escape("last_name") %>">
+
+<label for="location">Location</label>
+<input type="text" name="location" value="<%= user.escape("location") %>">
+
+<label for="Username">Username</label>
+<input type="text" name="username" value="<%= user.escape("username") %>">
+
+<label for="biograpy">Biography</label>
+<textarea type="text" name="biography"><%= user.escape("biograpy") %></textarea>
+
+<button>Update</button>
+</form>
