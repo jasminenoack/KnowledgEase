@@ -12,6 +12,14 @@ class User < ActiveRecord::Base
     end
   end
 
+  def name
+    if self.first_name && self.last_name
+      "#{first_name.titleize} #{last_name.titleize}"
+    else
+      self.username
+    end
+  end
+
   def password=(password)
     @password = password
     self.password_digest = BCrypt::Password.create(password)

@@ -1,4 +1,4 @@
-class SessionsController < ApplicationController
+class Api::SessionsController < ApplicationController
 
   def new
   end
@@ -7,14 +7,13 @@ class SessionsController < ApplicationController
     @user = User.find_user(params[:username], params[:password])
     if @user
       log_in(@user)
-      redirect_to static_pages_url
+      render "users/show"
     else
-      render :new
+      render json: @user.errors.full_messages
     end
   end
 
   def destroy
     log_out
-    redirect_to new_session_url
   end
 end
