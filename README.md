@@ -8,8 +8,8 @@
 QuestionEase is a clone of Quora, which focuses on create a simple and intuitive user interface.
 
 Users
-- [ ] Create accounts
-- [ ] Create sessions (log in)
+- [X] Create accounts
+- [X] Create sessions (log in)
 - [ ] Create questions
 - [ ] Create answers
 - [ ] Comment on Questions and answers
