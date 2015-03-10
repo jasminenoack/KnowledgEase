@@ -7,6 +7,18 @@
   <%= csrf_meta_tags %>
 </head>
 <body>
+  <% if current_user %>
+    Hello <%= current_user.username %>
+    
+    <form action="<%= session_url(current_session) %>" method="get">
+      <input type="hidden" name="_method" value="delete">
+      <input type="hidden" name="authenticity_token" value="<%= form_authenticity_token %>">
+      <button>Log Out</button>
+    </form>
+  <% else %>
+    <a href="<%= new_user_url %>">Sign Up</a>
+    <a href="<%= new_session_url %>">Sign In</a>
+  <% end %>
 
 <%= yield %>
 
