@@ -1,5 +1,5 @@
 class Session < ActiveRecord::Base
-  validates :user, presence: true
+  validates :user, :session_token, presence: true
 
   belongs_to :user, inverse_of: :sessions
   after_initialize :generate_token

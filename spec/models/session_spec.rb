@@ -1,5 +1,12 @@
 require 'rails_helper'
 
 RSpec.describe Session, type: :model do
-  pending "add some examples to (or delete) #{__FILE__}"
+  describe 'User validations' do
+    it {should validate_presence_of(:user)}
+    it {should validate_presence_of(:session_token)}
+  end
+
+  describe "user associations" do
+    it {should belong_to(:user)}
+  end
 end
