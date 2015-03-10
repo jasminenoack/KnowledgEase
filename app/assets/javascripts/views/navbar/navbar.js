@@ -6,17 +6,16 @@ QuestionEase.Views.Navbar = Backbone.CompositeView.extend({
   },
 
   events: {
-    "click .sign-in":'signIn',
-    "click .sign-out":'signOut',
-    "click .sign-up":'signUp'
+    "click button.sign-in":'signIn',
+    "click button.sign-out":'signOut',
+    "click button.sign-up":'signUp'
   },
 
   signIn: function () {
     var signIn = new QuestionEase.Views.SignIn({
-      el: this.$modal,
       $userEl: this.$userEl,
     })
-    signIn.render()
+    this.$modal.html(signIn.render().$el)
   },
 
   signOut: function () {
@@ -30,13 +29,11 @@ QuestionEase.Views.Navbar = Backbone.CompositeView.extend({
   },
 
   signUp: function () {
-    // console.log(this.collection)
     var signUp = new QuestionEase.Views.SignUp({
-      el: this.$modal,
       $userEl: this.$userEl,
       collection: this.collection
     })
-    signUp.render()
+    this.$modal.html(signUp.render().$el)
   },
 
 })
