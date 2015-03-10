@@ -7,7 +7,7 @@ class Api::SessionsController < ApplicationController
     @user = User.find_user(params[:username], params[:password])
     if @user
       log_in(@user)
-      render "users/show"
+      render "api/users/show"
     else
       render json: @user.errors.full_messages
     end
@@ -15,5 +15,6 @@ class Api::SessionsController < ApplicationController
 
   def destroy
     log_out
+    render json: nil
   end
 end

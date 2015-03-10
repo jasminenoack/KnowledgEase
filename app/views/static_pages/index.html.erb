@@ -1,5 +1,17 @@
 <main class="backbone-content">
-  <section class="navbar"></section>
+
+  <nav class="navbar">
+    <nav class="userNav">
+    <% if current_user %>
+      Hello <%= current_user.name %>
+      <button class="sign-out">Sign Out</button>
+    <% else %>
+    <button class="sign-up">Sign Up</button>
+    <button class="sign-in">Sign In</button>
+    <% end %>
+    </nav>
+  </nav>
+
   <section class="modal"></section>
   <section class="question-form"></section>
   <section class="content"></section>

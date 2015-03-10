@@ -4,9 +4,12 @@ QuestionEase.Routers.AppRouter = Backbone.Router.extend({
     this.$modal = this.$rootEl.find(".modal");
     this.$questionForm = this.$rootEl.find(".question-form");
     this.$content = this.$rootEl.find(".content")
+    this.$navbar = this.$rootEl.find(".navbar")
 
     this.users = new QuestionEase.Collections.Users
     this.users.fetch()
+
+    this.startNavbar()
   },
 
   routes: {
@@ -25,6 +28,15 @@ QuestionEase.Routers.AppRouter = Backbone.Router.extend({
     var userShowView = new QuestionEase.Views.UserShow({model: user})
 
     this._swapContent(userShowView)
+  },
+
+  startNavbar: function () {
+    console.log(this.users)
+    var navbar = new QuestionEase.Views.Navbar({
+      el: this.$navbar,
+      $modal: this.$modal,
+      collection: this.users
+      })
   },
 
   _swapContent: function (view) {
