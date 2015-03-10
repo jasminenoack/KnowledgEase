@@ -1,6 +1,5 @@
 QuestionEase.Views.Navbar = Backbone.CompositeView.extend({
   initialize: function (options) {
-    // console.log(this.$el)
     this.$modal = options.$modal
     this.$userEl = this.$el.find('.userNav')
   },
@@ -27,7 +26,7 @@ QuestionEase.Views.Navbar = Backbone.CompositeView.extend({
         var user = new QuestionEase.Models.User(json)
         this.collection.add(user, {merge: true})
         this.$userEl.html(JST['navbar/signedOut'])
-        
+
       }.bind(this)
     })
   },

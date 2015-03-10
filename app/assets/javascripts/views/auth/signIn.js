@@ -22,13 +22,10 @@ QuestionEase.Views.SignIn = Backbone.CompositeView.extend({
       method: "post",
       data: $(event.target).serializeJSON(),
       success: function (json) {
-        // console.log(this.collection.models[0].escape("current_user"))
         var user = new QuestionEase.Models.User(json)
         var user = this.collection.getOrFetch(json.id)
         user.set(json)
 
-        console.log(user)
-        console.log(this.collection)
         this.$userEl.html(JST['navbar/signedIn']({user: user}))
         this.remove()
       }.bind(this)
