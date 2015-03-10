@@ -14,8 +14,14 @@ gem 'backbone-on-rails'
 
 group :development, :test do
   gem 'pry-rails'
+  gem 'rspec-rails'
+  gem 'guard-rspec'
   gem 'better_errors'
   gem 'binding_of_caller'
   gem 'web-console', '~> 2.0'
   gem 'spring'
+end
+
+group :test do
+  gem "shoulda-matchers"
 end
