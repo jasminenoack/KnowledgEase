@@ -2,7 +2,8 @@ class User < ActiveRecord::Base
   validates :email, :username, presence: true
   validates :password, length: { minimum: 6 }, allow_nil: true
   validate :valid_email, :confirm_password_match, :password_contains_number
-  # password, password_confirmation, length, number
+
+  has_many :sessions, inverse_of: :user
 
   def self.find_by_params(username, password)
     user = User.find_by(username: username)
