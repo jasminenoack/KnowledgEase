@@ -7,9 +7,9 @@ class UsersController < ApplicationController
     @user = User.new(user_params)
     if @user.save
       log_in(@user)
-      render text: "IT'S A WINNER #{current_user.username}"
-    else
       redirect_to static_pages_url
+    else
+      render :new
     end
   end
 

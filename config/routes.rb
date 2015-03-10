@@ -1,5 +1,8 @@
 Rails.application.routes.draw do
-  resources :users
-  resources :sessions, only: [:new, :create, :destroy]
-  resources :static_pages, only: :index
+  namespace :api do
+    resources :users
+    resources :sessions, only: [:new, :create, :destroy]
+  end
+
+  root 'static_pages#index'
 end
