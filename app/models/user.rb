@@ -2,11 +2,8 @@ class User < ActiveRecord::Base
   validates :email, :username, presence: true, uniqueness: true
   validates :password, length: { minimum: 6 }, allow_nil: true
   validate :valid_email, :confirm_password_match, :password_contains_number
-  validates :sessions, presence: true
 
   has_many :sessions, inverse_of: :user
-
-  after_initialize :ensure_token
 
   def self.authenticate(username, password)
     user = User.find_by(username: username)
@@ -54,10 +51,6 @@ class User < ActiveRecord::Base
   def password_contains_number
     return nil if password =~ /\d/ || !password
     errors[:password] << "must contain a number"
-  end
-
-  def ensure_token
-    self.sessions.new
   end
 
 end
