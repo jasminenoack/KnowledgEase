@@ -1,0 +1,35 @@
+.navbar {
+  background: yellow;
+}
+
+.nav-right {
+  float: right;
+}
+
+.nav-right li {
+  float: left;
+  border-left: 1px solid black
+}
+
+.navbar a, .navbar button {
+  border: 0;
+  padding: 20px;
+  display: block;
+}
+
+.navbar a:hover, .navbar button:hover {
+  background: grey;
+}
+
+.userNav {
+
+}
+
+.nav-left {
+  float: left;
+}
+
+.nav-left li {
+  float: left;
+  border-right: 1px solid black;
+}

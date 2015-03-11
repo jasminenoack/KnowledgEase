@@ -10,9 +10,9 @@ ul, li, h1, h2, h3, h4, h5, h6, p, div, section, article, a, body, html, button,
   text-decoration: none;
 }
 
-/*button, a {
+button, a {
   cursor: pointer;
-}*/
+}
 
 .group:after {
   content: "";
@@ -25,23 +25,27 @@ ul {
 }
 
 body {
-  font-family: "Helvetica Neue",Arial,Helvetica,sans-serif;
-  font-size: 16px;
+  font-family: Arial,Helvetica,sans-serif;
+  font-size: 18px;
 }
 
-
 /**/
+
+
+.location {
+  color: grey;
+  font-size: 14px;
+}
+
 
 button, input, textarea {
   border: 2px solid black;
 }
 
-button, a{
-  cursor: pointer;
-}
-
 h1{
-  color: blue
+  color: blue;
+  font-size: 22px;
+  font-weight: 700px;
 }
 
 a{

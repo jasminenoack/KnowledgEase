@@ -14,11 +14,16 @@ QuestionEase.Routers.AppRouter = Backbone.Router.extend({
 
   routes: {
     "":"home",
+    "users":"userIndex",
     "users/:id":"userShow",
     "users/:id/edit":'userEdit'
   },
 
   home: function () {
+    
+  },
+
+  userIndex: function () {
     var homeView = new QuestionEase.Views.Home({users: this.users})
 
     this._swapContent(homeView)

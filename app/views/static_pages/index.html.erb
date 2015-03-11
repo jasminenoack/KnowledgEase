@@ -1,15 +1,17 @@
 <main class="backbone-content">
 
   <nav class="navbar group">
-    <ul class="nav-right group">
-      <li>KnowledeEase</li>
-      <li><a href="#">Home</a></li>
-      <li>Answer</li>
+    <ul class="nav-left group">
+      <li><a href="#">KnowledeEase</a></li>
+      <li><a href="#">Questions</a></li>
+      <li><a href="#/users">Users</a></li>
+
+      <li>Answers</li>
       <li>Notifications</li>
     </ul>
 
     <nav class="userNav">
-      <ul>
+      <ul class="nav-right group">
         <% if current_user %>
           <li>
             <a href="#/users/<%= current_user.id%>">
