@@ -13,6 +13,7 @@ gem 'bcrypt', '~> 3.1.7'
 gem 'backbone-on-rails'
 gem 'rails_12factor'
 gem 'faker'
+gem 'kaminari'
 
 group :development, :test do
   gem 'pry-rails'

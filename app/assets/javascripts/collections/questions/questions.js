@@ -1,5 +1,8 @@
-KnowledgEase.Collections.Questions = Backbone.Collection.extend({
-  url: "/api/questions",
+
+
+
+KnowledgEase.Collections.Questions = KnowledgEase.PaginatedCollection.extend({
+  rootUrl: "/api/questions",
 
   model: KnowledgEase.Models.Question,
 
@@ -15,3 +18,6 @@ KnowledgEase.Collections.Questions = Backbone.Collection.extend({
     return model
   },
 })
+
+var q = new KnowledgEase.Collections.Questions
+console.log (q.url)

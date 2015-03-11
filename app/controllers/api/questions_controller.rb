@@ -22,7 +22,8 @@ class Api::QuestionsController < ApplicationController
   end
 
   def index
-    @questions = Question.all.includes(:author)
+    @questions = Question.all.includes(:author).page(params[:page])
+    # @questions = Question.page(1)
   end
 
   private
