@@ -63,9 +63,7 @@ RSpec.describe User, type: :model do
     end
   end
 
-  describe "user associations" do
-    it {should have_many(:sessions)}
-  end
+
 
   describe "User.find_user" do
      before do
@@ -89,5 +87,10 @@ RSpec.describe User, type: :model do
       user = User.find_user("google", "password")
       expect(user).to be_nil
     end
+  end
+
+  describe "user associations" do
+    it {should have_many(:sessions)}
+    it {should have_many(:questions)}
   end
 end
