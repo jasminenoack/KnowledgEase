@@ -1,7 +1,7 @@
 KnowledgEase.Views.IndexBase = Backbone.CompositeView.extend({
   initialize: function () {
     this.listenTo(this.collection, "add", this.add);
-    console.log(this.collection)
+    this.buttons = false
   },
 
   template: JST['questions/index'],
@@ -13,7 +13,7 @@ KnowledgEase.Views.IndexBase = Backbone.CompositeView.extend({
   },
 
   createContent: function () {
-    this.$el.html(this.template({buttons: false}))
+    this.$el.html(this.template({buttons: this.buttons}))
     this.addCurrentCollection()
   },
 
