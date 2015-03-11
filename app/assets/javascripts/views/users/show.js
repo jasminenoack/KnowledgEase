@@ -9,7 +9,7 @@ KnowledgEase.Views.UserShow = Backbone.CompositeView.extend({
   render: function () {
     this.$el.html(this.template({user: this.model}))
 
-    this.handleSubviews()
+    this.addQuestions()
 
     return this
   },
@@ -20,14 +20,5 @@ KnowledgEase.Views.UserShow = Backbone.CompositeView.extend({
     })
 
     this.addSubview("section.questions", questionIndexView)
-  },
-
-  handleSubviews: function () {
-    if (this.first) {
-      this.addQuestions()
-      this.first = false
-    } else {
-      this.attachSubviews()
-    }
   },
 })

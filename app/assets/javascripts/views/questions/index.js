@@ -8,10 +8,8 @@ KnowledgEase.Views.QuestionIndex = Backbone.CompositeView.extend({
   template: JST['questions/index'],
 
   render: function () {
-    // debugger
     this.$el.html(this.template())
-
-    this.handleSubviews()
+    this.addCurrentCollection()
 
     return this
   },
@@ -24,20 +22,9 @@ KnowledgEase.Views.QuestionIndex = Backbone.CompositeView.extend({
   },
 
   addCurrentCollection: function () {
-    this.collection.each( function (question) {
-      var IndexItem = new KnowledgEase.Views.QuestionIndexItem({
-        model: question
-      })
-      this.addSubview("ul.questions", IndexItem)
-    }.bind(this))
-  },
 
-  handleSubviews: function () {
-    if (this.first) {
-      this.addCurrentCollection()
-      this.first = false
-    } else {
-      this.attachSubviews()
-    }
+    this.collection.each( function (question) {
+      this.add(question)
+    }.bind(this))
   },
 })
