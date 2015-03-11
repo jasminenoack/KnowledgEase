@@ -1,4 +1,4 @@
-require_relative '../lib/questiongenerator/lib/questiongenerator.rb'
+require_relative '../lib/questiongenerator.rb'
 
 user = User.find_by(email: "jasmine@example.com")
 user.questions.create(question: "What is the meaning of life?", description: "We live our lives inside a bubble with an opaque surface.  Is there something bigger?  Were we put here for a purpose?  What happens next?  What is the end goal?  Is there an end goal?  If those answers exist they are likely outside of our perception.")

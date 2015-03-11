@@ -1,10 +1,10 @@
-window.QuestionEase = {
+window.KnowledgEase = {
   Models: {},
   Collections: {},
   Views: {},
   Routers: {},
   initialize: function() {
-    new QuestionEase.Routers.AppRouter({$rootEl: $('.backbone-content')})
+    new KnowledgEase.Routers.AppRouter({$rootEl: $('.backbone-content')})
     Backbone.history.start()
   }
 };
@@ -14,5 +14,5 @@ window.QuestionEase = {
 
 
 $(document).ready(function(){
-  QuestionEase.initialize();
+  KnowledgEase.initialize();
 });

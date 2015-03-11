@@ -1,4 +1,4 @@
-QuestionEase.Views.UserShow = Backbone.CompositeView.extend({
+KnowledgEase.Views.UserShow = Backbone.CompositeView.extend({
   initialize: function () {
     this.listenTo(this.model, "sync change:current_user", this.render)
   },

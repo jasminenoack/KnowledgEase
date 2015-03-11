@@ -1,4 +1,4 @@
-QuestionEase.Views.Home = Backbone.CompositeView.extend({
+KnowledgEase.Views.Home = Backbone.CompositeView.extend({
   initialize: function (options) {
   },
 

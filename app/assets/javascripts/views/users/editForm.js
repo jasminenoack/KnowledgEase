@@ -1,4 +1,4 @@
-QuestionEase.Views.UserEdit = Backbone.CompositeView.extend({
+KnowledgEase.Views.UserEdit = Backbone.CompositeView.extend({
   initialize: function () {
     this.listenTo(this.model, "sync", this.render)
   },

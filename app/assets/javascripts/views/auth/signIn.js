@@ -1,4 +1,4 @@
-QuestionEase.Views.SignIn = Backbone.CompositeView.extend({
+KnowledgEase.Views.SignIn = Backbone.CompositeView.extend({
   initialize: function (options) {
     this.$userEl = options.$userEl
   },
@@ -22,7 +22,7 @@ QuestionEase.Views.SignIn = Backbone.CompositeView.extend({
       method: "post",
       data: $(event.target).serializeJSON(),
       success: function (json) {
-        var user = new QuestionEase.Models.User(json)
+        var user = new KnowledgEase.Models.User(json)
         var user = this.collection.getOrFetch(json.id)
         user.set(json)
 

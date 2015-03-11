@@ -2,10 +2,10 @@
 
 [Heroku link][heroku]
 
-[heroku]: https://questionease.herokuapp.com/
+[heroku]: https://KnowledgEase.herokuapp.com/
 
 ## Minimum Viable Product
-QuestionEase is a clone of Quora, which focuses on create a simple and intuitive user interface.
+KnowledgEase is a clone of Quora, which focuses on create a simple and intuitive user interface.
 
 Users
 - [X] Create accounts

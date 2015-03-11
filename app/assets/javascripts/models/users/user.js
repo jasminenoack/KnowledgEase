@@ -1,3 +1,3 @@
-QuestionEase.Models.User = Backbone.Model.extend({
+KnowledgEase.Models.User = Backbone.Model.extend({
   urlRoot: "/api/users",
 })

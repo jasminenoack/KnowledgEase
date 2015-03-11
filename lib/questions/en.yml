@@ -1,0 +1,331 @@
+Do:
+  you:
+    - recycle
+    - believe in global warming
+    - have:
+      - a:
+        - good invention
+        - phobia How have you fixed it
+    - think:
+      - the:
+        - internet:
+          - has made people more depressed
+          - has helped people become more connected
+    - like:
+      - social networks
+      - video games
+      - the:
+        - city:
+          - or:
+            - country
+          - where you:
+            - live
+    - want:
+      - to be less materialistic
+      - old times back
+      - think the world:
+        - used to be a better place
+        - is going down the drain
+        - has been changed by recent technology
+        - will ever be like the jetsons
+        - will end soon
+      - to know more:
+          about:
+            - your:
+              - future
+              - relatives
+              - your relationships
+            - history
+            - philsophy
+            - meaning
+            - new inventions
+      - more:
+        - money
+        - friends
+        - things than you need
+    - think that:
+        - late is better than never
+        - there is no on time there is only early or late
+        - hard word is more important than success
+        - you might fail
+    - prefer:
+      - to skip meals to get things done
+  your:
+    friends:
+      like:
+        - you:
+          - the way you are
+        - social networks
+        - video games
+      know:
+        too:
+          - much about:
+            - your:
+              - life
+              - hobbies
+              - family
+              - friends
+            - you
+What:
+  - was:
+      the:
+        last:
+          thing:
+            you:
+              have:
+                - eaten
+                - done
+      your:
+        favourite:
+          song:
+            - as a 5 year old
+            - from a few weeks ago
+            - this moment
+  - would:
+      you:
+        do:
+          if:
+            you:
+              had:
+                - one million dollars
+                - the ability to fly
+                - a rock band
+                - 100 children
+                - absolute knowledge
+                - a genie
+                - a leprechaun
+                - your dream job
+              were:
+                - a dragon
+                - a fairy
+                - a fish
+                - a dog
+                - a cat
+              woke up:
+                with:
+                  - someone else next to you
+                  - some drawings in your face
+  - do:
+      you:
+        do:
+          - for fun
+          - to make sure you achieve your goals
+          - 'on':
+            - the:
+              - weekend
+              - weeknights
+              - subway
+        like:
+          more:
+            - dogs or cats
+            - shower or bath
+            - tea or coffee
+            - breakfast or lunch
+        think:
+          about:
+            - the:
+              - internet
+            - Bad Dragon
+            - dragons
+            - society
+            - cats
+            - lolcats
+            - dogs
+            - surveillance
+            - feminists
+  - activity: &activity
+      do:
+        you:
+          - enjoy the most
+  - activities: *activity
+  - kind:
+      of:
+        animals:
+          - do you have
+  - habit:
+      do:
+        you:
+          really:
+            find:
+              - annoying
+              - cute:
+                - in a person
+  - is:
+    - the:
+      - proof:
+        - for:
+          - global warming
+          - atheism
+          - Buddhism
+          - Christianity
+          - Existentialism
+          - evolution
+          - creationism
+    - your:
+        - first memory
+        - dream job
+        - favourite:
+          - season
+          - video game
+          - board game
+          - sports team
+          - activity
+          - beverage
+          - internet browser
+          - piece of music
+          - console
+          - snack
+          - food
+          - programming language:
+            -
+            - and why is it:
+              - PHP
+              - Ruby
+              - Javascript
+              - Haskell
+          - website:
+            - ''
+            - and why is it:
+              - 4chan
+              - 9gag
+              - Reddit
+              - Twitter
+              - Facebook
+              - YouTube
+      the:
+        best: &is_the_best
+          thing:
+            - about:
+              - Ruby
+              - Haskell
+              - C++
+              - religion
+              - church
+              - philosophy
+              - the:
+                  - internet
+              - your:
+                  - favourite:
+                    - series
+                    - movie
+                    - book
+                  - country
+                  - hometown
+            - one can do:
+              - if:
+                - "they're bored"
+            - ever
+          fast:
+            food:
+              - chain
+        worst: *is_the_best
+      one:
+        - thing you would like to become better at
+  - was:
+      the:
+        last:
+          thing:
+            you:
+              - did
+              - ate
+              - looked for
+        best: &was_the_best
+          thing:
+            - "you've eaten so far"
+        worst: *was_the_best
+  - languages do you know
+Can:
+  you:
+    - swim
+    - speak:
+      - different:
+        - languages
+    - play:
+      - any:
+        - sports
+      - the:
+        - piano
+        - guitar
+        - trumpet
+      - baseball
+    - ski
+    - cook
+    - dance
+Are:
+  you:
+    - religious
+Have:
+  you:
+    ever:
+      - been:
+        - to:
+          - Austria
+          - Germany
+          - Japan
+          - Switzerland
+          - France
+          - Sweden
+          - Norway
+          - Finland
+          - Australia
+          - Italy
+          - Russia
+          - China
+          - the:
+            - USA
+            - United Kingdom
+        - caught:
+          - "doing things you shouldn't do"
+          - cheating
+        - mistaken for:
+          - someone else
+      - listened to:
+        - classical music
+        - music:
+          - "from the 80's"
+        - dubstep
+        - nightcore
+      - had:
+        - an:
+          - accident
+      - written:
+        - a love letter
+        - code
+        - in Japanese
+How:
+  has:
+    your:
+      day:
+        - been
+  old:
+    are:
+      - you
+Where:
+  do:
+    you:
+      - work
+Which:
+  food:
+    do:
+      you:
+        - love
+        - hate
+Who:
+  is:
+    the:
+      - most famous person you have met
+    your:
+      - favourite:
+        - retrospring developer
+        - retrospring moderator
+Would:
+  you:
+    rather:
+      live:
+        - in:
+          - a city or in the countryside
+          - a flat or in a house
+      lose:
+        - an arm or a leg
+      be:
+        - the best player on a horrible team or the worst player on a great team

@@ -1,7 +1,7 @@
-QuestionEase.Collections.Users = Backbone.Collection.extend({
+KnowledgEase.Collections.Users = Backbone.Collection.extend({
   url: "/api/users",
 
-  model: QuestionEase.Models.User,
+  model: KnowledgEase.Models.User,
 
   getOrFetch: function (id) {
     var model = this.get(id)

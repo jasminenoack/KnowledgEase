@@ -1,4 +1,4 @@
-QuestionEase.Routers.AppRouter = Backbone.Router.extend({
+KnowledgEase.Routers.AppRouter = Backbone.Router.extend({
   initialize: function (options) {
     this.$rootEl = options.$rootEl;
     this.$modal = this.$rootEl.find(".modal");
@@ -6,7 +6,7 @@ QuestionEase.Routers.AppRouter = Backbone.Router.extend({
     this.$content = this.$rootEl.find(".content")
     this.$navbar = this.$rootEl.find(".navbar")
 
-    this.users = new QuestionEase.Collections.Users
+    this.users = new KnowledgEase.Collections.Users
     this.users.fetch()
 
     this.startNavbar()
@@ -20,13 +20,13 @@ QuestionEase.Routers.AppRouter = Backbone.Router.extend({
   },
 
   home: function () {
-    var homeView = new QuestionEase.Views.Home()
+    var homeView = new KnowledgEase.Views.Home()
 
     this._swapContent(homeView)
   },
 
   userIndex: function () {
-    var userIndexView = new QuestionEase.Views.UserIndex({collection: this.users})
+    var userIndexView = new KnowledgEase.Views.UserIndex({collection: this.users})
 
     this._swapContent(userIndexView)
   },
@@ -34,19 +34,19 @@ QuestionEase.Routers.AppRouter = Backbone.Router.extend({
   userShow: function (id) {
 
     var user = this.users.getOrFetch(id)
-    var userShowView = new QuestionEase.Views.UserShow({model: user})
+    var userShowView = new KnowledgEase.Views.UserShow({model: user})
 
     this._swapContent(userShowView)
   },
 
   userEdit: function (id) {
     var user = this.users.getOrFetch(id)
-    var userEditView = new QuestionEase.Views.UserEdit({model: user})
+    var userEditView = new KnowledgEase.Views.UserEdit({model: user})
     this._swapContent(userEditView)
   },
 
   startNavbar: function () {
-    var navbar = new QuestionEase.Views.Navbar({
+    var navbar = new KnowledgEase.Views.Navbar({
       el: this.$navbar,
       $modal: this.$modal,
       collection: this.users
