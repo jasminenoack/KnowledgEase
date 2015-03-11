@@ -2,7 +2,8 @@
 <p><%= question.escape("description") %></p>
 
 <% if (question.author().get("current_user")) { %>
-:p
+  :p
+  <a href="questions/<%= question.id %>/edit">edit</a>
 <% } %>
 
 <a href="javascript:history.back()">back</a>

@@ -1,0 +1,28 @@
+<form class="question-form">
+<% if (question.isNew()) { %>
+  Create a Question!
+<% } else { %>
+  Edit Question
+<% } %>
+
+<label for="question">Question</label>
+<input
+  type="text"
+  name="question"
+  value="<%= question.escape("question") %>"
+>
+
+<label for="description">Description</label>
+<textarea name="description"
+  ><%= question.escape("question") %></textarea>
+
+
+<button>
+  <% if (question.isNew()) { %>
+    Create
+  <% } else { %>
+    Update
+  <% } %>
+</button>
+
+</form>
