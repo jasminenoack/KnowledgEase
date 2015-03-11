@@ -4,6 +4,7 @@ class User < ActiveRecord::Base
   validate :valid_email, :confirm_password_match, :password_contains_number
 
   has_many :sessions, inverse_of: :user
+  has_many :questions, inverse_of: :author
 
   def self.find_user(username, password)
     user = User.find_by(username: username)
