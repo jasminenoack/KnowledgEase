@@ -1,3 +1,5 @@
+require_relative '../lib/questiongenerator/lib/questiongenerator.rb'
+
 user = User.find_by(email: "jasmine@example.com")
 user.questions.create(question: "What is the meaning of life?", description: "We live our lives inside a bubble with an opaque surface.  Is there something bigger?  Were we put here for a purpose?  What happens next?  What is the end goal?  Is there an end goal?  If those answers exist they are likely outside of our perception.")
 user.questions.create(question: "Why is there something rather than nothing?", description: "When predicting something that science will never do, it’s wise to recall the French philosopher Auguste Comte. In 1835 he asserted that science will never figure out what stars are made of. That seemed like a safe bet, but within decades astronomers started determining the chemical composition of the Sun and other stars by analyzing the spectrum of light they emitted.")
@@ -39,3 +41,10 @@ user.questions.create(question: "What is the best moral system?", description: "
 user = User.find_by(email: "sennacy@example.com")
 user.questions.create(question: "meow")
 user.questions.create(question: "purr")
+
+
+users = User.all
+QuestionGenerator.compile.each do |question|
+  puts question
+  users.sample.questions.create(question: question + "?")
+end

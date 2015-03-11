@@ -78,6 +78,8 @@ GEM
     ejs (1.1.1)
     erubis (2.7.0)
     execjs (2.4.0)
+    faker (1.4.3)
+      i18n (~> 0.5)
     ffi (1.9.6)
     formatador (0.2.5)
     globalid (0.3.3)
@@ -244,6 +246,7 @@ DEPENDENCIES
   better_errors
   binding_of_caller
   coffee-rails (~> 4.1.0)
+  faker
   guard-rspec
   jbuilder (~> 2.0)
   jquery-rails
