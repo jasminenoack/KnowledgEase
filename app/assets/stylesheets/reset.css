@@ -31,6 +31,13 @@ body {
 
 /**/
 
+.right {
+  float: right
+}
+
+.left {
+  float: left
+}
 
 .location {
   color: grey;
