@@ -23,6 +23,9 @@ KnowledgEase.Views.EditQuestion = Backbone.CompositeView.extend({
         Backbone.history.navigate(
           "questions/" + this.model.id, {trigger: true}
         )
+      }.bind(this),
+      error: function (event, xhr) {
+        this.$el.find('.failure').html(JST['errors']({errors: xhr.responseJSON}))
       }.bind(this)
     })
   }

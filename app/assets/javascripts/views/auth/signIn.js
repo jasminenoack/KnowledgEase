@@ -28,6 +28,12 @@ KnowledgEase.Views.SignIn = Backbone.CompositeView.extend({
 
         this.$userEl.html(JST['navbar/signedIn']({user: user}))
         this.remove()
+      }.bind(this),
+      error: function (xhr) {
+        this.$el.find('.failure').html(JST['errors']({errors: xhr.responseJSON}))
+        setTimeout(function () {
+          $('.failure').empty()
+        }, 5000)
       }.bind(this)
     })
   }

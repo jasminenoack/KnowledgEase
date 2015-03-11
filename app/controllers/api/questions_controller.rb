@@ -1,10 +1,15 @@
 class Api::QuestionsController < ApplicationController
   def create
+    if !current_user
+      render json: ["You must be logged in!"], status: 422
+      return
+    end
+
     @question = current_user.questions.new(question_params)
     if @question.save
       render :show
     else
-      render @question.errors.full_messages
+      render json: @question.errors.full_messages, status: 422
     end
   end
 
@@ -13,7 +18,7 @@ class Api::QuestionsController < ApplicationController
     if @question.update(question_params)
       render :show
     else
-      render @question.errors.full_messages
+      render json: @question.errors.full_messages, status: 422
     end
   end
 
