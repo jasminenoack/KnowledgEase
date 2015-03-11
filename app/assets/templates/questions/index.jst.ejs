@@ -3,9 +3,15 @@
 <ul>
 <% questions.each(function (question) { %>
   <li>
-      <a href="#/question/<%= question.id %>">
+      <a href="#/questions/<%= question.id %>">
         <%= question.escape("question") %>
       </a>
+        <span class="author">
+          <a href="#/users/<%= question.author().id %>">
+            <%= question.author().escape("name") %>
+          </a>
+        </span>
+
   </li>
 <% }) %>
 </ul>
