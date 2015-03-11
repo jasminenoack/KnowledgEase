@@ -1,0 +1,8 @@
+<h1><%= question.escape("question") %></h1>
+<p><%= question.escape("description") %></p>
+
+<% if (question.author().get("current_user")) { %>
+:p
+<% } %>
+
+<a href="javascript:history.back()">back</a>

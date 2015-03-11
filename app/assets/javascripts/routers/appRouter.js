@@ -71,7 +71,7 @@ KnowledgEase.Routers.AppRouter = Backbone.Router.extend({
     var question = this.questions.getOrFetch(id)
     var questionShowView = new KnowledgEase.Views.QuestionShow({model: question})
 
-    this._swapContent(userShowView)
+    this._swapContent(questionShowView)
   },
 
   _swapContent: function (view) {
