@@ -1,11 +1,12 @@
 KnowledgEase.Views.QuestionIndex = Backbone.CompositeView.extend({
   initialize: function () {
-    this.listenTo(this.collection, "sync", this.render)
+    this.listenTo(this.collection, "add sync", this.render)
   },
 
   template: JST['questions/index'],
 
   render: function () {
+    console.log("render")
     this.$el.html(this.template({questions: this.collection}))
 
     return this

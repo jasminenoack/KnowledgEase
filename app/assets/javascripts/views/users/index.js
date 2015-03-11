@@ -1,6 +1,6 @@
 KnowledgEase.Views.UserIndex = Backbone.CompositeView.extend({
   initialize: function () {
-    this.listenTo(this.collection, "sync", this.render)
+    this.listenTo(this.collection, "add sync", this.render)
   },
 
   template: JST['users/index'],
