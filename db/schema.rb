@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150311003457) do
+ActiveRecord::Schema.define(version: 20150311013102) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -25,7 +25,7 @@ ActiveRecord::Schema.define(version: 20150311003457) do
   end
 
   add_index "questions", ["question"], name: "index_questions_on_question", unique: true, using: :btree
-  add_index "questions", ["user_id"], name: "index_questions_on_user_id", unique: true, using: :btree
+  add_index "questions", ["user_id"], name: "index_questions_on_user_id", using: :btree
 
   create_table "sessions", force: :cascade do |t|
     t.string   "session_token", null: false
