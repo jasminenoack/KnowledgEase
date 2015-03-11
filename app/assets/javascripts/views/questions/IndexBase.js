@@ -5,12 +5,19 @@ KnowledgEase.Views.IndexBase = Backbone.CompositeView.extend({
 
   template: JST['questions/index'],
 
+  events: {
+    "click" : "addCardEvents"
+  },
+
   render: function () {
+    this.createContent()
+    this.addCardEvents()
+    return this
+  },
+
+  createContent: function () {
     this.$el.html(this.template({buttons: false}))
     this.addCurrentCollection()
-    this.addCardsEvents()
-
-    return this
   },
 
   add: function (model) {
@@ -21,13 +28,13 @@ KnowledgEase.Views.IndexBase = Backbone.CompositeView.extend({
   },
 
   addCurrentCollection: function () {
-
     this.collection.each( function (question) {
       this.add(question)
     }.bind(this))
   },
 
-  addCardsEvents: function () {
+  addCardEvents: function () {
+    // window.$el = this.$el
     this.$el.find('.collapse-card').paperCollapse()
   },
 })

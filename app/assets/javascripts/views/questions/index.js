@@ -10,11 +10,8 @@ KnowledgEase.Views.QuestionIndex = KnowledgEase.Views.IndexBase.extend({
   },
 
   render: function () {
-    this.$el.html(this.template({buttons: true}))
-    this.addCurrentCollection()
+    KnowledgEase.Views.IndexBase.prototype.render.apply(this)
     this.handleButtons()
-    this.addCardsEvents()
-
     return this
   },
 
