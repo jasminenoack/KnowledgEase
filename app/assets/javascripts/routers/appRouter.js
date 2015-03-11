@@ -26,7 +26,13 @@ KnowledgEase.Routers.AppRouter = Backbone.Router.extend({
   },
 
   home: function () {
-    var homeView = new KnowledgEase.Views.Home()
+    var homeView = new KnowledgEase.Views.Home({
+      questions: this.questions,
+      users: this.users
+    })
+
+    this.questions.fetch()
+    this.users.fetch()
 
     this._swapContent(homeView)
   },
