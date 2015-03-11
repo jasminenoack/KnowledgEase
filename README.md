@@ -10,13 +10,13 @@ KnowledgEase is a clone of Quora, which focuses on create a simple and intuitive
 Users
 - [X] Create accounts
 - [X] Create sessions (log in)
-- [ ] Create questions
+- [X] Create questions
 - [ ] Create answers
 - [ ] Comment on Questions and answers
 - [ ] Follow users topics and questions
 
 Questions
-- [ ] View questions
+- [X] View questions
 - [ ] Can be listed as anonomous
 - [ ] Have answers and comments
 

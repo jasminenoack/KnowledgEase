@@ -44,7 +44,7 @@ user.questions.create(question: "purr")
 
 
 users = User.all
-QuestionGenerator.compile.each do |question|
+QuestionGenerator.compile.shuffle.each do |question|
   puts question
   users.sample.questions.create(question: question + "?")
 end
