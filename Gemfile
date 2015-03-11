@@ -14,6 +14,7 @@ gem 'backbone-on-rails'
 gem 'rails_12factor'
 gem 'faker'
 gem 'kaminari'
+gem "font-awesome-rails"
 
 group :development, :test do
   gem 'pry-rails'

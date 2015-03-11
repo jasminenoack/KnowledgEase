@@ -16,6 +16,7 @@
 //= require backbone
 //= require question_ease
 //= require serializeJSON
+//= require paper-collapse.min
 //= require_tree ./utils
 //= require_tree ../templates
 //= require_tree ./models
