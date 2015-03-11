@@ -7,10 +7,8 @@ KnowledgEase.Routers.AppRouter = Backbone.Router.extend({
     this.$navbar = this.$rootEl.find(".navbar")
 
     this.users = new KnowledgEase.Collections.Users
-    this.users.fetch()
 
     this.questions = new KnowledgEase.Collections.Questions
-    this.questions.fetch()
 
     this.startNavbar()
     this.questionNew()
@@ -37,6 +35,7 @@ KnowledgEase.Routers.AppRouter = Backbone.Router.extend({
     var userIndexView = new KnowledgEase.Views.UserIndex({collection: this.users})
 
     this._swapContent(userIndexView)
+    this.users.fetch()
   },
 
   userShow: function (id) {
@@ -67,6 +66,7 @@ KnowledgEase.Routers.AppRouter = Backbone.Router.extend({
     })
 
     this._swapContent(questionIndexView)
+    this.questions.fetch()
   },
 
   questionShow: function (id) {
