@@ -6,7 +6,6 @@ KnowledgEase.Views.Home = Backbone.CompositeView.extend({
 
   render: function () {
     this.$el.html(this.template())
-
     return this
   },
 })

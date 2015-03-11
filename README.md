@@ -105,7 +105,7 @@ I will implement user authentication in Backbone and Rails. By the end of this p
 [Details][phase-one]
 
 ### Phase 2: Questions
-I will implement API CRUD routes for questions. These will allow users to create, edit and view questions. A user will also be able to list his question as anonymous. The user landing page at the end of this phase will list a pagination of the most recent questions instead of the user index made in the previous phase. A user will be able to view and edit his own questions.
+I will implement API CRUD routes for questions. These will allow users to create, edit and view questions. <!-- A user will also be able to list his question as anonymous. -->The user landing page at the end of this phase will list a pagination of the most recent questions instead of the user index made in the previous phase. A user will be able to view and edit his own questions.
 
 [Details][phase-two]
 
