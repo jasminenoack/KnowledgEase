@@ -17,4 +17,8 @@ KnowledgEase.Models.Question = Backbone.Model.extend({
 
     return payload
   },
+
+  toJSON: function (options) {
+    return {question: _.clone(this.attributes)}
+  }
 })

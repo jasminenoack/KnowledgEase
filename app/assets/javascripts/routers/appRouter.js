@@ -13,6 +13,7 @@ KnowledgEase.Routers.AppRouter = Backbone.Router.extend({
     this.questions.fetch()
 
     this.startNavbar()
+    this.questionNew()
   },
 
   routes: {
@@ -21,7 +22,8 @@ KnowledgEase.Routers.AppRouter = Backbone.Router.extend({
     "users/:id":"userShow",
     "users/:id/edit":'userEdit',
     'questions': "questionIndex",
-    'questions/:id': "questionShow"
+    "questions/new": "questionNew",
+    'questions/:id': "questionShow",
   },
 
   home: function () {
@@ -72,6 +74,15 @@ KnowledgEase.Routers.AppRouter = Backbone.Router.extend({
     var questionShowView = new KnowledgEase.Views.QuestionShow({model: question})
 
     this._swapContent(questionShowView)
+  },
+
+  questionNew: function () {
+    var newQuestionView = new KnowledgEase.Views.NewQuestion({
+      model: new KnowledgEase.Models.Question,
+      collection: this.questions
+    })
+
+    this.$questionForm.html(newQuestionView.render().$el)
   },
 
   _swapContent: function (view) {

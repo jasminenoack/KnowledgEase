@@ -1,6 +1,11 @@
 class Api::QuestionsController < ApplicationController
   def create
-
+    @question = current_user.questions.new(question_params)
+    if @question.save
+      render :show
+    else
+      render @question.errors.full_messages
+    end
   end
 
   def update
@@ -13,5 +18,10 @@ class Api::QuestionsController < ApplicationController
 
   def index
     @questions = Question.all.includes(:author)
+  end
+
+  private
+  def question_params
+    params.require(:question).permit(:question, :description)
   end
 end
