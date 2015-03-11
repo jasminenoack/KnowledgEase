@@ -99,7 +99,7 @@ Blog
 
 ## Implementation Timeline
 
-### Phase 1: Auth
+### Phase 1: Auth --complete
 I will implement user authentication in Backbone and Rails. By the end of this phase, users will be able to create an account, sign in, edit their profile and view an index of other users and view other users profiles. I will create a modal view for sign up. I will also implement very basic CSS (background color margins) and ensure that I can push a working app to heroku with working assets.
 
 [Details][phase-one]

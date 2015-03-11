@@ -9,7 +9,12 @@ class Api::QuestionsController < ApplicationController
   end
 
   def update
-
+    @question = Question.find(params[:id])
+    if @question.update(question_params)
+      render :show
+    else
+      render @question.errors.full_messages
+    end
   end
 
   def show
