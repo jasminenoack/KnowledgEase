@@ -20,4 +20,9 @@ KnowledgEase.PaginatedCollection = Backbone.Collection.extend({
   url: function () {
     return this.rootUrl + "?page=" + this.page()
   },
+
+  refresh: function () {
+    this.reset()
+    this.fetch()
+  }
 })

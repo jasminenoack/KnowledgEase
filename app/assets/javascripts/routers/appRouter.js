@@ -31,7 +31,7 @@ KnowledgEase.Routers.AppRouter = Backbone.Router.extend({
       users: this.users
     })
 
-    this.questions.fetch()
+    this.questions.refresh()
     this.users.fetch()
 
     this._swapContent(homeView)
@@ -72,7 +72,7 @@ KnowledgEase.Routers.AppRouter = Backbone.Router.extend({
     })
 
     this._swapContent(questionIndexView)
-    this.questions.fetch()
+    this.questions.refresh()
   },
 
   questionShow: function (id) {

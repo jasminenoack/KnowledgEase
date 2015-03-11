@@ -18,6 +18,3 @@ KnowledgEase.Collections.Questions = KnowledgEase.PaginatedCollection.extend({
     return model
   },
 })
-
-var q = new KnowledgEase.Collections.Questions
-console.log (q.url)
