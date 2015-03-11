@@ -6,19 +6,23 @@ KnowledgEase.PaginatedCollection = Backbone.Collection.extend({
     return this._page
   },
 
-  add_page: function () {
-    return this._page += 1
+  nextPage: function () {
+    return (this._page += 1)
   },
 
-  subtract_page: function () {
-    if (this._page === 1) {
+  lastPage: function () {
+    if (this.page() === 1) {
       return
     }
-    return this._page -= 1
+    return (this._page -= 1)
   },
 
   url: function () {
     return this.rootUrl + "?page=" + this.page()
+  },
+
+  resetPage: function () {
+    return (this._page = 1)
   },
 
   refresh: function () {
