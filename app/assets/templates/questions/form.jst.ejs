@@ -8,13 +8,14 @@
 
 <label for="question">Question</label>
 <input
+  id="question"
   type="text"
   name="question"
   value="<%= question.escape("question") %>"
 >
 
 <label for="description">Description</label>
-<textarea name="description"
+<textarea name="description" id="description"
   ><%= question.escape("question") %></textarea>
 
 
