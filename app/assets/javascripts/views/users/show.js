@@ -1,6 +1,5 @@
 KnowledgEase.Views.UserShow = Backbone.CompositeView.extend({
   initialize: function () {
-    this.first = true
     this.listenTo(this.model, "sync change:current_user", this.render)
   },
 
@@ -15,7 +14,7 @@ KnowledgEase.Views.UserShow = Backbone.CompositeView.extend({
   },
 
   addQuestions: function () {
-    var questionIndexView = new KnowledgEase.Views.QuestionIndex({
+    var questionIndexView = new KnowledgEase.Views.IndexBase({
       collection: this.model.questions()
     })
 
