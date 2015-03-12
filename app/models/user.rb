@@ -5,6 +5,34 @@ class User < ActiveRecord::Base
 
   has_many :sessions, inverse_of: :user
   has_many :questions, inverse_of: :author
+  has_many(
+    :wanted_answers,
+    class_name: "WantAnswer",
+    foreign_key: :asker_id,
+    inverse_of: :asker
+  )
+
+  has_many(
+    :question_answer_requests,
+    through: :wanted_answers,
+    source: :question,
+    inverse_of: :answer_requesters
+  )
+
+  has_many(
+    :requested_answers,
+    class_name: "WantAnswer",
+    foreign_key: :answerer_id,
+    inverse_of: :answerer
+  )
+
+  has_many(
+    :questions_requested_to_answer,
+    through: :requested_answers,
+    source: :question,
+    inverse_of: :users_asked_to_answer
+  )
+
 
   def self.find_user(username, password)
     user = User.find_by(username: username)

@@ -111,7 +111,7 @@ I will implement API CRUD routes for questions. These will allow users to create
 
 ### Phase 3: User/Question Join Tables
 
-I plan to create a few different ways for users to interact with questions. I will create two join tables to implement primary relationships of wanting an answer and asking another user to answer. A user will be able to indicate that we wants an answer to a question by clicking a button on the question page. A user will also be able to ask another user on the site to answer his question.
+I plan to create a few different ways for users to interact with questions. I will create a table to implement two primary relationships of wanting an answer and asking another user to answer. A user will be able to indicate that we wants an answer to a question by clicking a button on the question page. A user will also be able to ask another user on the site to answer his question.
 
 [Details][phase-three]
 

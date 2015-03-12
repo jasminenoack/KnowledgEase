@@ -35,13 +35,6 @@ description | text      |
 column name | data type | details
 ------------|-----------|-----------------------
 id          | integer   | not null, primary key
-user_id     | integer   | not null, foreign key (references users)
-question_id | integer   | not null, foreign key (references questions)
-
-## ask to answer
-column name | data type | details
-------------|-----------|-----------------------
-id          | integer   | not null, primary key
 asker_id    | integer   | not null, foreign key (references users)
 answerer_id | integer   | not null, foreign key (references users)
 question_id | integer   | not null, foreign key (references questions)

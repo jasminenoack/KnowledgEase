@@ -1,3 +1,23 @@
+50.times do
+  first_name = Faker::Name.first_name
+  last_name = Faker::Name.last_name
+  email = Faker::Internet.email("#{first_name}.#{last_name}")
+  username = Faker::Internet.user_name("#{first_name}.#{last_name}")
+  password = Faker::Internet.password(8)
+  location = Faker::Address.city
+  bs = Faker::Company.bs
+
+u6 = User.create(
+  email: email,
+  first_name: first_name,
+  last_name: last_name,
+  username: username,
+  password: password,
+  password_confirmation: password,
+  location: location,
+  biography: bs
+)
+
 u1 = User.create(
   email: "jasmine@example.com",
   first_name: "jasmine",
@@ -64,25 +84,7 @@ u6 = User.create(
   biography: "Meow Hello Meow"
 )
 
-30.times do
-  first_name = Faker::Name.first_name
-  last_name = Faker::Name.last_name
-  email = Faker::Internet.email("#{first_name}.#{last_name}")
-  username = Faker::Internet.user_name("#{first_name}.#{last_name}")
-  password = Faker::Internet.password(8)
-  location = Faker::Address.city
-  bs = Faker::Company.bs
 
-u6 = User.create(
-  email: email,
-  first_name: first_name,
-  last_name: last_name,
-  username: username,
-  password: password,
-  password_confirmation: password,
-  location: location,
-  biography: bs
-)
 
 
 
