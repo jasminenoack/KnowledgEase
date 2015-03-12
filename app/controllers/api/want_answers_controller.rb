@@ -1,7 +1,6 @@
 class Api::WantAnswersController < ApplicationController
   def index
-    @want_answers = WantAnswer.all.includes(:asker, :answerer, :question)
-
-    render json: @want_answers
+    current = current_user
+    @want_answers = WantAnswer.requests_hash(current)
   end
 end
