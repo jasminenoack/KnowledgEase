@@ -12,12 +12,14 @@ KnowledgEase.Views.QuestionIndex = KnowledgEase.Views.IndexBase.extend({
 
   render: function () {
     KnowledgEase.Views.IndexBase.prototype.render.apply(this)
-    this.handleButtons()
+    setTimeout(this.handleButtons.bind(this), 0)
     return this
   },
 
   handleButtons: function () {
+    console.log("handle", this.collection.page())
     if (this.collection.page() === 1) {
+      console.log("disabled")
       $(".last.questions").prop("disabled", true)
     } else {
       $(".last.questions").prop("disabled", false)

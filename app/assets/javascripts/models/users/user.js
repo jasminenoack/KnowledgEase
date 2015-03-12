@@ -3,7 +3,9 @@ KnowledgEase.Models.User = Backbone.Model.extend({
 
   questions: function () {
     if (!this._questions) {
-      this._questions = new KnowledgEase.Collections.Questions
+      this._questions = new KnowledgEase.Collections.UserQuestions({
+        user: this
+      })
     }
 
     return this._questions

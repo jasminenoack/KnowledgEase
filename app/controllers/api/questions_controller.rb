@@ -29,8 +29,14 @@ class Api::QuestionsController < ApplicationController
   end
 
   def index
-    @questions = Question.all.includes(:author).page(params[:page])
-    # @questions = Question.page(1)
+    if params[:user_id]
+      @questions = Question
+        .where(user_id: params[:user_id])
+        .includes(:author)
+        .page(params[:page])
+    else
+      @questions = Question.all.includes(:author).page(params[:page])
+    end
   end
 
   private

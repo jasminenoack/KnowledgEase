@@ -14,7 +14,7 @@ KnowledgEase.Views.UserShow = Backbone.CompositeView.extend({
   },
 
   addQuestions: function () {
-    var questionIndexView = new KnowledgEase.Views.IndexBase({
+    var questionIndexView = new KnowledgEase.Views.QuestionIndex({
       collection: this.model.questions()
     })
 
