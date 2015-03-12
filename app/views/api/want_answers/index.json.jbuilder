@@ -6,11 +6,11 @@ end
 
 # question requests to answer
 json.specific do
-  json.array!(@want_answers[:specific]) do |user, question|
-    json.asker do
-      json.partial! "api/users/user", user: user
-      json.questions do
-        json.partial! "api/questions/question", question: question
+  json.array!(@want_answers[:specific]) do |question, users|
+    json.partial! "api/questions/question", question: question
+    json.askers do
+      json.array!(users) do |user|
+        json.extract! user, :name, :id
       end
     end
   end
@@ -23,3 +23,6 @@ json.all_questions do
     json.count count
   end
 end
+
+
+# specific: Hash.new { |hash, key| hash[key] = []},

@@ -16,15 +16,8 @@ KnowledgEase.Views.AnswerIndex = Backbone.CompositeView.extend({
   },
 
   attachSpecific: function () {
-    selector = '.tab-pane.specific-requests'
-    this.collection.specificRequests().each(function (request) {
-      var content = JST["questions/answerRequestIndex"]({
-        question: request.get("asker").question
-      })
-      this.$el.find(selector).append(content)
-
-    }.bind(this))
-
+    // debugger
+    this.addQuestions(this.collection.specificRequests(), '.tab-pane.specific-requests')
   },
 
   attachRequested: function () {

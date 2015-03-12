@@ -9,10 +9,24 @@ KnowledgEase.Models.Question = Backbone.Model.extend({
     return this._author
   },
 
+  askers: function () {
+    if (!this._askers) {
+      this._askers = new KnowledgEase.Collections.Users
+    }
+
+    return this._askers
+  },
+
   parse: function (payload) {
+    console.log("parse users")
     if (payload.author) {
-      this.author().set(payload.author)
+      this.author().set(payload.author, {parse: true})
       delete payload.author
+    }
+
+    if (payload.askers) {
+      this.askers().set(payload.askers, {parse: true})
+      delete payload.askers
     }
 
     return payload

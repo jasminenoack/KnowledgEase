@@ -3,13 +3,27 @@
   <div class="collapse-card__heading">
     <div class="collapse-card__title group">
       <i class="fa fa-question-circle fa-2x fa-fw"></i>
-        <span class="left"> <%= question.question %></span>
-        <span class="right"> <%= question.author.name %></span>
+        <span class="left"> <%= question.escape("question") %></span>
+        <span class="right"> <%= question.author().escape("name") %></span>
     </div>
   </div>
 
   <div class="collapse-card__body clear">
+    <p><%= question.escape("description") %></p>
 
+    <span class="left">
+      <a href="#/questions/<%= question.id %>">
+        View Question
+      </a>
+    </span>
+
+    <% if (question.author().get("current_user")) { %>
+      <span class="right">
+        <a href="#/questions/<%= question.id %>/edit">
+          Edit Question
+        </a>
+      </span>
+    <% } %>
   </div>
 
 </div>

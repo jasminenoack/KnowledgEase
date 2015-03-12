@@ -16,7 +16,7 @@ KnowledgEase.Collections.WithRequestedAnswers = KnowledgEase.PaginatedCollection
   },
 
   parse: function (payload) {
-    this.specificRequests().set(payload.specific)
-    this.answerRequests().set(payload.all_questions)
+    this.specificRequests().set(payload.specific, {parse: true})
+    this.answerRequests().set(payload.all_questions, {parse: true})
   }
 })

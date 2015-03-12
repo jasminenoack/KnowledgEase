@@ -21,7 +21,7 @@ class WantAnswer < ActiveRecord::Base
   def self.requests_hash(current)
     want_answers = WantAnswer.all.includes(:asker, :answerer, :question)
     requests = {
-      specific: Array.new,
+      specific: Hash.new { |hash, key| hash[key] = []},
       total_requests: Hash.new { |hash, key| hash[key] = 0}
     }
 
@@ -29,7 +29,7 @@ class WantAnswer < ActiveRecord::Base
 
     want_answers.each_with_index do |want_answer, index|
       if current && want_answer.answerer_id == current.id
-        requests[:specific] << [want_answer.asker, want_answer.question]
+        requests[:specific][want_answer.question] << want_answer.asker
       end
         requests[:total_requests][want_answer.question] += 1
     end
