@@ -1,6 +1,3 @@
-
-
-
 KnowledgEase.Collections.Questions = KnowledgEase.PaginatedCollection.extend({
   rootUrl: "/api/questions",
 

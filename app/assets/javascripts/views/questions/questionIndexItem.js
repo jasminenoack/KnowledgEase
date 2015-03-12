@@ -8,6 +8,7 @@ KnowledgEase.Views.QuestionIndexItem = Backbone.CompositeView.extend({
   tagName: 'li',
 
   render: function () {
+    console.log(this.model.author().get("current_user"))
     this.$el.html(this.template({question: this.model}))
     return this
   },
