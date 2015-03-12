@@ -1,4 +1,5 @@
 class Api::UsersController < ApplicationController
+  before_action :require_login, only: :update
 
   def index
     @users = User.all
@@ -30,6 +31,12 @@ class Api::UsersController < ApplicationController
   end
 
   private
+  def require_login
+    if current_user != params[:id]
+      not_found
+    end
+  end
+
   def user_params
     params.require(:user).permit(
       :email,

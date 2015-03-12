@@ -34,4 +34,8 @@ class ApplicationController < ActionController::Base
     current_session.destroy
     session[:token] = nil
   end
+
+  def not_found
+    raise ActionController::RoutingError.new('Not Found')
+  end
 end

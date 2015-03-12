@@ -1,4 +1,6 @@
 class Api::QuestionsController < ApplicationController
+  before_action :require_login, only: :update
+
   def create
     if !current_user
       render json: ["You must be logged in!"], status: 422
@@ -34,5 +36,12 @@ class Api::QuestionsController < ApplicationController
   private
   def question_params
     params.require(:question).permit(:question, :description)
+  end
+
+  def require_login
+    question = Question.find(params[:id])
+    if current_user != question.user_id
+      not_found
+    end
   end
 end
