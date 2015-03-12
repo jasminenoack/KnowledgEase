@@ -22,7 +22,8 @@ KnowledgEase.Routers.AppRouter = Backbone.Router.extend({
     'questions': "questionIndex",
     "questions/new": "questionNew",
     'questions/:id': "questionShow",
-    'questions/:id/edit':"questionEdit"
+    'questions/:id/edit':"questionEdit",
+    'answer_questions':"answerQuestions"
   },
 
   home: function () {
@@ -100,6 +101,15 @@ KnowledgEase.Routers.AppRouter = Backbone.Router.extend({
     this.$content.html(editQuestionView.render().$el)
   },
 
+  answerQuestions: function () {
+    var answerIndexView = new KnowledgEase.Views.QuestionIndex({
+      // collection: this.questions
+    })
+
+    this._swapContent(answerIndexView)
+    // this.questions.refresh()
+  },
+
   _swapContent: function (view) {
     if (this.content) {
       this.content.remove()
@@ -107,5 +117,5 @@ KnowledgEase.Routers.AppRouter = Backbone.Router.extend({
 
     this.content = view
     this.$content.html(this.content.render().$el)
-  }
+  },
 })
