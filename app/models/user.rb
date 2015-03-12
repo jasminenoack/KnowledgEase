@@ -13,24 +13,24 @@ class User < ActiveRecord::Base
   )
 
   has_many(
-    :question_answer_requests,
-    through: :wanted_answers,
-    source: :question,
-    inverse_of: :answer_requesters
-  )
-
-  has_many(
     :requested_answers,
     class_name: "WantAnswer",
     foreign_key: :answerer_id,
     inverse_of: :answerer
   )
 
+
+
+  has_many(
+    :question_answer_requests,
+    through: :wanted_answers,
+    source: :question
+  )
+
   has_many(
     :questions_requested_to_answer,
     through: :requested_answers,
-    source: :question,
-    inverse_of: :users_asked_to_answer
+    source: :question
   )
 
 

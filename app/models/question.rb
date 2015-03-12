@@ -17,14 +17,13 @@ class Question < ActiveRecord::Base
   has_many(
     :answer_requesters,
     through: :answer_requests,
-    source: :asker,
-    inverse_of: :question_answer_requests
+    source: :asker
   )
 
   has_many(
     :users_asked_to_answer,
     through: :answer_requests,
-    source: :answerer,
-    inverse_of: :questions_requested_to_answer
+    source: :answerer
   )
+
 end
