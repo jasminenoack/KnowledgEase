@@ -9,7 +9,7 @@ json.specific do
   json.array!(@want_answers[:specific]) do |user, question|
     json.asker do
       json.partial! "api/users/user", user: user
-      json.question do
+      json.questions do
         json.partial! "api/questions/question", question: question
       end
     end

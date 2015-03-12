@@ -3,9 +3,6 @@ KnowledgEase.Views.AnswerIndex = Backbone.CompositeView.extend({
     this.listenTo(this.collection.specificRequests(), "add", this.render);
   },
 
-//   "tab-pane specific-requests">
-// "tab-pane most-requested"
-
   events: {
   },
 

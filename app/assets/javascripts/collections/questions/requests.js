@@ -3,14 +3,14 @@ KnowledgEase.Collections.WithRequestedAnswers = KnowledgEase.PaginatedCollection
 
   specificRequests: function () {
     if (!this._specific) {
-      this._specific = new KnowledgEase.Collections.questionsNoURL
+      this._specific = new KnowledgEase.Collections.specificRequests
     }
     return this._specific
   },
 
   answerRequests: function () {
     if (!this._requests) {
-      this._requests = new KnowledgEase.Collections.questionsNoURL
+      this._requests = new KnowledgEase.Collections.mostRequested
     }
     return this._requests
   },

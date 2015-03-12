@@ -16,6 +16,7 @@ KnowledgEase.Models.User = Backbone.Model.extend({
       this.questions().set(payload.questions, {parse: true})
       delete payload.questions
     }
+    
     return payload
   },
 })
