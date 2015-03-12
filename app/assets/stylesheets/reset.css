@@ -24,37 +24,5 @@ ul {
   list-style: none;
 }
 
-body {
-  font-family: Arial,Helvetica,sans-serif;
-  font-size: 18px;
-}
 
 /**/
-
-.right {
-  float: right
-}
-
-.left {
-  float: left
-}
-
-.location {
-  color: grey;
-  font-size: 14px;
-}
-
-
-button, input, textarea {
-  border: 2px solid black;
-}
-
-h1{
-  color: blue;
-  font-size: 22px;
-  font-weight: 700px;
-}
-
-a{
-  color: red
-}

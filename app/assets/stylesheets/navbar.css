@@ -1,5 +1,5 @@
 .navbar {
-  background: yellow;
+  background: #CBCBC1;
 }
 
 .nav-right {
@@ -8,7 +8,7 @@
 
 .nav-right li {
   float: left;
-  border-left: 1px solid black
+  border-left: 1px solid #B6AEA1;
 }
 
 .navbar a, .navbar button {
@@ -17,9 +17,24 @@
   display: block;
 }
 
-.navbar a:hover, .navbar button:hover {
-  background: grey;
+:focus {
+  outline: 0;
+  border: 3px double #E7512D;
+  border-radius: 10px
 }
+
+.navbar li a:hover, .navbar button:hover {
+  background: #E7512D;
+}
+
+:disabled {
+  color: #CBCBC1;
+}
+
+:disabled:hover {
+  color: #CBCBC1;
+}
+
 
 .userNav {
 
@@ -31,5 +46,5 @@
 
 .nav-left li {
   float: left;
-  border-right: 1px solid black;
+  border-right: 1px solid #B6AEA1;
 }

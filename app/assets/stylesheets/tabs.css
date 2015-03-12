@@ -1,10 +1,6 @@
-body {
-  font-family: sans-serif;
-}
-
 .wrapper {
   margin: 20px auto;
-  width: 800px;
+  width: 90%;
   min-height: 600px;
 }
 
@@ -26,7 +22,6 @@ body {
   width: calc(100%);
   position: relative;
   display: block;
-  color: #A34E24;
   font-size: 16px;
 }
 
@@ -45,23 +40,25 @@ body {
 .tab {
   float: left;
   padding: 20px;
-  border: 2px solid black;
+  border: 2px solid #CBCBC1;
   flex-grow: 1;
   flex-basis: 0;
   font-size: 20px;
   border-top-right-radius: 20px;
   border-top-left-radius: 20px;
-  background: #EA7D24;
+  background: #CBCBC1;
+  color: #E7512D
 }
 
 .tab:hover {
-  background: #EE9C21;
+  background: #E7512D;
+  color: #72441E;
 }
 
 .tab-pane {
   display: none;
   transition: opacity 0.1s;
-  border: 2px solid black;
+  border: 2px solid #CBCBC1;
   border-top: 0;
   height: calc(100% - 106px);
   padding: 20px;
@@ -71,12 +68,12 @@ body {
 }
 
 .active.tab{
-  background: #F9DF8D;
+  background: #FCECE8;
   border-bottom: 0;
 }
 
 .active.tab-pane{
   display: block;
   font-weight: 550;
-  background: #F9DF8D;
+  background: #FCECE8;
 }

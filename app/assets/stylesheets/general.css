@@ -1,0 +1,60 @@
+body {
+  font-family: Arial,Helvetica,sans-serif;
+  font-size: 16px;
+  background: #F6F6F6;
+  color: #72441E;
+}
+
+.content {
+  padding: 10px 20px;
+}
+
+.right {
+  float: right
+}
+
+.left {
+  float: left
+}
+
+a, button{
+  color: #E7512D;
+  padding: 10px
+}
+
+a:hover, button:hover {
+  color: #72441E;
+}
+
+.location {
+  color: #CBCBC1;
+  font-size: 14px;
+}
+
+
+form, input, textarea, select {
+  border: 2px solid #CBCBC1;
+  color: #72441E;
+  background: #F6F6F6;
+  border-radius: 10px;
+  padding: 5px;
+  display: block;
+}
+
+input:focus, textarea:focus {
+  border: 2px solid #E7512D;
+  outline: 0;
+}
+
+h1{
+  color: #72441E;
+  font-size: 22px;
+  font-weight: 700px;
+}
+
+form {
+  padding: 10px;
+  margin: 10px
+}
+
+/* white #F6F6F6 light gray #CBCBC1 medium #B6AEA1 brown #9a5c29 #72441E red #E7512D*/
