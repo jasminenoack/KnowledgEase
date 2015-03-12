@@ -25,7 +25,7 @@ class Api::QuestionsController < ApplicationController
   end
 
   def show
-    @question = Question.find(params[:id])
+    @question = Question.where(id: params[:id]).includes(:answer_requesters).first
   end
 
   def index
@@ -35,7 +35,7 @@ class Api::QuestionsController < ApplicationController
         .includes(:author)
         .page(params[:page])
     else
-      @questions = Question.all.includes(:author).page(params[:page])
+      @questions = Question.all.includes(:author, :answer_requesters).page(params[:page])
     end
   end
 
