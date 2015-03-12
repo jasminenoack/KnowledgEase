@@ -72,4 +72,11 @@ ul.requestors li{
   font-size: 14px;
 }
 
+button.request-answer {
+  display: block;
+  position: absolute;
+  right: 10px;
+  bottom: 10px;
+}
+
 /* white #F6F6F6 light gray #CBCBC1 medium #B6AEA1 brown #9a5c29 #72441E red #E7512D*/
