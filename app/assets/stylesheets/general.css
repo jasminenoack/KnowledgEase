@@ -54,7 +54,13 @@ h1{
 
 form {
   padding: 10px;
-  margin: 10px
+  margin: 10px;
+  display: inline-block;
+}
+
+label {
+  display: inline-block;
+  margin: 10px 0 5px 0;
 }
 
 /* white #F6F6F6 light gray #CBCBC1 medium #B6AEA1 brown #9a5c29 #72441E red #E7512D*/
