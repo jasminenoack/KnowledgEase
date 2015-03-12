@@ -18,7 +18,6 @@ KnowledgEase.Models.Question = Backbone.Model.extend({
   },
 
   parse: function (payload) {
-    console.log("parse users")
     if (payload.author) {
       this.author().set(payload.author, {parse: true})
       delete payload.author

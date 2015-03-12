@@ -63,4 +63,13 @@ label {
   margin: 10px 0 5px 0;
 }
 
+ul.requestors{
+  clear: both;
+}
+
+ul.requestors li{
+  padding: 0 10px;
+  font-size: 14px;
+}
+
 /* white #F6F6F6 light gray #CBCBC1 medium #B6AEA1 brown #9a5c29 #72441E red #E7512D*/

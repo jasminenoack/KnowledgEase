@@ -5,6 +5,8 @@
       <i class="fa fa-question-circle fa-2x fa-fw"></i>
         <span class="left"> <%= question.escape("question") %></span>
         <span class="right"> <%= question.author().escape("name") %></span>
+
+
     </div>
   </div>
 
@@ -16,7 +18,7 @@
         View Question
       </a>
     </span>
-    
+
     <% if (question.author().get("current_user")) { %>
       <span class="right">
         <a href="#/questions/<%= question.id %>/edit">
@@ -24,6 +26,14 @@
         </a>
       </span>
     <% } %>
+
+    <ul class="requestors group">
+    Users Who Requested Answers:
+    <br>
+      <% question.askers().each( function (asker) { %>
+        <li class="left"><%= asker.get("name") %></li>
+      <% }) %>
+    </ul>
   </div>
 
 </div>
