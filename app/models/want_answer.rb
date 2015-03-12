@@ -22,7 +22,7 @@ class WantAnswer < ActiveRecord::Base
     want_answers = WantAnswer.all.includes(:asker, :answerer, :question)
     requests = {
       specific: Hash.new { |hash, key| hash[key] = []},
-      total_requests: Hash.new { |hash, key| hash[key] = 0}
+      total_requests: Hash.new { |hash, key| hash[key] = []}
     }
 
     want_answers.count
@@ -31,7 +31,10 @@ class WantAnswer < ActiveRecord::Base
       if current && want_answer.answerer_id == current.id
         requests[:specific][want_answer.question] << want_answer.asker
       end
-        requests[:total_requests][want_answer.question] += 1
+      
+      if !requests[:total_requests][want_answer.question].include?(want_answer.asker)
+        requests[:total_requests][want_answer.question] << want_answer.asker
+      end
     end
 
     return requests
