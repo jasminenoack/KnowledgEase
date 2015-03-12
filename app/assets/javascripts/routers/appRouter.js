@@ -102,12 +102,13 @@ KnowledgEase.Routers.AppRouter = Backbone.Router.extend({
   },
 
   answerQuestions: function () {
-    var answerIndexView = new KnowledgEase.Views.QuestionIndex({
-      // collection: this.questions
+    requested = new KnowledgEase.Collections.WithRequestedAnswers
+    requested.fetch()
+    var answerIndexView = new KnowledgEase.Views.AnswerIndex({
+      collection: requested
     })
 
     this._swapContent(answerIndexView)
-    // this.questions.refresh()
   },
 
   _swapContent: function (view) {

@@ -1,3 +1,4 @@
-KnowledgEase.Collections.questionsNoURL = Backbone.Collection.extend({
+KnowledgEase.Collections.questionsNoURL = KnowledgEase.PaginatedCollection.extend({
+  url: "",
   model: KnowledgEase.Models.Question,
 })

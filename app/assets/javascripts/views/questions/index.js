@@ -17,9 +17,7 @@ KnowledgEase.Views.QuestionIndex = KnowledgEase.Views.IndexBase.extend({
   },
 
   handleButtons: function () {
-    console.log("handle", this.collection.page())
     if (this.collection.page() === 1) {
-      console.log("disabled")
       $(".last.questions").prop("disabled", true)
     } else {
       $(".last.questions").prop("disabled", false)

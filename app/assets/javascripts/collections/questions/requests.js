@@ -1,4 +1,4 @@
-KnowledgEase.Collections.WithRequestedAnswers = Backbone.Collection.extend({
+KnowledgEase.Collections.WithRequestedAnswers = KnowledgEase.PaginatedCollection.extend({
   url: "api/want_answers",
 
   specificRequests: function () {
