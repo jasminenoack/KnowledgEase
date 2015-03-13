@@ -1,6 +1,6 @@
 class WantAnswer < ActiveRecord::Base
   validates :asker, :question, presence: true
-  validates :asker, uniqueness: {scope: [:question, :answerer]}
+  validate :asker_cannot_ask_the_same_user
 
   belongs_to(
     :asker,
@@ -31,13 +31,24 @@ class WantAnswer < ActiveRecord::Base
       if current && want_answer.answerer_id == current.id
         requests[:specific][want_answer.question] << want_answer.asker
       end
-      
+
       if !requests[:total_requests][want_answer.question].include?(want_answer.asker)
         requests[:total_requests][want_answer.question] << want_answer.asker
       end
     end
 
     return requests
+  end
+
+  private
+  def asker_cannot_ask_the_same_user
+    requests = WantAnswer.where(asker_id: asker_id, question_id: question_id)
+
+    if (!answerer_id && requests.where("answerer_id IS NULL").count > 0) ||
+      (requests.where(answerer_id: answerer_id).count > 0)
+      errors[:base] << "You cannot reask the same person"
+    end
+
   end
 
 end
