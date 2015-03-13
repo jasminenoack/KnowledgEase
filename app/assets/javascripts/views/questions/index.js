@@ -1,9 +1,9 @@
 KnowledgEase.Views.QuestionIndex = Backbone.CompositeView.extend({
   initialize: function () {
     this.listenTo(this.collection, "sync", this.render);
-    this.listenTo(this.collection, "add", this.add);
+    // this.listenTo(this.collection, "add", this.add);
     // this.listenTo(this.collection, "sync", this.render);
-
+    this.page()
   },
 
   template: JST['questions/index'],
@@ -26,7 +26,8 @@ KnowledgEase.Views.QuestionIndex = Backbone.CompositeView.extend({
   },
 
   handleButtons: function () {
-    if (this.collection.page() === 1) {
+    console.log("handle", this.page(), this.collection.length)
+    if (this.page() === 1) {
       $(".last.questions").prop("disabled", true)
     } else {
       $(".last.questions").prop("disabled", false)
@@ -51,16 +52,8 @@ KnowledgEase.Views.QuestionIndex = Backbone.CompositeView.extend({
       this.add(question)
     }.bind(this))
   },
-
-  lastPage: function () {
-    console.log("last")
-    this.collection.lastPage()
-    this.collection.refresh()
-  },
-
-  nextPage: function () {
-    console.log("next")
-    this.collection.nextPage()
-    this.collection.refresh()
-  }
 })
+
+_.extend(
+  KnowledgEase.Views.QuestionIndex.prototype,
+  KnowledgEase.PaginationUtils)

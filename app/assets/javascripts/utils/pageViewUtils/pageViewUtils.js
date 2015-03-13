@@ -1,7 +1,7 @@
-KnowledgeEase.PaginationUtils ({
+KnowledgEase.PaginationUtils = {
   page: function () {
     if (!this.collection._page) {
-      this.collection_page = 1
+      this.collection._page = 1
     }
     return this.collection._page
   },
@@ -24,9 +24,4 @@ KnowledgeEase.PaginationUtils ({
   resetPage: function () {
     return (this.collection._page = 1)
   },
-
-  refresh: function () {
-    this.collection.reset()
-    this.collection.fetch()
-  }
-})
+}
