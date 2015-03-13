@@ -11,12 +11,11 @@ KnowledgEase.Views.AnswerIndex = Backbone.CompositeView.extend({
   render: function () {
     this.$el.html(this.template())
     this.attachSpecific()
-    this.attachRequested()
+    setTimeout(this.attachRequested.bind(this), 0)
     return this
   },
 
   attachSpecific: function () {
-    // debugger
     this.addQuestions(this.collection.specificRequests(), '.tab-pane.specific-requests')
   },
 

@@ -11,7 +11,7 @@ Users
 - [X] Create accounts
 - [X] Create sessions (log in)
 - [X] Create questions
-- [ ] Create answers
+- [X] Create answers
 - [ ] Comment on Questions and answers
 - [ ] Follow users topics and questions
 
@@ -22,7 +22,7 @@ Questions
 
 Answers
 - [ ] Can have comments
-- [ ] Are accessed nested under questions
+- [X] Are accessed nested under questions
 - [ ] User can choose the best answer
 
 Comments
@@ -104,18 +104,18 @@ I will implement user authentication in Backbone and Rails. By the end of this p
 
 [Details][phase-one]
 
-### Phase 2: Questions
+### Phase 2: Questions --complete
 I will implement API CRUD routes for questions. These will allow users to create, edit and view questions. <!-- A user will also be able to list his question as anonymous. -->The user landing page at the end of this phase will list a pagination of the most recent questions instead of the user index made in the previous phase. A user will be able to view and edit his own questions.
 
 [Details][phase-two]
 
-### Phase 3: User/Question Join Tables
+### Phase 3: User/Question Join Tables --complete
 
 I plan to create a few different ways for users to interact with questions. I will create a table to implement two primary relationships of wanting an answer and asking another user to answer. A user will be able to indicate that we wants an answer to a question by clicking a button on the question page. A user will also be able to ask another user on the site to answer his question.
 
 [Details][phase-three]
 
-### Phase 4: answers
+### Phase 4: answers --complete
 In this phase I will add the ability for users to answer questions. I will create api routes that allow the user to find questions. I will make it possible for a user to view all answers to questions and add his own.
 
 [Details][phase-four]
