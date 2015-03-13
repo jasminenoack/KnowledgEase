@@ -32,7 +32,7 @@ class Api::UsersController < ApplicationController
 
   private
   def require_login
-    if current_user != params[:id]
+    if current_user.id != params[:id].to_i
       not_found
     end
   end
