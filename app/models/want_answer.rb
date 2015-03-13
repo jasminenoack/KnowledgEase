@@ -40,6 +40,25 @@ class WantAnswer < ActiveRecord::Base
     return requests
   end
 
+  def self.specific_requests(current_user)
+    current_user = User.first
+    if current_user
+      want_answers = WantAnswer
+        .all
+        .includes(:asker, :answerer, [question: :author])
+        .where(answerer_id: current_user.id)
+
+      specific = Hash.new { |hash, key| hash[key] = []}
+
+      want_answers.each_with_index do |want_answer, index|
+        specific[want_answer.question] << want_answer.asker
+      end
+      specific
+    else
+      WantAnswer.none
+    end
+  end
+
   private
   def asker_cannot_ask_the_same_user
     requests = WantAnswer.where(asker_id: asker_id, question_id: question_id)

@@ -4,6 +4,15 @@ class Api::WantAnswersController < ApplicationController
     @want_answers = WantAnswer.requests_hash(current)
   end
 
+  def show_specific
+    current = current_user
+    @want_answers = WantAnswer.specific_requests(current)
+    render :index
+  end
+
+  def show_all
+  end
+
   def create
     @want_answer = current_user.wanted_answers.new(want_answer_params)
 

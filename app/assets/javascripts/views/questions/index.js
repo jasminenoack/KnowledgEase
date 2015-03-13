@@ -25,17 +25,16 @@ KnowledgEase.Views.QuestionIndex = Backbone.CompositeView.extend({
   },
 
   handleButtons: function () {
-    console.log("handle", this.page(), this.collection.length)
     if (this.page() === 1) {
-      $(".last.questions").prop("disabled", true)
+      this.$el.find(".last.questions").prop("disabled", true)
     } else {
-      $(".last.questions").prop("disabled", false)
+      this.$el.find(".last.questions").prop("disabled", false)
     }
 
     if (this.collection.length < 25) {
-      $(".next.questions").prop("disabled", true)
+      this.$el.find(".next.questions").prop("disabled", true)
     } else {
-      $(".next.questions").prop("disabled", false)
+      this.$el.find(".next.questions").prop("disabled", false)
     }
   },
 

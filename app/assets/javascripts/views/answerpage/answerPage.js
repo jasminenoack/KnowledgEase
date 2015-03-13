@@ -1,6 +1,9 @@
 KnowledgEase.Views.AnswerIndex = Backbone.CompositeView.extend({
   initialize: function () {
-    this.listenTo(this.collection.specificRequests(), "add", this.render);
+    this.specific = new KnowledgEase.Collections.specificRequests
+    this.specific.fetch()
+
+    this.listenTo(this.specific, "sync", this.render);
   },
 
   events: {
@@ -11,12 +14,12 @@ KnowledgEase.Views.AnswerIndex = Backbone.CompositeView.extend({
   render: function () {
     this.$el.html(this.template())
     this.attachSpecific()
-    setTimeout(this.attachRequested.bind(this), 0)
+    // setTimeout(this.attachRequested.bind(this), 0)
     return this
   },
 
   attachSpecific: function () {
-    this.addQuestions(this.collection.specificRequests(), '.tab-pane.specific-requests')
+    this.addQuestions(this.specific, '.tab-pane.specific-requests')
   },
 
   attachRequested: function () {

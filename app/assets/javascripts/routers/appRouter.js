@@ -6,7 +6,7 @@ KnowledgEase.Routers.AppRouter = Backbone.Router.extend({
     this.$content = this.$rootEl.find(".content")
     this.$navbar = this.$rootEl.find(".navbar")
 
-    this.users = KnowledgEase.users 
+    this.users = KnowledgEase.users
 
     this.questions = new KnowledgEase.Collections.Questions
 
@@ -102,11 +102,7 @@ KnowledgEase.Routers.AppRouter = Backbone.Router.extend({
   },
 
   answerQuestions: function () {
-    requested = new KnowledgEase.Collections.WithRequestedAnswers
-    requested.fetch()
-    var answerIndexView = new KnowledgEase.Views.AnswerIndex({
-      collection: requested
-    })
+    var answerIndexView = new KnowledgEase.Views.AnswerIndex()
 
     this._swapContent(answerIndexView)
   },

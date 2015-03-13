@@ -17,7 +17,6 @@ KnowledgEase.Views.AnswerForm = Backbone.CompositeView.extend({
 
   generateForm: function (event) {
     this.$el.html(this.formTemplate())
-    console.log(this.$el)
   },
 
   createAnswer: function (event) {

@@ -5,6 +5,7 @@ Rails.application.routes.draw do
     resources :questions, only: [:create, :show, :update, :index]
     resources :want_answers, only: [:index, :create]
     resources :answers, only: :create
+    get "want_answers/specific", to: 'want_answers#show_specific'
   end
 
   root 'static_pages#index'
