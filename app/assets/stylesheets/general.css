@@ -17,6 +17,13 @@ body {
   float: left
 }
 
+.failure {
+  background: #F3A896;
+  padding: 0 5px;
+  text-align: center;
+  border-radius: 10px;
+}
+
 a, button{
   color: #E7512D;
   padding: 10px
