@@ -11,5 +11,6 @@ json.questions do
     json.partial! "api/questions/attach_question",
       question: question,
       current_user: current_user
+    json.partial! "api/questions/answer_requestors", question: question    
   end
 end

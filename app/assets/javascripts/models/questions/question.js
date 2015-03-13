@@ -27,7 +27,7 @@ KnowledgEase.Models.Question = Backbone.Model.extend({
       this.askers().set(payload.askers, {parse: true})
       delete payload.askers
     }
-
+    
     return payload
   },
 
