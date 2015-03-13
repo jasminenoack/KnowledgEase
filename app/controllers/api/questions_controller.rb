@@ -32,10 +32,14 @@ class Api::QuestionsController < ApplicationController
     if params[:user_id]
       @questions = Question
         .where(user_id: params[:user_id])
-        .includes(:author)
+        .includes(:author, :answer_requesters)
+        .order(id: :desc)
         .page(params[:page])
     else
-      @questions = Question.all.includes(:author, :answer_requesters).page(params[:page])
+      @questions = Question
+        .all.includes(:author, :answer_requesters)
+        .order(id: :desc)
+        .page(params[:page])
     end
   end
 
