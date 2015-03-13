@@ -79,4 +79,11 @@ ul.requestors li{
   bottom: 10px;
 }
 
+footer {
+  background: #B6AEA1;
+  color: #F6F6F6;
+  padding: 10px;
+  text-align: right;
+}
+
 /* white #F6F6F6 light gray #CBCBC1 medium #B6AEA1 brown #9a5c29 #72441E red #E7512D*/
