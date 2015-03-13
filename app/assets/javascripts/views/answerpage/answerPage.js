@@ -24,7 +24,6 @@ KnowledgEase.Views.AnswerIndex = Backbone.CompositeView.extend({
   },
 
   attachRequested: function () {
-    console.log(this.all)
     this.addQuestions(this.all, '.tab-pane.most-requested')
   },
 

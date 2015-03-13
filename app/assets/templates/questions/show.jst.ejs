@@ -15,7 +15,7 @@
 <a href="javascript:history.back()">back</a>
 
 <ul class="requestors group">
-<%= question.askers().length %> Users Requested Answers:
+<%= question.askers().length %> Unique Users Requested Answers:
 <br>
   <% question.askers().each( function (asker) { %>
     <a href="#users/<%= asker.id %>">
@@ -23,6 +23,8 @@
     </a>
   <% }) %>
 </ul>
+
+<h3><%= question.escape("answer_count") %> Answers</h3>
 
 <ul class="answers">
 </ul>
