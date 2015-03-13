@@ -1,0 +1,33 @@
+ul.answers{
+  background: #FCECE8
+}
+
+.answer-header, .answer-body {
+  display: none;
+}
+
+.answer-header.active:hover, .answer-body.active:hover {
+  background: #eaeaea;
+}
+
+.answer-header.active, .answer-body.active {
+  display: block;
+  background-color: #f6f6f6;
+  border-bottom: 1px solid #B6AEA1;
+  color: #B6AEA1;
+  -webkit-transition: 0.4s;
+  -moz-transition: 0.4s;
+  -o-transition: 0.4s;
+  transition: 0.4s;
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+  -moz-box-shadow: 0 8px 17px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.18824);
+  -webkit-box-shadow: 0 8px 17px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.18824);
+  box-shadow: 0 8px 17px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.18824);
+  z-index: 200;
+  margin: 1rem -1rem;
+  cursor: pointer;
+  padding: 1rem;
+  position: relative;
+}

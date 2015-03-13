@@ -40,8 +40,6 @@ KnowledgEase.Models.Question = Backbone.Model.extend({
       delete payload.answers
     }
 
-    console.log (this.answers().models[0].author())
-
     return payload
   },
 

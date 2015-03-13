@@ -14,6 +14,14 @@ KnowledgEase.Views.QuestionShow = Backbone.CompositeView.extend({
       model: this.model
     })
     this.addSubview(".request", requestAnswer)
+    this.addAnswers()
     return this
+  },
+
+  addAnswers: function () {
+    this.model.answers().each(function (answer) {
+      var answerView = new KnowledgEase.Views.answerView({model: answer})
+      this.addSubview(".answers", answerView)
+    }.bind(this))
   },
 })

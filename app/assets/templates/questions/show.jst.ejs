@@ -1,4 +1,7 @@
 <h1><%= question.escape("question") %></h1>
+<a href="#users/<%= question.author().id %>">
+  <%= question.author().escape("name") %>
+</a>
 <p><%= question.escape("description") %></p>
 
 <% if (question.author().get("current_user")) { %>
@@ -18,4 +21,7 @@
       <li class="left"><%= asker.get("name") %></li>
     </a>
   <% }) %>
+</ul>
+
+<ul class="answers">
 </ul>

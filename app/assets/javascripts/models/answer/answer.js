@@ -17,4 +17,12 @@ KnowledgEase.Models.Answer = Backbone.Model.extend({
 
     return payload
   },
+
+  header: function () {
+    if (this.get("body").length < 100) {
+      return this.escape("body")
+    } else {
+      return this.escape("body").substring(0,98) + "..."
+    }
+  }
 })
