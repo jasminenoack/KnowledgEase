@@ -1,6 +1,7 @@
 KnowledgEase.Views.QuestionShow = Backbone.CompositeView.extend({
   initialize: function () {
     this.listenTo(this.model, "sync", this.render)
+    this.listenTo(this.model.answers(), "add", this.render)
   },
 
   template: JST['questions/show'],
@@ -14,6 +15,12 @@ KnowledgEase.Views.QuestionShow = Backbone.CompositeView.extend({
       model: this.model
     })
     this.addSubview(".request", requestAnswer)
+
+    var answerForm = new KnowledgEase.Views.AnswerForm({
+      model: this.model
+    })
+    this.addSubview(".answer-form", answerForm)
+
     this.addAnswers()
     return this
   },

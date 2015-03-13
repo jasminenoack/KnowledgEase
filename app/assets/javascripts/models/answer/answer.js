@@ -1,5 +1,5 @@
 KnowledgEase.Models.Answer = Backbone.Model.extend({
-  // urlRoot: "/api/questions",
+  urlRoot: "/api/answers",
 
   author: function () {
     if (!this._author) {
