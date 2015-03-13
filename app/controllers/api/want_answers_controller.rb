@@ -8,7 +8,7 @@ class Api::WantAnswersController < ApplicationController
 
   def show_all
     current = current_user
-    @want_answers = WantAnswer.all_requests
+    @want_answers = WantAnswer.all_requests(params[:page])
     render :index
   end
 
