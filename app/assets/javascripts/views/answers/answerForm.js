@@ -3,8 +3,8 @@ KnowledgEase.Views.AnswerForm = Backbone.CompositeView.extend({
   },
 
   events: {
-    "click  button": "generateForm",
-    "click form.create-answer button": "createAnswer"
+    "click  button.open-form": "generateForm",
+    "submit form.create-answer": "createAnswer"
   },
 
   template: JST['answers/answerButton'],
@@ -17,13 +17,13 @@ KnowledgEase.Views.AnswerForm = Backbone.CompositeView.extend({
 
   generateForm: function (event) {
     this.$el.html(this.formTemplate())
+    console.log(this.$el)
   },
 
   createAnswer: function (event) {
     event.preventDefault()
 
-    var form = $(event.currentTarget).parent()
-    var attrs = form.serializeJSON()
+    var attrs = $(event.currentTarget).serializeJSON()
     var answer = new KnowledgEase.Models.Answer({
       question_id: this.model.id,
     })
