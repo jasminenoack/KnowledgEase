@@ -33,6 +33,8 @@ class User < ActiveRecord::Base
     source: :question
   )
 
+  has_many :answers, inverse_of: :author
+
 
   def self.find_user(username, password)
     user = User.find_by(username: username)

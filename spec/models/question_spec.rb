@@ -10,6 +10,7 @@ RSpec.describe Question, type: :model do
   describe "question associations" do
     it {should belong_to(:author)}
     it {should have_many(:answer_requests)}
+    it {should have_many(:answers)}
     it {should have_many(:answer_requesters)}
     it {should have_many(:users_asked_to_answer)}
   end

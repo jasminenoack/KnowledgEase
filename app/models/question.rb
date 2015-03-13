@@ -26,4 +26,6 @@ class Question < ActiveRecord::Base
     source: :answerer
   )
 
+  has_many :answers, inverse_of: :question
+
 end
