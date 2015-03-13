@@ -50,7 +50,7 @@ class Api::QuestionsController < ApplicationController
 
   def require_login
     question = Question.find(params[:id])
-    if current_user != question.user_id
+    if current_user.id != question.user_id
       not_found
     end
   end
