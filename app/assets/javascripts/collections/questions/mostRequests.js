@@ -1,4 +1,4 @@
 KnowledgEase.Collections.mostRequested = KnowledgEase.PaginatedCollection.extend({
-  url: "",
+  url: "api/want_answers/all",
   model: KnowledgEase.Models.Question,
 })

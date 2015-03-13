@@ -2,7 +2,8 @@ KnowledgEase.Views.AnswerIndex = Backbone.CompositeView.extend({
   initialize: function () {
     this.specific = new KnowledgEase.Collections.specificRequests
     this.specific.fetch()
-
+    this.all = new KnowledgEase.Collections.mostRequested
+    this.all.fetch()
     this.listenTo(this.specific, "sync", this.render);
   },
 
@@ -14,7 +15,7 @@ KnowledgEase.Views.AnswerIndex = Backbone.CompositeView.extend({
   render: function () {
     this.$el.html(this.template())
     this.attachSpecific()
-    // setTimeout(this.attachRequested.bind(this), 0)
+    this.attachRequested()
     return this
   },
 
@@ -23,7 +24,8 @@ KnowledgEase.Views.AnswerIndex = Backbone.CompositeView.extend({
   },
 
   attachRequested: function () {
-    this.addQuestions(this.collection.answerRequests(), '.tab-pane.most-requested')
+    console.log(this.all)
+    this.addQuestions(this.all, '.tab-pane.most-requested')
   },
 
   addQuestions: function (collection, selector) {
