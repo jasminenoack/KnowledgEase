@@ -11,7 +11,6 @@ KnowledgEase.Views.QuestionIndex = Backbone.CompositeView.extend({
   events: {
    "click .last.questions":"lastPage",
    "click .next.questions":"nextPage",
-
   },
 
   render: function () {

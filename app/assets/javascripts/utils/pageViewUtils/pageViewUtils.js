@@ -7,14 +7,26 @@ KnowledgEase.PaginationUtils = {
   },
 
   nextPage: function () {
-    return (this.collection._page += 1)
+    console.log("next")
+    this.collection._page += 1
+    this.collection.fetch({
+      data: {
+        page: this.collection._page
+      }
+    })
   },
 
   lastPage: function () {
-    if (this.collection.page() === 1) {
+    if (this.collection._page === 1) {
       return
     }
-    return (this.collection._page -= 1)
+    this.collection._page -= 1
+    console.log(this.collection._page)
+    this.collection.fetch({
+      data: {
+        page: this.collection._page
+      }
+    })
   },
 
   url: function () {
