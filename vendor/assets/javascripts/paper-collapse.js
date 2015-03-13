@@ -34,9 +34,6 @@
           .slideDown(animationDuration);
       }
     };
-
-
-
   })(jQuery);
 
 }).call(this);
