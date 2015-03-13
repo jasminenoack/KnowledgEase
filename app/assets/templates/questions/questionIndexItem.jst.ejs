@@ -34,7 +34,7 @@
     <h3><%= question.escape("answer_count") %> Answers</h3>
 
     <ul class="requestors group">
-    <%= question.askers().length %> Users Requested Answers:
+    Unique Users Requesting Answers:
     <br>
       <% question.askers().each( function (asker) { %>
         <a href="#users/<%= asker.id %>">
