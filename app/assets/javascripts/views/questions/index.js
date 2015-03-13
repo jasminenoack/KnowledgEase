@@ -1,9 +1,12 @@
-KnowledgEase.Views.QuestionIndex = KnowledgEase.Views.IndexBase.extend({
+KnowledgEase.Views.QuestionIndex = Backbone.CompositeView.extend({
   initialize: function () {
     this.listenTo(this.collection, "sync", this.render);
     this.listenTo(this.collection, "add", this.add);
-    this.buttons = true
+    // this.listenTo(this.collection, "sync", this.render);
+
   },
+
+  template: JST['questions/index'],
 
   events: {
    "click .last.questions":"lastPage",
@@ -12,9 +15,14 @@ KnowledgEase.Views.QuestionIndex = KnowledgEase.Views.IndexBase.extend({
   },
 
   render: function () {
-    KnowledgEase.Views.IndexBase.prototype.render.apply(this)
-    setTimeout(this.handleButtons.bind(this), 0)
+    this.createContent()
+    this.handleButtons()
     return this
+  },
+
+  createContent: function () {
+    this.$el.html(this.template({buttons: this.buttons}))
+    this.addCurrentCollection()
   },
 
   handleButtons: function () {
@@ -31,12 +39,27 @@ KnowledgEase.Views.QuestionIndex = KnowledgEase.Views.IndexBase.extend({
     }
   },
 
+  add: function (model) {
+    var IndexItem = new KnowledgEase.Views.QuestionIndexItem({
+      model: model
+    })
+    this.addSubview("ul.questions", IndexItem)
+  },
+
+  addCurrentCollection: function () {
+    this.collection.each( function (question) {
+      this.add(question)
+    }.bind(this))
+  },
+
   lastPage: function () {
+    console.log("last")
     this.collection.lastPage()
     this.collection.refresh()
   },
 
   nextPage: function () {
+    console.log("next")
     this.collection.nextPage()
     this.collection.refresh()
   }
