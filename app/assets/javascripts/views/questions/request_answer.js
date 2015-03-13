@@ -23,11 +23,14 @@ KnowledgEase.Views.RequestAnswer = Backbone.CompositeView.extend({
   createRequest: function (event) {
     event.preventDefault()
     var form = $(event.currentTarget).parent()
+    var select_val = form.find("select").val()
+    var answerer_id = select_val === "No One" ? null : select_val
     var answer_request = new KnowledgEase.Models.AnswerRequests({
-      question_id: this.model.id
+      question_id: this.model.id,
+      answerer_id: answerer_id
     })
-    var attrs = form.serializeJSON()
-    answer_request.save(attrs, {
+
+    answer_request.save({}, {
       success: function () {
         this.$el.html(this.template())
         this.$el.prepend("<p>Request Successful</p>")
