@@ -7,6 +7,12 @@ KnowledgEase.Views.QuestionIndexItem = Backbone.CompositeView.extend({
 
   tagName: 'li',
 
+  events: {
+    "click .collapse-card__heading": function (event) {
+      $(event.currentTarget).paperCollapse()
+    }
+  },
+
   render: function () {
     this.$el.html(this.template({question: this.model}))
 

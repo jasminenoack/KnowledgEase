@@ -7,7 +7,8 @@ KnowledgEase.Views.QuestionIndex = KnowledgEase.Views.IndexBase.extend({
 
   events: {
    "click .last.questions":"lastPage",
-   "click .next.questions":"nextPage"
+   "click .next.questions":"nextPage",
+
   },
 
   render: function () {

@@ -5,6 +5,8 @@ KnowledgEase.Views.QuestionShow = Backbone.CompositeView.extend({
 
   template: JST['questions/show'],
 
+
+
   render: function () {
     this.$el.html(this.template({question: this.model}))
 
