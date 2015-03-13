@@ -17,7 +17,4 @@ KnowledgEase.Views.QuestionIndexItem = Backbone.CompositeView.extend({
     return this
   },
 
-  generateForm: function (event) {
-    console.log("generate")
-  }
 })
