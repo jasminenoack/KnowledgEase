@@ -3,6 +3,8 @@ KnowledgEase.Collections.Users = Backbone.Collection.extend({
 
   model: KnowledgEase.Models.User,
 
+  comparator: "name",
+
   getOrFetch: function (id) {
     var model = this.get(id)
 
@@ -15,3 +17,6 @@ KnowledgEase.Collections.Users = Backbone.Collection.extend({
     return model
   },
 })
+
+KnowledgEase.users = new KnowledgEase.Collections.Users
+KnowledgEase.users.fetch()

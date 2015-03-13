@@ -5,7 +5,7 @@
       <i class="fa fa-question-circle fa-2x fa-fw"></i>
         <span class="left"> <%= question.escape("question") %></span>
         <span class="right">
-          <a href="users/<%= question.author().id %>">
+          <a href="#users/<%= question.author().id %>">
             <%= question.author().escape("name") %>
           </a>
         </span>
@@ -35,13 +35,14 @@
     <%= question.askers().length %> Users Requested Answers:
     <br>
       <% question.askers().each( function (asker) { %>
-        <a href="users/<%= asker.id %>">
+        <a href="#users/<%= asker.id %>">
           <li class="left"><%= asker.get("name") %></li>
         </a>
       <% }) %>
     </ul>
 
-    <button class="request-answer">request_answer</button>
+    <article class="request-answer">
+    </article>
   </div>
 
 </div>

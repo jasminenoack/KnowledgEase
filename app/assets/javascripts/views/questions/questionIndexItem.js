@@ -1,6 +1,6 @@
 KnowledgEase.Views.QuestionIndexItem = Backbone.CompositeView.extend({
   initialize: function () {
-    this.listenTo(this.model, "change sync", this.render)
+    this.listenTo(this.model, "sync", this.render)
   },
 
   template: JST['questions/questionIndexItem'],
@@ -9,6 +9,15 @@ KnowledgEase.Views.QuestionIndexItem = Backbone.CompositeView.extend({
 
   render: function () {
     this.$el.html(this.template({question: this.model}))
+
+    var requestAnswer = new KnowledgEase.Views.RequestAnswer({
+      model: this.model
+    })
+    this.addSubview(".request-answer", requestAnswer)
     return this
   },
+
+  generateForm: function (event) {
+    console.log("generate")
+  }
 })

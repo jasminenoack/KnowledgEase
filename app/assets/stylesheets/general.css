@@ -72,7 +72,7 @@ ul.requestors li{
   font-size: 14px;
 }
 
-button.request-answer {
+.request-answer {
   display: block;
   position: absolute;
   right: 10px;

@@ -1,0 +1,12 @@
+<form class="submit-answer-request">
+  Request an answer from:
+  <select>
+    <option>No One</option>
+    <% KnowledgEase.users.each(function (user) { %>
+      <option name="answerer_id" value="<%= user.id %>" ><%= user.escape("name") %></option>
+    <% }) %>
+  </select>
+
+
+    <button>request</button>
+</form>
