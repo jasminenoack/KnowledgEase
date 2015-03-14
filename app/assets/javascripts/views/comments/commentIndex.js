@@ -8,14 +8,24 @@ KnowledgEase.Views.CommentIndex = Backbone.CompositeView.extend({
   template: JST['comments/commentIndex'],
 
   events: {
+    "submit .new-comment": "createComment",
+    "click .new-comment": "stop",
     "click .comment-button button": 'toggleComments',
-    "submit .new-comment": "createComment"
+
+  },
+
+  stop: function (event) {
+    event.stopPropagation()
   },
 
   createComment: function (event) {
     event.preventDefault()
     if (this.parent instanceof KnowledgEase.Models.User) {
       attrs = {commentable_type: "User", commentable_id: this.parent.id}
+    } else if (this.parent instanceof KnowledgEase.Models.Question) {
+      attrs = {commentable_type: "Question", commentable_id: this.parent.id}
+    } else {
+      attrs = {commentable_type: "Answer", commentable_id: this.parent.id}
     }
 
     _.extend(attrs, $(event.currentTarget).serializeJSON())

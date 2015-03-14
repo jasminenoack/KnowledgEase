@@ -16,7 +16,8 @@ KnowledgEase.Views.answerView = Backbone.CompositeView.extend({
     this.$el.html(this.template({answer: this.model}))
 
     var commentIndex = new KnowledgEase.Views.CommentIndex({
-      collection: this.model.comments()
+      collection: this.model.comments(),
+      parent: this.model
     })
     this.addSubview("p.answer-comments", commentIndex)
 
