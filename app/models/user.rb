@@ -37,7 +37,7 @@ class User < ActiveRecord::Base
   has_many(
     :comments_made,
     class_name: "Comment",
-    foreign_key: :author_id,
+    foreign_key: :user_id,
     inverse_of: :author
   )
 
