@@ -1,0 +1,2 @@
+<%= Comment.escape("body") %>
+<%= Comment.escape("author") %>

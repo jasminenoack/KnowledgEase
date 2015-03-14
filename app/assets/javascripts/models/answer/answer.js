@@ -9,10 +9,22 @@ KnowledgEase.Models.Answer = Backbone.Model.extend({
     return this._author
   },
 
+  comments: function () {
+    if (!this._comments) {
+      this._comments = new KnowledgEase.Collections.Comments
+    }
+    return this._comments
+  }
+
   parse: function (payload) {
     if (payload.author) {
       this.author().set(payload.author, {parse: true})
       delete payload.author
+    }
+
+    if (payload.comments) {
+      this.comments().set(payload.comments, {parse: true})
+      delete payload.comments
     }
 
     return payload

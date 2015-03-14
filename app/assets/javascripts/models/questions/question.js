@@ -24,6 +24,13 @@ KnowledgEase.Models.Question = Backbone.Model.extend({
     return this._answers
   },
 
+  comments: function () {
+    if (!this._comments) {
+      this._comments = new KnowledgEase.Collections.Comments
+    }
+    return this._comments
+  }
+
   parse: function (payload) {
     if (payload.author) {
       this.author().set(payload.author, {parse: true})
@@ -38,6 +45,11 @@ KnowledgEase.Models.Question = Backbone.Model.extend({
     if (payload.answers) {
       this.answers().set(payload.answers, {parse: true})
       delete payload.answers
+    }
+
+    if (payload.comments) {
+      this.comments().set(payload.comments, {parse: true})
+      delete payload.comments
     }
 
     return payload
