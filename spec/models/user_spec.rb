@@ -99,5 +99,7 @@ RSpec.describe User, type: :model do
     it {should have_many(:questions_requested_to_answer)}
     it {should have_many(:comments)}
     it {should have_many(:comments_made)}
+    it {should have_many(:known_topics)}
+
   end
 end

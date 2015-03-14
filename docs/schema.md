@@ -62,8 +62,7 @@ commentable: users, questions, answers
 column name | data type | details
 ------------|-----------|-----------------------
 id          | integer   | not null, primary key
-user_id     | integer   | not null, foreign key (references user)
-name        | string    | not null
+title       | string    | not null
 description | text      |
 
 ## topicing

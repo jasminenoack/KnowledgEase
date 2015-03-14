@@ -14,5 +14,6 @@ RSpec.describe Question, type: :model do
     it {should have_many(:answer_requesters)}
     it {should have_many(:users_asked_to_answer)}
     it {should have_many(:comments)}
+    it {should have_many(:topics)}
   end
 end

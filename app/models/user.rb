@@ -41,6 +41,9 @@ class User < ActiveRecord::Base
     inverse_of: :author
   )
 
+  has_many :knows_abouts, inverse_of: :user
+  has_many :known_topics, through: :knows_abouts, source: :topic
+
 
   def self.find_user(username, password)
     user = User.find_by(username: username)

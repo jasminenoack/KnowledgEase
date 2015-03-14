@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150314160748) do
+ActiveRecord::Schema.define(version: 20150314195748) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -40,6 +40,13 @@ ActiveRecord::Schema.define(version: 20150314160748) do
   add_index "comments", ["commentable_type"], name: "index_comments_on_commentable_type", using: :btree
   add_index "comments", ["user_id"], name: "index_comments_on_user_id", using: :btree
 
+  create_table "knows_abouts", force: :cascade do |t|
+    t.integer  "user_id",    null: false
+    t.integer  "topic_id",   null: false
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
   create_table "questions", force: :cascade do |t|
     t.integer  "user_id",     null: false
     t.string   "question",    null: false
@@ -62,6 +69,20 @@ ActiveRecord::Schema.define(version: 20150314160748) do
 
   add_index "sessions", ["session_token"], name: "index_sessions_on_session_token", unique: true, using: :btree
   add_index "sessions", ["user_id"], name: "index_sessions_on_user_id", using: :btree
+
+  create_table "topicings", force: :cascade do |t|
+    t.integer  "question_id", null: false
+    t.integer  "topic_id",    null: false
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "topics", force: :cascade do |t|
+    t.string   "title",       null: false
+    t.text     "description"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
 
   create_table "users", force: :cascade do |t|
     t.string   "email",           null: false

@@ -29,6 +29,8 @@ class Question < ActiveRecord::Base
   has_many :answers, inverse_of: :question
 
   has_many :comments, as: :commentable
-  
+  has_many :topicings, inverse_of: :question
+  has_many :topics, through: :topicings
+
 
 end
