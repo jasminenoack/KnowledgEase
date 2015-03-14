@@ -12,21 +12,21 @@ Users
 - [X] Create sessions (log in)
 - [X] Create questions
 - [X] Create answers
-- [ ] Comment on Questions and answers
+- [X] Comment on Questions and answers
 - [ ] Follow users topics and questions
 
 Questions
 - [X] View questions
 - [ ] Can be listed as anonomous
-- [ ] Have answers and comments
+- [X] Have answers and comments
 
 Answers
-- [ ] Can have comments
+- [X] Can have comments
 - [X] Are accessed nested under questions
 - [ ] User can choose the best answer
 
 Comments
-- [ ] Can be on users, questions, or answers
+- [X] Can be on users, questions, or answers
 
 Topics
 - [ ] Users can now about topics
