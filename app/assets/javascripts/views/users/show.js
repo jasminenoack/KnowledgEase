@@ -23,9 +23,10 @@ KnowledgEase.Views.UserShow = Backbone.CompositeView.extend({
   },
 
   addComments: function () {
-    this.model.comments().each(function (comment) {
-      var commentView = new KnowledgEase.Views.CommentView({model: comment})
-      this.addSubview("ul.commentIndex", commentView)
-    }.bind(this))
+    var commentIndex = new KnowledgEase.Views.CommentIndex({
+      collection: this.model.comments(),
+      parent: this.model
+    })
+    this.addSubview("ul.commentIndex", commentIndex)
   }
 })

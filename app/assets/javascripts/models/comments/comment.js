@@ -1,4 +1,5 @@
 KnowledgEase.Models.Comment = Backbone.Model.extend({
+  urlRoot: "api/comments", 
 
   author: function () {
     if (!this._author) {
