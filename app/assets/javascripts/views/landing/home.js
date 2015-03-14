@@ -2,6 +2,7 @@ KnowledgEase.Views.Home = Backbone.CompositeView.extend({
   initialize: function (options) {
     this.questions = options.questions
     this.users = options.users
+    this.topics = options.topics
   },
 
   template: JST["home/home"],
@@ -11,6 +12,7 @@ KnowledgEase.Views.Home = Backbone.CompositeView.extend({
 
     this.addQuestionIndex()
     this.addUserIndex()
+    this.addTopicIndex()
 
     return this
   },
@@ -29,5 +31,13 @@ KnowledgEase.Views.Home = Backbone.CompositeView.extend({
     })
 
     this.addSubview(".tab-pane.users", userIndexView)
+  },
+
+  addTopicIndex: function () {
+    var topicIndexView = new KnowledgEase.Views.TopicIndex({
+      collection: this.topics
+    })
+
+    this.addSubview(".tab-pane.topics", topicIndexView)
   }
 })
