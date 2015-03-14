@@ -12,3 +12,9 @@ json.comments do
     json.partial! "api/comments/comment", comment: comment
   end
 end
+
+json.topics do
+  json.array! @question.topics do |topic|
+    json.partial! "api/topics/topic", topic: topic
+  end
+end

@@ -18,7 +18,18 @@ KnowledgEase.Models.User = Backbone.Model.extend({
     return this._comments
   },
 
+  topics: function () {
+    if (!this._topics) {
+      this._topics = new KnowledgEase.Collections.Topics
+    }
+    return this._topics
+  },
+
   parse: function (payload) {
+    if (payload.topics) {
+      this.topics().set(payload.topics, {parse: true})
+      delete payload.topics
+    }
     if (payload.questions) {
       this.questions().set(payload.questions, {parse: true})
       delete payload.questions

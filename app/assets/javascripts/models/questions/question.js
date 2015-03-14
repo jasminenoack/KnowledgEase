@@ -31,7 +31,19 @@ KnowledgEase.Models.Question = Backbone.Model.extend({
     return this._comments
   },
 
+  topics: function () {
+    if (!this._topics) {
+      this._topics = new KnowledgEase.Collections.Topics
+    }
+    return this._topics
+  },
+
   parse: function (payload) {
+    if (payload.topics) {
+      this.topics().set(payload.topics, {parse: true})
+      delete payload.topics
+    }
+
     if (payload.author) {
       this.author().set(payload.author, {parse: true})
       delete payload.author

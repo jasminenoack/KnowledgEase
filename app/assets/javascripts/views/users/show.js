@@ -10,6 +10,7 @@ KnowledgEase.Views.UserShow = Backbone.CompositeView.extend({
 
     this.addQuestions()
     this.addComments()
+    this.addTopics()
 
     return this
   },
@@ -28,5 +29,13 @@ KnowledgEase.Views.UserShow = Backbone.CompositeView.extend({
       parent: this.model
     })
     this.addSubview("ul.commentIndex", commentIndex)
+  },
+
+  addTopics: function () {
+    console.log(this.model.topics())
+    var topicIndex = new KnowledgEase.Views.TopicIndex({
+      collection: this.model.topics()
+    })
+    this.addSubview("section.topics", topicIndex)
   }
 })
