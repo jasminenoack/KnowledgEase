@@ -54,6 +54,7 @@ id               | integer   | not null, primary key
 user_id          | integer   | not null, foreign key (references users)
 commentable_type | string    | not null, foreign key (references commented on object)
 commentable_id   | integer   | not null, foreign key (references commented on object)
+body             | text      | not null
 
 commentable: users, questions, answers
 
