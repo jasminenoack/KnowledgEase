@@ -29,8 +29,8 @@ Comments
 - [X] Can be on users, questions, or answers
 
 Topics
-- [ ] Users can now about topics
-- [ ] Questions have many topics
+- [X] Users can now about topics
+- [X] Questions have many topics
 
 Following
 - [ ] Users can follow topics, questions or other users
@@ -120,13 +120,13 @@ In this phase I will add the ability for users to answer questions. I will creat
 
 [Details][phase-four]
 
-### Phase 5: comments
+### Phase 5: comments --complete
 I will need to develop a polymorphic relationship to implement comments. Users will be able to post comments on questions, answers, and other users.
 
 [Details][phase-five]
 
 
-## Phase 6 topics
+## Phase 6 topics --complete
 I will implement topics which will include both a topic table and a join table allowing for a many to many relationship with questions. I will also create a join table that will let users indicate topics they know about. With this information I will implement the answer page which will list questions that a user has stated he knows about. I will also implement a topic page which will show topics that a user knows about.
 
 [Details][phase-six]
