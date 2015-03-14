@@ -20,6 +20,13 @@ KnowledgEase.Views.QuestionShow = Backbone.CompositeView.extend({
     this.addSubview(".answer-form", answerForm)
 
     this.addAnswers()
+
+    var commentIndex = new KnowledgEase.Views.CommentIndex({
+      collection: this.model.comments()
+    })
+    this.addSubview("p.comments", commentIndex)
+
+
     return this
   },
 

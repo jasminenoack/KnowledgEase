@@ -4,6 +4,7 @@
 </a>
 <p><%= question.escape("description") %></p>
 
+<p class="comments"></p>
 <% if (question.author().get("current_user")) { %>
   :p
   <a href="#questions/<%= question.id %>/edit">edit</a>
