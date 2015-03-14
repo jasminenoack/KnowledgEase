@@ -6,7 +6,10 @@ class Api::UsersController < ApplicationController
   end
 
   def show
-    @user = User.where(id: params[:id]).includes(questions: :answer_requesters).first
+    @user = User
+      .where(id: params[:id])
+      .includes({questions: :answer_requesters}, :comments)
+      .first
     render :show
   end
 

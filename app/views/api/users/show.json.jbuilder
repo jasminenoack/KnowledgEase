@@ -11,6 +11,12 @@ json.questions do
     json.partial! "api/questions/attach_question",
       question: question,
       current_user: current_user
-    json.partial! "api/questions/answer_requestors", question: question    
+    json.partial! "api/questions/answer_requestors", question: question
+  end
+end
+
+json.comments do
+  json.array!(@user.comments) do |comment|
+    json.partial! "api/comments/comment", comment: comment
   end
 end
