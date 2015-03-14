@@ -2,11 +2,14 @@
   <a class="right" href="#users/<%= answer.author().id %>">
     <%= answer.author().escape("name") %>
   </a>
-  <h2 class="left"><%= answer.header() %></h2>  
+  <h2 class="left"><%= answer.header() %></h2>
 </header>
-<atricle class="answer-body group">
+<article class="answer-body group">
+  <section class="group">
   <a class="right" href="#users/<%= answer.author().id %>">
     <%= answer.author().escape("name") %>
   </a>
   <h2 class="left"><%= answer.escape("body") %></h2>
+  </section>
+  <p class="answer-comments"></p>
 </article>

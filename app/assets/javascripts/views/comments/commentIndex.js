@@ -10,6 +10,7 @@ KnowledgEase.Views.CommentIndex = Backbone.CompositeView.extend({
   },
 
   toggleComments: function (event) {
+    event.stopPropagation()
     if ($(event.currentTarget).text() === ("See Comments")) {
       this.addComments()
       $(event.currentTarget).text("Hide Comments")
