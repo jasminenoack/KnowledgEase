@@ -6,3 +6,9 @@ json.answers do
     json.partial! "api/answers/answer", answer: answer
   end
 end
+
+json.comments do
+  json.array! @question.comments do |comment|
+    json.partial! "api/comments/comment", comment: comment
+  end
+end
