@@ -33,6 +33,14 @@ class User < ActiveRecord::Base
 
   has_many :answers, inverse_of: :author
 
+  has_many :comments, as: :commentable
+  has_many(
+    :comments_made,
+    class_name: "Comment",
+    foreign_key: :author_id,
+    inverse_of: :author
+  )
+
 
   def self.find_user(username, password)
     user = User.find_by(username: username)

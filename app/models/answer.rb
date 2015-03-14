@@ -8,5 +8,7 @@ class Answer < ActiveRecord::Base
     inverse_of: :answers
   )
 
+  has_many :comments, as: :commentable
+
   belongs_to :question, inverse_of: :answers
 end
