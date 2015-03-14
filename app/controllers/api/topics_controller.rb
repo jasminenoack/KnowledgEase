@@ -8,5 +8,8 @@ class Api::TopicsController < ApplicationController
   end
 
   def show
+    @topic = Topic.find(params[:id])
+    p @topic
+    @questions = @topic.questions.page(params[:page])
   end
 end
