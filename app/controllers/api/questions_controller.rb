@@ -25,7 +25,9 @@ class Api::QuestionsController < ApplicationController
   end
 
   def show
-    @question = Question.where(id: params[:id]).includes(:answer_requesters, {answers: :author}, :comments).first
+    @question = Question
+      .where(id: params[:id])
+      .includes(:answer_requesters, {answers: [:author, :comments]}, :comments).first
   end
 
   def index

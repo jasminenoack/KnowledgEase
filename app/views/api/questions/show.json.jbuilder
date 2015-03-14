@@ -3,7 +3,7 @@ json.partial! "api/questions/answer_requestors", question: @question
 
 json.answers do
   json.array! @question.answers do |answer|
-    json.partial! "api/answers/answer", answer: answer
+    json.partial! "api/answers/answers_show", answer: answer
   end
 end
 
