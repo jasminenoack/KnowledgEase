@@ -16,7 +16,7 @@ KnowledgEase.Models.User = Backbone.Model.extend({
       this._comments = new KnowledgEase.Collections.Comments
     }
     return this._comments
-  }
+  },
 
   parse: function (payload) {
     if (payload.questions) {

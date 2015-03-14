@@ -1,3 +1,3 @@
 KnowledgEase.Collections.Comments = Backbone.Collection.extend({
-  KnowledgEase.Models.Comment,
+  model: KnowledgEase.Models.Comment,
 })

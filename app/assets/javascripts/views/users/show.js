@@ -9,6 +9,7 @@ KnowledgEase.Views.UserShow = Backbone.CompositeView.extend({
     this.$el.html(this.template({user: this.model}))
 
     this.addQuestions()
+    this.addComments()
 
     return this
   },
@@ -20,4 +21,11 @@ KnowledgEase.Views.UserShow = Backbone.CompositeView.extend({
 
     this.addSubview("section.questions", questionIndexView)
   },
+
+  addComments: function () {
+    this.model.comments().each(function (comment) {
+      var commentView = new KnowledgEase.Views.CommentView({model: comment})
+      this.addSubview("ul.commentIndex", commentView)
+    }.bind(this))
+  }
 })
