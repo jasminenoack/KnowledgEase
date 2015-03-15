@@ -4,7 +4,11 @@ class Api::TopicsController < ApplicationController
   end
 
   def index
-    @topics = Topic.all.order("title").page(params[:page])
+    if params[:query] == "all"
+      @topics = Topic.all
+    else
+      @topics = Topic.all.order("title").page(params[:page])
+    end
   end
 
   def show

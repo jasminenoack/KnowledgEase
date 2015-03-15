@@ -54,6 +54,14 @@ class Api::QuestionsController < ApplicationController
   end
 
   def add_topic
+    @topicing = Topicing.new(
+      question_id: params[:question_id],
+      topic_id: params[:topic_id])
+    if @topicing.save
+      render json: @topicing
+    else
+      render json: @topicing.errors.full_messages, status: 422
+    end
   end
 
   private

@@ -14,8 +14,12 @@ KnowledgEase.Collections.Topics = Backbone.Collection.extend({
     model.fetch()
     return model
   },
+
+  comparator: "title"
 })
 
 
 KnowledgEase.topics = new KnowledgEase.Collections.Topics
-KnowledgEase.topics.fetch()
+KnowledgEase.topics.fetch({
+  data: {query: "all"}
+})

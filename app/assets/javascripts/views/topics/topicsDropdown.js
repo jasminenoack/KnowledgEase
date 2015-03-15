@@ -2,7 +2,6 @@ KnowledgEase.Views.TopicsDropDown = Backbone.CompositeView.extend({
   initialize: function(options) {
     this.parent = options.parent
     this.collection = KnowledgEase.topics
-    this.collection.fetch()
     this.listenTo(this.collection, "sync", this.render)
   },
 
@@ -35,9 +34,24 @@ KnowledgEase.Views.TopicsDropDown = Backbone.CompositeView.extend({
 
   },
 
-  changeTopic: function () {
-    console.log("change", this.model)
-
+  changeTopic: function (event) {
+    $.ajax({
+      url: "/api/questions/add_topic",
+      method: "post",
+      data: {question_id: this.parent.id, topic_id: $(event.currentTarget).val()},
+      success: function () {
+        if (this.model) {
+          $.ajax({
+            url: "/api/questions/remove_topic",
+            method: "delete",
+            data: {question_id: this.parent.id, topic_id: this.model.id},
+          })
+        }
+        this.model = this.collection.get($(event.currentTarget).val())
+        this.render.bind(this)
+      }.bind(this),
+      error: this.render.bind(this)
+    })
   },
 
 })

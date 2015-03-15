@@ -9,13 +9,15 @@
     <option
       name="topic_id"
       value="<%= dropTopic.id %>"
-      <% if (topic.escape("title") === dropTopic.escape("title")) { %>
+
+      <% if (topic && topic.escape("title") === dropTopic.escape("title")) { %>
         selected
       <% } %>
+
     >
       <%= dropTopic.escape("title") %>
     </option>
   <% }) %>
 </select>
 
-<button>remove <%= topic.escape("title") %></button>
+<button>remove</button>

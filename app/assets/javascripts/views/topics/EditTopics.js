@@ -3,11 +3,14 @@ KnowledgEase.Views.EditTopics = Backbone.CompositeView.extend({
     this.parent = options.parent
   },
 
-  events: {},
+  events: {
+    "click .more":"addNewDropdown"
+  },
 
   template: JST['topics/editTopics'],
 
   render: function() {
+    console.log("render")
     this.$el.html(this.template({ topic: this.model}))
     this.addDropdowns()
     return this
@@ -20,10 +23,15 @@ KnowledgEase.Views.EditTopics = Backbone.CompositeView.extend({
         model: topic
       })
     this.addSubview(".dropdowns", dropdown)
-  }.bind(this))
+    }.bind(this))
+    this.addNewDropdown()
+  },
+
+  addNewDropdown: function() {
+    var dropdown = new KnowledgEase.Views.TopicsDropDown({
+      parent: this.parent
+    })
+    this.addSubview(".dropdowns", dropdown)
   }
-
-
-
 
 })
