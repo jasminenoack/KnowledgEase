@@ -23,12 +23,27 @@ KnowledgEase.Views.TopicIndex = Backbone.CompositeView.extend({
   },
 
   editTopics: function () {
-    // console.log("edit")
     this.$el.empty()
+    this.$el.html(this.template())
+    this.addCurrentCollectionEdits()
+    this.handleButtons()
+
+
+
     var editView = new KnowledgEase.Views.EditTopics({
-      collection = this.collection;
-      parent = this.parent;
+      collection: this.collection,
+      parent: this.parent,
     })
+
+    this.$el
+  },
+
+  addCurrentCollectionEdits: function () {
+      var editView = new KnowledgEase.Views.EditTopics({
+        collection: this.collection,
+        parent: this.parent
+      })
+      this.addSubview(".edit", editView)
   },
 
   createContent: function () {

@@ -34,7 +34,6 @@ KnowledgEase.Views.CommentIndex = Backbone.CompositeView.extend({
         $(event.currentTarget).find("textarea").val("")
       }
     })
-    console.log(attrs)
   },
 
   toggleComments: function (event) {

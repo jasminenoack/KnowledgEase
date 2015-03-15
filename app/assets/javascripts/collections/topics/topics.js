@@ -1,6 +1,6 @@
 KnowledgEase.Collections.Topics = Backbone.Collection.extend({
   model: KnowledgEase.Models.Topic,
-  
+
   url: "api/topics",
 
   getOrFetch: function (id) {
@@ -15,3 +15,7 @@ KnowledgEase.Collections.Topics = Backbone.Collection.extend({
     return model
   },
 })
+
+
+KnowledgEase.topics = new KnowledgEase.Collections.Topics
+KnowledgEase.topics.fetch()

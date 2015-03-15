@@ -7,9 +7,10 @@ Rails.application.routes.draw do
     resources :answers, only: :create
     resources :comments, only: :create
     resources :topics, only: [:create, :index, :show]
-    resources :topicings, only: [:create, :destroy]
     get "want_answers/specific", to: 'want_answers#show_specific'
     get "want_answers/all", to: 'want_answers#show_all'
+    delete "questions/remove_topic", to: "questions#remove_topic"
+    post "questions/add_topic", to: "questions#add_topic"
   end
 
   root 'static_pages#index'

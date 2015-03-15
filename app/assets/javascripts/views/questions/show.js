@@ -40,7 +40,6 @@ KnowledgEase.Views.QuestionShow = Backbone.CompositeView.extend({
   },
 
   addTopics: function () {
-    console.log(this.model.topics())
     var topicIndex = new KnowledgEase.Views.TopicIndex({
       collection: this.model.topics(),
       parent: this.model

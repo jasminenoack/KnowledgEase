@@ -45,6 +45,17 @@ class Api::QuestionsController < ApplicationController
     end
   end
 
+  def remove_topic
+    @topicing = Topicing.where(
+      question_id: params[:question_id],
+      topic_id: params[:topic_id]).first
+    @topicing.destroy
+    render json: @topicing
+  end
+
+  def add_topic
+  end
+
   private
   def question_params
     params.require(:question).permit(:question, :description)

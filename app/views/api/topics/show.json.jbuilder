@@ -1,4 +1,4 @@
-json.extract! @topic, :id, :title
+json.partial! "api/topics/topic", topic: @topic
 
 json.questions do
   json.array!(@questions) do |question|
