@@ -33,7 +33,8 @@ KnowledgEase.Views.UserShow = Backbone.CompositeView.extend({
 
   addTopics: function () {
     var topicIndex = new KnowledgEase.Views.TopicIndex({
-      collection: this.model.topics()
+      collection: this.model.topics(),
+      parent: this.model
     })
     this.addSubview("section.topics", topicIndex)
   }
