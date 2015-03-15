@@ -3,7 +3,7 @@ class CreateFollows < ActiveRecord::Migration
     create_table :follows do |t|
       t.integer :follower_id, null: false
       t.integer :followable_id, null: false
-      t.integer :followable_type, null: false
+      t.string :followable_type, null: false
       t.timestamps
     end
     add_index :follows, :followable_id
