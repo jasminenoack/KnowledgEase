@@ -7,10 +7,12 @@ KnowledgEase.Views.TopicIndex = Backbone.CompositeView.extend({
   },
 
   template: JST['topics/index'],
+  editTemplate: JST['topics/editTopicsButton'],
 
   events: {
    "click .last.topics":"lastPage",
    "click .next.topics":"nextPage",
+   "click .edit-topics":"editTopics"
   },
 
   render: function () {
@@ -19,9 +21,14 @@ KnowledgEase.Views.TopicIndex = Backbone.CompositeView.extend({
     return this
   },
 
+  editTopics: function () {
+    console.log("edit")
+  },
+
   createContent: function () {
     this.$el.html(this.template())
     this.addCurrentCollection()
+    this.$el.find(".edit").html(this.editTemplate())
   },
 
   handleButtons: function () {
