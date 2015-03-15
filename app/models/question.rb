@@ -32,5 +32,8 @@ class Question < ActiveRecord::Base
   has_many :topicings, inverse_of: :question
   has_many :topics, through: :topicings
 
+  has_many :followers, class_name: "Follow", as: :followable
+  has_many :users_following, through: :followers, source: :follower
+
 
 end

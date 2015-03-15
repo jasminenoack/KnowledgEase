@@ -44,6 +44,11 @@ class User < ActiveRecord::Base
   has_many :knows_abouts, inverse_of: :user
   has_many :known_topics, through: :knows_abouts, source: :topic
 
+  has_many :follows, foreign_key: :follower_id, inverse_of: :follower
+
+  has_many :followers, class_name: "Follow", as: :followable
+  has_many :users_following, through: :followers, source: :follower
+
 
   def self.find_user(username, password)
     user = User.find_by(username: username)

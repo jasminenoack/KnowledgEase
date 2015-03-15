@@ -15,5 +15,8 @@ RSpec.describe Question, type: :model do
     it {should have_many(:users_asked_to_answer)}
     it {should have_many(:comments)}
     it {should have_many(:topics)}
+    it {should have_many(:followers)}
+    it {should have_many(:users_following)}
+    
   end
 end

@@ -8,5 +8,8 @@ RSpec.describe Topic, type: :model do
   describe "Topic associations" do
     it {should have_many(:questions)}
     it {should have_many(:knowledgable_users)}
+    it {should have_many(:followers)}
+    it {should have_many(:users_following)}
+    
   end
 end
