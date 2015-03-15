@@ -1,9 +1,10 @@
 KnowledgEase.Views.TopicIndex = Backbone.CompositeView.extend({
-  initialize: function () {
+  initialize: function (options) {
     this.listenTo(this.collection, "sync", this.render);
     // this.listenTo(this.collection, "add", this.add);
     // this.listenTo(this.collection, "sync", this.render);
     this.page()
+    this.parent = options.parent
   },
 
   template: JST['topics/index'],
@@ -22,13 +23,20 @@ KnowledgEase.Views.TopicIndex = Backbone.CompositeView.extend({
   },
 
   editTopics: function () {
-    console.log("edit")
+    // console.log("edit")
+    this.$el.empty()
+    var editView = new KnowledgEase.Views.EditTopics({
+      collection = this.collection;
+      parent = this.parent;
+    })
   },
 
   createContent: function () {
     this.$el.html(this.template())
     this.addCurrentCollection()
-    this.$el.find(".edit").html(this.editTemplate())
+    if (this.parent) {
+      this.$el.find(".edit").html(this.editTemplate())
+    }
   },
 
   handleButtons: function () {
