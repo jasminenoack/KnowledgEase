@@ -8,5 +8,5 @@ class Comment < ActiveRecord::Base
     foreign_key: :user_id,
     inverse_of: :comments_made
   )
-
+  
 end

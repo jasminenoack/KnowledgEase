@@ -11,10 +11,12 @@ gem 'jbuilder', '~> 2.0'
 gem 'sdoc', '~> 0.4.0', group: :doc
 gem 'bcrypt', '~> 3.1.7'
 gem 'backbone-on-rails'
-gem 'rails_12factor'
 gem 'faker'
 gem 'kaminari'
 gem "font-awesome-rails"
+gem 'bootstrap-sass'
+gem 'autoprefixer-rails'
+gem 'public_activity'
 
 group :development, :test do
   gem 'pry-rails'
@@ -28,4 +30,8 @@ end
 
 group :test do
   gem "shoulda-matchers"
+end
+
+group :production do
+  gem 'rails_12factor'
 end

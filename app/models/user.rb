@@ -49,6 +49,9 @@ class User < ActiveRecord::Base
   has_many :followers, class_name: "Follow", as: :followable
   has_many :users_following, through: :followers, source: :follower
 
+  has_many :followed_topics, through: :follows, source: :followable, source_type: "Topic"
+  has_many :followed_users, through: :follows, source: :followable, source_type: "User"
+  has_many :followed_questions, through: :follows, source: :followable, source_type: "Question"
 
   def self.find_user(username, password)
     user = User.find_by(username: username)

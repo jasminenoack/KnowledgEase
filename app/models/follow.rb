@@ -9,25 +9,14 @@ class Follow < ActiveRecord::Base
     inverse_of: :follows
   )
 
-
   def self.feed(current)
-    follows = Follow
-      .where(follower_id: current.id)
-      # .includes(followable:
-      #   [:author, :answers,
-      #   questions: [:author, :answers]
-      #   ]
-      # )
-
-    follows
-
-
-    # feed =
-    #   Follow.feed_user_questions(current) +
-    #   Follow.feed_topic_questions(current) +
-    #   Follow.feed_questions(current)
-    # feed = feed.sort_by{ |question| question.time }.reverse
-    # feed = feed.uniq{ |question| question.id }
+    feed_questions =
+      Follow.feed_user_questions(current) +
+      Follow.feed_user_answers(current) +
+      Follow.feed_topic_questions(current) +
+      Follow.feed_topic_answers(current) +
+      Follow.feed_questions(current)
+    feed_questions.sort_by{ |question| question.time }.reverse
   end
 
   def self.feed_user_questions(current)
@@ -37,43 +26,59 @@ class Follow < ActiveRecord::Base
         'User' as relation,
         questions.created_at as time"
       )
-      .joins(:author)
-      .joins(<<-SQL
-        INNER JOIN
-          follows as user_follows
-        ON
-          user_follows.followable_id = users.id AND
-          user_follows.followable_type = 'User'
-        SQL
-      )
-      .where("user_follows.follower_id = ?", current.id)
+      .where(user_id: current.follows.where(followable_type: "User").pluck(:followable_id))
+      .includes(:author, :answers)
   end
+
+  def self.feed_user_answers(current)
+    Answer
+      .select(
+        "answers.*,
+        'UserAnswer' as relation,
+        answers.created_at as time"
+      )
+      .where(user_id: current.follows.where(followable_type: "User").pluck(:followable_id))
+      .includes({question: [:answers, :author]}, :author)
+  end
+
 
   def self.feed_topic_questions(current)
     Question
       .select(
         "questions.*,
-        'Topic' as relation,
-        topics.id as relation_id,
-        topics.title as relation_name,
+        'Topic' as Relation,
+        topics.id as Relation_id,
+        topics.title as title,
         questions.created_at as time"
       )
       .joins(:topics)
-      .joins(<<-SQL
-        INNER JOIN
-          follows as topic_follows
-        ON
-          topic_follows.followable_id = topics.id AND
-          topic_follows.followable_type = 'Topic'
-        SQL
+      .includes(:author)
+      .where("topics.id IN (#{current.follows.where(followable_type: "Topic").pluck(:followable_id).join(',')})")
+  end
+
+  def self.feed_topic_answers(current)
+    Answer
+      .select(
+        "answers.*,
+        'TopicAnswer' as Relation,
+        topics.id as Relation_id,
+        topics.title as title,
+        questions.created_at as time"
       )
-      .where("topic_follows.follower_id = ?", current.id)
+      .joins(question: :topics)
+      .includes(:author, {question: :author})
+      .where("topics.id IN (#{current.follows.where(followable_type: "Topic").pluck(:followable_id).join(',')})")
   end
 
   def self.feed_questions(current)
-    Question
-      .select("questions.*, 'Question' as relation, questions.updated_at as time")
-      .joins(:followers)
-      .where("follows.follower_id = ?", current.id)
+    Answer
+      .select(
+        "answers.*,
+        'QuestionAnswer' as Relation,
+         answers.created_at as time"
+      )
+      .joins(:question)
+      .where(question_id: current.follows.where(followable_type: "Question").pluck(:followable_id))
+      .includes(:author, {question: :author})
   end
 end

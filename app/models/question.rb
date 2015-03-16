@@ -1,4 +1,5 @@
 class Question < ActiveRecord::Base
+
   validates :author, :question, presence: true
   validates :question, uniqueness: true
 
