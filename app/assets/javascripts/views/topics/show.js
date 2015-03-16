@@ -7,6 +7,10 @@ KnowledgEase.Views.TopicShow = Backbone.CompositeView.extend({
 
   template: JST['topics/show'],
 
+  events: {
+    "click .edit-topic": 'editForm'
+  },
+
   render: function () {
     this.$el.html(this.template({topic: this.model}))
     this.addQuestions()
@@ -27,6 +31,14 @@ KnowledgEase.Views.TopicShow = Backbone.CompositeView.extend({
       model: this.model
     })
     this.addSubview("section.follow-button-topic", followButton)
+  },
+
+  editForm: function () {
+    console.log(this.model)
+    var TopicForm = new KnowledgEase.Views.Topicform({
+      model: this.model
+    })
+    this.addSubview(".topic-form", TopicForm)
   }
 })
 

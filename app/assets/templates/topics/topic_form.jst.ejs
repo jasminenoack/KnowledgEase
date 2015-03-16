@@ -1,7 +1,7 @@
 <label for="title">Title:</label>
-<input type="text" name="title" value="<%= topic.title %>" id="title">
+<input type="text" name="title" value="<%= topic.escape("title") %>" id="title">
 
 <label for="description">Description:</label>
-<textarea id="description" name="description"><%= topic.description %></textarea>
+<textarea id="description" name="description"><%= topic.escape("description") %></textarea>
 
 <button>submit</button>

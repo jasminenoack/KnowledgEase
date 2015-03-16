@@ -18,6 +18,12 @@ class Api::TopicsController < ApplicationController
   end
 
   def update
+    @topic = Topic.find(params[:id])
+    if @topic.update(topic_params)
+      render json: @topic
+    else
+      render json: @topic.errors.full_messages, status: 422
+    end
   end
 
   def show
