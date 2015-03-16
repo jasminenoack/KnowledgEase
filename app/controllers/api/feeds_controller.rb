@@ -2,7 +2,7 @@ class Api::FeedsController < ApplicationController
   def index
     if logged_in?
       page = params[:page] || 1
-      start_item = (page - 1) * 25
+      start_item = (page.to_i - 1) * 25
       all_feed = Follow.feed(current_user)
       @feed= all_feed[(start_item)...start_item + 25]
     else

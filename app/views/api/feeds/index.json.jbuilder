@@ -10,7 +10,7 @@ json.array! @feed do |item|
     json.follow_message "<a href='#/users/#{item.author.id}'>#{item.author.name}</a> answered:"
     json.time time_ago_in_words(item.time)
     json.partial! "api/questions/nude", question: item.question
-    json.answer do
+    json.answers do
       json.partial! "api/answers/answer", answer: item
     end
   end
@@ -22,19 +22,19 @@ json.array! @feed do |item|
   end
 
   if item.relation == "TopicAnswer"
-    json.follow_message "Question on <a href='#/topics/#{item.relation_id}'> #{item.title}</a> was answered:"
+    json.follow_message "Question on <a href='#/topics/#{item.relation_id}'>#{item.title}</a> was answered:"
     json.time time_ago_in_words(item.time)
     json.partial! "api/questions/nude", question: item.question
-    json.answer do
+    json.answers do
       json.partial! "api/answers/answer", answer: item
     end
   end
 
   if item.relation == "QuestionAnswer"
-    json.follow_message "New Answer to <a href='#/topics/#{item.question.id}'> #{item.question.question}</a>:"
+    json.follow_message "New Answer to <a href='#/questions/#{item.question.id}'> #{item.question.question}</a>:"
     json.time time_ago_in_words(item.time)
     json.partial! "api/questions/nude", question: item.question
-    json.answer do
+    json.answers do
       json.partial! "api/answers/answer", answer: item
     end
   end

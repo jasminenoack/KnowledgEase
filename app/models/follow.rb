@@ -10,13 +10,14 @@ class Follow < ActiveRecord::Base
   )
 
   def self.feed(current)
-    feed_questions =
+    feed =
       Follow.feed_user_questions(current) +
       Follow.feed_user_answers(current) +
       Follow.feed_topic_questions(current) +
       Follow.feed_topic_answers(current) +
       Follow.feed_questions(current)
-    feed_questions.sort_by{ |question| question.time }.reverse
+    
+    feed.sort_by{ |question| question.time }.reverse
   end
 
   def self.feed_user_questions(current)

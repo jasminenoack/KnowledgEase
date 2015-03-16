@@ -13,8 +13,19 @@ KnowledgEase.Views.Home = Backbone.CompositeView.extend({
     this.addQuestionIndex()
     this.addUserIndex()
     this.addTopicIndex()
+    this.addFeed()
 
     return this
+  },
+
+  addFeed: function () {
+    var feedItems = new KnowledgEase.Collections.Feed
+    feedItems.fetch()
+    var feedIndex = new KnowledgEase.Views.Feed({
+      collection: feedItems
+    })
+
+    this.addSubview(".tab-pane.feed", feedIndex)
   },
 
   addQuestionIndex: function () {
