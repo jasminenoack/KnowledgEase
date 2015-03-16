@@ -55,6 +55,7 @@ KnowledgEase.Views.TopicIndex = Backbone.CompositeView.extend({
   createContent: function () {
     this.$el.html(this.template())
     this.addCurrentCollection()
+    this.addTopicForm()
     if (this.parent) {
       this.$el.find(".edit").html(this.editTemplate())
     }
@@ -85,6 +86,13 @@ KnowledgEase.Views.TopicIndex = Backbone.CompositeView.extend({
     this.collection.each(function (topic) {
       this.add(topic)
     }.bind(this))
+  },
+
+  addTopicForm: function () {
+    var TopicForm = new KnowledgEase.Views.Topicform({
+      model: new KnowledgEase.Models.Topic
+    })
+    this.addSubview(".topic-form", TopicForm)
   },
 })
 
