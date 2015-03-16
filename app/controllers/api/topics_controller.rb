@@ -12,8 +12,7 @@ class Api::TopicsController < ApplicationController
   end
 
   def show
-    @topic = Topic.find(params[:id])
-    p @topic
-    @questions = @topic.questions.page(params[:page])
+    @topic = Topic.where(id: params[:id]).includes(:users_following).first
+    @questions = @topic.questions.page(params[:page]).includes(:author, :users_following)
   end
 end

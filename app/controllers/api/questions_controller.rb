@@ -28,14 +28,14 @@ class Api::QuestionsController < ApplicationController
   def show
     @question = Question
       .where(id: params[:id])
-      .includes(:answer_requesters, :topics, {answers: [:author, {comments: :author}]}, {comments: :author}).first
+      .includes(:users_following, :answer_requesters, :topics, {answers: [:author, {comments: :author}]}, {comments: :author}).first
   end
 
   def index
     if params[:user_id]
       @questions = Question
         .where(user_id: params[:user_id])
-        .includes(:author, :answer_requesters, :answers)
+        .includes(:users_following, :author, :answer_requesters, :answers)
         .order(id: :desc)
         .page(params[:page])
     else

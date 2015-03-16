@@ -10,6 +10,7 @@ KnowledgEase.Views.TopicShow = Backbone.CompositeView.extend({
   render: function () {
     this.$el.html(this.template({topic: this.model}))
     this.addQuestions()
+    this.addFollowButton()
     return this
   },
 
@@ -20,6 +21,13 @@ KnowledgEase.Views.TopicShow = Backbone.CompositeView.extend({
 
     this.addSubview("section.questions", questionIndexView)
   },
+
+  addFollowButton: function () {
+    var followButton = new KnowledgEase.Views.FollowButton({
+      model: this.model
+    })
+    this.addSubview("section.follow-button-topic", followButton)
+  }
 })
 
 

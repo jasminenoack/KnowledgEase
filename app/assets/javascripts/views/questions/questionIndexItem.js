@@ -20,7 +20,17 @@ KnowledgEase.Views.QuestionIndexItem = Backbone.CompositeView.extend({
       model: this.model
     })
     this.addSubview(".request-answer", requestAnswer)
+
+    this.addFollowButton()
+
     return this
   },
+
+  addFollowButton: function () {
+    var followButton = new KnowledgEase.Views.FollowButton({
+      model: this.model
+    })
+    this.addSubview("section.follow-button-question-index", followButton)
+  }
 
 })

@@ -1,8 +1,6 @@
 KnowledgEase.Views.QuestionIndex = Backbone.CompositeView.extend({
   initialize: function () {
     this.listenTo(this.collection, "sync", this.render);
-    // this.listenTo(this.collection, "add", this.add);
-    // this.listenTo(this.collection, "sync", this.render);
     this.page()
   },
 

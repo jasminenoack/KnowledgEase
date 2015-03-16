@@ -2,8 +2,11 @@ KnowledgEase.Views.FollowButton = Backbone.CompositeView.extend({
   initialize: function () {
     if (this.model instanceof KnowledgEase.Models.User) {
       this.type = "User"
+    } else if (this.model instanceof KnowledgEase.Models.Question) {
+      this.type = "Question"
+    } else {
+      this.type = "Topic"
     }
-
   },
 
   events: {
@@ -26,13 +29,12 @@ KnowledgEase.Views.FollowButton = Backbone.CompositeView.extend({
       method: "post",
       data: {followable_id: this.model.id, followable_type: this.type},
       success: function (json) {
-        this.model.fetch()
+        this.model.set("followed", !this.model.get("followed"))
+        this.render()
       }.bind(this),
       error: function (xhr) {
-        this.model.fetch()
+        this.render()
       }.bind(this)
     })
-
-    console.log("button")
   }
 })
