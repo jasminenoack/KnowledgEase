@@ -7,6 +7,7 @@ Rails.application.routes.draw do
     resources :answers, only: :create
     resources :comments, only: :create
     resources :topics, only: [:create, :index, :show]
+    resources :feeds, only: :index
     delete "users/remove_knows_about", to: "users#remove_knows_about"
     post "users/add_knows_about", to: "users#add_knows_about"
     get "want_answers/specific", to: 'want_answers#show_specific'
