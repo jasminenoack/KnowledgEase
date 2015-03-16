@@ -16,7 +16,7 @@ class Follow < ActiveRecord::Base
       Follow.feed_topic_questions(current) +
       Follow.feed_topic_answers(current) +
       Follow.feed_questions(current)
-    
+
     feed.sort_by{ |question| question.time }.reverse
   end
 
@@ -44,31 +44,39 @@ class Follow < ActiveRecord::Base
 
 
   def self.feed_topic_questions(current)
-    Question
-      .select(
-        "questions.*,
-        'Topic' as Relation,
-        topics.id as Relation_id,
-        topics.title as title,
-        questions.created_at as time"
-      )
-      .joins(:topics)
-      .includes(:author)
-      .where("topics.id IN (#{current.follows.where(followable_type: "Topic").pluck(:followable_id).join(',')})")
+    if current.followed_topics.length > 0
+      Question
+        .select(
+          "questions.*,
+          'Topic' as Relation,
+          topics.id as Relation_id,
+          topics.title as title,
+          questions.created_at as time"
+        )
+        .joins(:topics)
+        .includes(:author)
+        .where("topics.id IN (#{current.follows.where(followable_type: "Topic").pluck(:followable_id).join(',')})")
+    else
+      []
+    end
   end
 
   def self.feed_topic_answers(current)
-    Answer
-      .select(
-        "answers.*,
-        'TopicAnswer' as Relation,
-        topics.id as Relation_id,
-        topics.title as title,
-        questions.created_at as time"
-      )
-      .joins(question: :topics)
-      .includes(:author, {question: :author})
-      .where("topics.id IN (#{current.follows.where(followable_type: "Topic").pluck(:followable_id).join(',')})")
+    if current.followed_topics.length > 0
+      Answer
+        .select(
+          "answers.*,
+          'TopicAnswer' as Relation,
+          topics.id as Relation_id,
+          topics.title as title,
+          questions.created_at as time"
+        )
+        .joins(question: :topics)
+        .includes(:author, {question: :author})
+        .where("topics.id IN (#{current.follows.where(followable_type: "Topic").pluck(:followable_id).join(',')})")
+    else
+      []
+    end
   end
 
   def self.feed_questions(current)
