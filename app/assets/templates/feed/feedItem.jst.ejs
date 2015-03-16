@@ -1,4 +1,15 @@
-<li>
-  <header><%= question.get("follow_message") %></header>
-  <main></main>
+<li class="feed-item">
+  <header ><%= question.get("follow_message") %></header>
+  <main>
+    <p>
+      <a href="#/questions/<%= question.escape("question_id") %>">
+        <%= question.escape("question") %>
+      </a>
+      (<%= question.author().escape("name") %>)
+    </p>
+    <p><% if (question.answers().length > 0) { %>
+      <%= question.answers().first().escape("body") %>
+    <% } %></p>
+    <p><%= question.escape("time") %></p>
+  </main>
 </li>

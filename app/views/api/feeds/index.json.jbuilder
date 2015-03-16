@@ -16,13 +16,13 @@ json.array! @feed do |item|
   end
 
   if item.relation == "Topic"
-    json.follow_message "New Question for <a href='#/topics/#{item.relation_id}'> #{item.title}</a>:"
+    json.follow_message "<a href='#/topics/#{item.relation_id}'> #{item.title}</a>: New Question:"
     json.time time_ago_in_words(item.time)
     json.partial! "api/questions/nude", question: item
   end
 
   if item.relation == "TopicAnswer"
-    json.follow_message "Question on <a href='#/topics/#{item.relation_id}'>#{item.title}</a> was answered:"
+    json.follow_message "<a href='#/topics/#{item.relation_id}'>#{item.title}</a>: Question answered:"
     json.time time_ago_in_words(item.time)
     json.partial! "api/questions/nude", question: item.question
     json.answers do
@@ -31,7 +31,7 @@ json.array! @feed do |item|
   end
 
   if item.relation == "QuestionAnswer"
-    json.follow_message "New Answer to <a href='#/questions/#{item.question.id}'> #{item.question.question}</a>:"
+    json.follow_message "New Answer:"
     json.time time_ago_in_words(item.time)
     json.partial! "api/questions/nude", question: item.question
     json.answers do

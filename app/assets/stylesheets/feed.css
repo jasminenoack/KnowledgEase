@@ -1,0 +1,14 @@
+li.feed-item {
+  background: #F6f6f6;
+  padding: 10px;
+  margin: 10px;
+}
+
+li.feed-item header {
+  font-size: 18px
+}
+
+li.feed-item main {
+  background: #eaeae6;
+  padding: 5px
+}
