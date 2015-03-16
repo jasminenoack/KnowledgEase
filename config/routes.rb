@@ -14,6 +14,7 @@ Rails.application.routes.draw do
     get "want_answers/all", to: 'want_answers#show_all'
     delete "questions/remove_topic", to: "questions#remove_topic"
     post "questions/add_topic", to: "questions#add_topic"
+    post "toggle_follow", to: "feeds#toggle_follow"
   end
 
   root 'static_pages#index'

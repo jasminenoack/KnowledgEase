@@ -11,6 +11,7 @@ KnowledgEase.Views.UserShow = Backbone.CompositeView.extend({
     this.addQuestions()
     this.addComments()
     this.addTopics()
+    this.addFollowButton()
 
     return this
   },
@@ -37,5 +38,12 @@ KnowledgEase.Views.UserShow = Backbone.CompositeView.extend({
       parent: this.model
     })
     this.addSubview("section.topics", topicIndex)
+  },
+
+  addFollowButton: function () {
+    var followButton = new KnowledgEase.Views.FollowButton({
+      model: this.model
+    })
+    this.addSubview("section.follow-button", followButton)
   }
 })

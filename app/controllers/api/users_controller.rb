@@ -2,13 +2,13 @@ class Api::UsersController < ApplicationController
   before_action :require_login, only: :update
 
   def index
-    @users = User.all
+    @users = User.all.includes(:users_following)
   end
 
   def show
     @user = User
       .where(id: params[:id])
-      .includes({questions: :answer_requesters}, {comments: :author}, :known_topics)
+      .includes({questions: [:answer_requesters, {answers: :author}]}, {comments: :author}, :known_topics, :users_following)
       .first
     render :show
   end

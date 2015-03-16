@@ -5,6 +5,8 @@
 <% if (user.get("current_user")) { %>
   <a href="#/users/<%= user.id %>/edit">edit</a>
 :p
+<% } else { %>
+  <section class="follow-button"></section>
 <% } %>
 
 <h1>Questions</h1>
