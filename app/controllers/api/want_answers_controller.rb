@@ -15,6 +15,11 @@ class Api::WantAnswersController < ApplicationController
   def create
     @want_answer = current_user.wanted_answers.new(want_answer_params)
 
+    current_user.follows.find_or_create_by(
+      followable_id: params[:question_id],
+      followable_type: "Question",
+    )
+
     if @want_answer.save
       render json: ["success"]
     else

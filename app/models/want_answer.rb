@@ -60,9 +60,8 @@ class WantAnswer < ActiveRecord::Base
   def asker_cannot_ask_the_same_user
     requests = WantAnswer.where(asker_id: asker_id, question_id: question_id)
 
-    if (!answerer_id && requests.where("answerer_id IS NULL").count > 0) ||
-      (requests.where(answerer_id: answerer_id).count > 0)
-      errors[:base] << "You cannot reask the same person"
+    if (!answerer_id) || (requests.where(answerer_id: answerer_id).count > 0)
+      errors[:base] << "You must ask a new person"
     end
 
   end

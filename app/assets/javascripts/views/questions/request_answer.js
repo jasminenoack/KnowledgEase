@@ -33,6 +33,11 @@ KnowledgEase.Views.RequestAnswer = Backbone.CompositeView.extend({
       success: function () {
         this.$el.html(this.template())
         this.$el.prepend("<p>Request Successful</p>")
+
+        var button = this.$el.parent().parent().parent().find(".follow")
+        var text = button.text("UnFollow")
+
+        this.model.set("followed", !this.model.get("followed"))
       }.bind(this),
       error: function (event, xhr) {
         this.$el.find("form").prepend("<p>You have already made this<br> request pick a different user!</p>")
