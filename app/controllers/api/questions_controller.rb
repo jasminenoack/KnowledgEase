@@ -9,6 +9,7 @@ class Api::QuestionsController < ApplicationController
 
     @question = current_user.questions.new(question_params)
     if @question.save
+      @question.users_following << current_user
       render :show
     else
       render json: @question.errors.full_messages, status: 422

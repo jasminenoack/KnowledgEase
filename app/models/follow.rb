@@ -1,6 +1,5 @@
 class Follow < ActiveRecord::Base
   validates :followable, :follower, presence: true
-  validates :follower, uniqueness: {scope: :followable}
 
   belongs_to :followable, polymorphic: true
   belongs_to(
@@ -12,15 +11,32 @@ class Follow < ActiveRecord::Base
 
 
   def self.feed(current)
-    feed =
-    Follow.feed_user_questions(current) +
-    Follow.feed_topic_questions(current) +
-    Follow.feed_questions(current)
+    follows = Follow
+      .where(follower_id: current.id)
+      # .includes(followable:
+      #   [:author, :answers,
+      #   questions: [:author, :answers]
+      #   ]
+      # )
+
+    follows
+
+
+    # feed =
+    #   Follow.feed_user_questions(current) +
+    #   Follow.feed_topic_questions(current) +
+    #   Follow.feed_questions(current)
+    # feed = feed.sort_by{ |question| question.time }.reverse
+    # feed = feed.uniq{ |question| question.id }
   end
 
   def self.feed_user_questions(current)
     Question
-      .select("questions.*, 'User' as relation")
+      .select(
+        "questions.*,
+        'User' as relation,
+        questions.created_at as time"
+      )
       .joins(:author)
       .joins(<<-SQL
         INNER JOIN
@@ -35,7 +51,13 @@ class Follow < ActiveRecord::Base
 
   def self.feed_topic_questions(current)
     Question
-      .select("questions.*, 'Topic' as relation")
+      .select(
+        "questions.*,
+        'Topic' as relation,
+        topics.id as relation_id,
+        topics.title as relation_name,
+        questions.created_at as time"
+      )
       .joins(:topics)
       .joins(<<-SQL
         INNER JOIN
@@ -50,7 +72,7 @@ class Follow < ActiveRecord::Base
 
   def self.feed_questions(current)
     Question
-      .select("questions.*, 'Question' as relation")
+      .select("questions.*, 'Question' as relation, questions.updated_at as time")
       .joins(:followers)
       .where("follows.follower_id = ?", current.id)
   end
