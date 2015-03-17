@@ -1,0 +1,64 @@
+section.modal {
+  display: none;
+  position: fixed;
+  height: 100%;
+  width: 100%;
+  background: rgba(142,142,135, 0.5);
+  z-index: 10;
+  top: 0;
+}
+
+section.modal.active {
+  display: block;
+}
+
+section.modal > div {
+  position: relative;
+  text-align: center;
+  display: block;
+  margin: auto;
+  top: 50%;
+  transform: translateY(-50%)
+}
+
+.modal form h1 {
+  text-align: center;
+  display: block;
+}
+
+.modal form {
+  text-align: right;
+  padding: 20px;
+  position: relative;
+}
+
+.modal input {
+  display: inline-block;
+  margin: 10px;
+  text-align: left;
+}
+
+.modal .failure {
+  text-align: left;
+}
+
+.modal .close {
+  position: absolute;
+  top: 5px;
+  left: 5px;
+  border: 1px solid #E7512D;
+  height: 20px;
+  width: 20px;
+  text-align: center;
+}
+
+.modal .close:hover {
+  position: absolute;
+  top: 5px;
+  left: 5px;
+  border: 1px solid #E7512D;
+  height: 20px;
+  width: 20px;
+  text-align: center;
+  background: #FCECE8;
+}

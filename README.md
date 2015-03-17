@@ -13,7 +13,7 @@ Users
 - [X] Create questions
 - [X] Create answers
 - [X] Comment on Questions and answers
-- [ ] Follow users topics and questions
+- [X] Follow users topics and questions
 
 Questions
 - [X] View questions
@@ -33,12 +33,12 @@ Topics
 - [X] Questions have many topics
 
 Following
-- [ ] Users can follow topics, questions or other users
+- [X] Users can follow topics, questions or other users
 
 Search
-- [ ] Users can search by topic
-- [ ] Users can search by user
-- [ ] Users can search by question content
+- [X] Users can search by topic
+- [X] Users can search by user
+- [X] Users can search by question content
 - [ ] Users can complete an advanced search
 
 ## Bonus Features

@@ -16,9 +16,11 @@ KnowledgEase.Views.Navbar = Backbone.CompositeView.extend({
   },
 
   signIn: function () {
+    this.$modal.addClass("active")
     var signIn = new KnowledgEase.Views.SignIn({
       $userEl: this.$userEl,
-      collection: this.collection
+      collection: this.collection,
+      $modal: this.$modal
     })
     this.$modal.html(signIn.render().$el)
   },
@@ -37,9 +39,11 @@ KnowledgEase.Views.Navbar = Backbone.CompositeView.extend({
   },
 
   signUp: function () {
+    this.$modal.addClass("active")
     var signUp = new KnowledgEase.Views.SignUp({
       $userEl: this.$userEl,
-      collection: this.collection
+      collection: this.collection,
+      $modal: this.$modal
     })
     this.$modal.html(signUp.render().$el)
   },

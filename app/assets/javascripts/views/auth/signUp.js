@@ -1,10 +1,13 @@
 KnowledgEase.Views.SignUp = Backbone.CompositeView.extend({
   initialize: function (options) {
     this.$userEl = options.$userEl
+    this.$modal = options.$modal
+
   },
 
   events: {
-    "submit .sign-up": "signUp"
+    "submit .sign-up": "signUp",
+    "click .close": "closeView"
   },
 
   template: JST['auth/signup'],
@@ -34,5 +37,10 @@ KnowledgEase.Views.SignUp = Backbone.CompositeView.extend({
         }, 5000)
       }.bind(this)
     })
-  }
+  },
+
+  closeView: function () {
+    this.$el.remove()
+    this.$modal.removeClass("active")
+  },
 })
