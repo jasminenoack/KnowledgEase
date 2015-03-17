@@ -18,6 +18,7 @@ KnowledgEase.Views.NewQuestion = Backbone.CompositeView.extend({
     "click button.add-description":"addDescriptionField",
     "click button.add-topics":"addTopicsField",
     "keypress input#topics":"addTopic",
+    "click .topic-item button":"removeTopic",
   },
 
   render: function () {
@@ -109,8 +110,21 @@ KnowledgEase.Views.NewQuestion = Backbone.CompositeView.extend({
       event.stopPropagation()
 
       this.model.get("set_topics").push($(event.target).val())
-      this.$el.find(".topic-list").append($(event.target).val() + ", ")
+
+      var topicItem =
+        "<li class='topic-item'>" +
+        $(event.target).val() +
+        "<button type='button'> remove</button>, </li>"
+      this.$el.find(".topic-list").append(topicItem)
       $(event.target).val("")
     }
+  },
+
+  removeTopic: function (event) {
+    var current_topics = this.model.get("set_topics")
+    var text = $(event.target).parent().text()
+    var topic = text.substring(0, text.length - 9)
+    this.model.set("set_topics", _.without(current_topics, topic))
+    $(event.target).parent().remove()
   }
 })
