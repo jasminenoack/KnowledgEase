@@ -2,6 +2,7 @@ KnowledgEase.Views.Navbar = Backbone.CompositeView.extend({
   initialize: function (options) {
     this.$modal = options.$modal
     this.$userEl = this.$el.find('.userNav')
+    this.searchResults = new KnowledgEase.Collections.SearchResults
   },
 
   events: {
@@ -41,7 +42,12 @@ KnowledgEase.Views.Navbar = Backbone.CompositeView.extend({
   },
 
   search: function (event) {
-    console.log($(event.currentTarget).val())
+    this.searchResults.fetch({
+      data: {query: $(event.currentTarget).val()},
+      success: function () {
+        console.log(arguments)
+      }
+    })
   }
 
 })
