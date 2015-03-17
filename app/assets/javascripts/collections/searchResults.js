@@ -1,3 +1,4 @@
 KnowledgEase.Collections.SearchResults = Backbone.Collection.extend({
-  url: "api/search"
+  url: "api/search",
+  
 })

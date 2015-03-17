@@ -1,8 +1,11 @@
 class Api::StaticPagesController < ApplicationController
   def search
-    @results = PgSearch
+    all_results = PgSearch
       .multisearch(params[:query])
       .order("updated_at DESC")
-      .includes(:searchable)
+    answer_results = all_results.where(searchable_type: "Answer").includes(searchable: :question)
+    other_results = all_results.where.not(searchable_type: "Answer").includes(:searchable)
+
+    @results = (answer_results + other_results).sort{ |x, y| y.updated_at <=> x.updated_at}
   end
 end

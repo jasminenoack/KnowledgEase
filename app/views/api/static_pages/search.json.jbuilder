@@ -6,6 +6,7 @@ json.array! @results  do |result|
     link_text = "Topic: #{result.searchable.title}"
   elsif result.searchable_type == "Answer"
     link_text = "Answer: #{result.searchable.body}"
+    url = "#/questions/#{result.searchable.question.id}"
   elsif result.searchable_type == "User"
     link_text = "User: #{result.searchable.name}"
   else

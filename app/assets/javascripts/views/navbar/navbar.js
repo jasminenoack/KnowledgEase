@@ -3,13 +3,16 @@ KnowledgEase.Views.Navbar = Backbone.CompositeView.extend({
     this.$modal = options.$modal
     this.$userEl = this.$el.find('.userNav')
     this.searchResults = new KnowledgEase.Collections.SearchResults
+    $(document).click(this.emptySearch.bind(this))
   },
 
   events: {
     "click button.sign-in":'signIn',
     "click button.sign-out":'signOut',
     "click button.sign-up":'signUp',
-    "keyup #search":'search'
+    "keyup #search":'search',
+    "click .search-bar": function (event) { event.stopPropagation() }
+
   },
 
   signIn: function () {
@@ -51,6 +54,10 @@ KnowledgEase.Views.Navbar = Backbone.CompositeView.extend({
         }.bind(this))
       }.bind(this)
     })
+  },
+
+  emptySearch: function (event) {
+    this.$el.find("ul.search-results").empty()
   }
 
 })

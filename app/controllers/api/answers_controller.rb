@@ -10,6 +10,11 @@ class Api::AnswersController < ApplicationController
     end
   end
 
+  def get_question
+    @answer = Answer.where(id: params[id]).includes(:question).first
+    @question = @answer.question
+  end
+
   private
   def answer_params
     params.require(:answer).permit(:body, :question_id)
