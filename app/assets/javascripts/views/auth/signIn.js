@@ -9,7 +9,7 @@ KnowledgEase.Views.SignIn = Backbone.CompositeView.extend({
 
   events: {
     "submit .sign-in": "signIn",
-    "click .close": "closeView"
+    "click .close": "closeView",
   },
 
   render: function () {
@@ -49,4 +49,6 @@ KnowledgEase.Views.SignIn = Backbone.CompositeView.extend({
     this.$el.remove()
     this.$modal.removeClass("active")
   },
+
+
 })

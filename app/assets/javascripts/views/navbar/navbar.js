@@ -12,7 +12,6 @@ KnowledgEase.Views.Navbar = Backbone.CompositeView.extend({
     "click button.sign-up":'signUp',
     "keyup #search":'search',
     "click .search-bar": function (event) { event.stopPropagation() }
-
   },
 
   signIn: function () {

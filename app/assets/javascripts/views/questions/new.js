@@ -2,16 +2,30 @@ KnowledgEase.Views.NewQuestion = Backbone.CompositeView.extend({
   initialize: function (options) {
   },
 
-  template: JST['questions/form'],
+  template: JST['questions/AddQuestionStart'],
+  expandTemplate: JST['questions/expandform'],
+  descriptionTemplate: JST['questions/descriptionField'],
 
   events: {
-    "submit .question-form": "createQuestion"
+    "focus .add-question-input":"expandForm",
+    "click .close": "closeView",
+    "submit": "createQuestion",
+    "click button.add-description":"addDescriptionField",
   },
 
   render: function () {
     this.$el.html(this.template({question: this.model}));
 
     return this;
+  },
+
+  tagName: "form",
+
+  expandForm: function () {
+    if (!this.in_use) {
+      this.in_use = true,
+      this.$el.find(".ask-question").append(this.expandTemplate())
+    }
   },
 
   createQuestion: function (event) {
@@ -23,6 +37,7 @@ KnowledgEase.Views.NewQuestion = Backbone.CompositeView.extend({
         this.collection.add(this.model)
         this.model = new KnowledgEase.Models.Question
         this.render()
+        this.in_use = false
         Backbone.history.navigate("questions/" + json.id, {trigger: true})
       }.bind(this),
       error: function (object, xhr) {
@@ -32,5 +47,15 @@ KnowledgEase.Views.NewQuestion = Backbone.CompositeView.extend({
         }, 5000)
       }.bind(this)
     })
-  }
+  },
+
+  closeView: function () {
+    this.in_use = false
+    this.render()
+  },
+
+  addDescriptionField: function (event) {
+    console.log(this.currentTarget)
+    $(event.currentTarget).replaceWith(this.descriptionTemplate())
+  },
 })
