@@ -35,6 +35,17 @@
   color: #CBCBC1;
 }
 
+.nav-right input {
+  display: inline-block;
+  margin-right: 20px;
+}
+
+.search-bar label {
+  padding: 20px;
+  padding-right: 5px;
+  margin: 0px;
+}
+
 
 .userNav {
 

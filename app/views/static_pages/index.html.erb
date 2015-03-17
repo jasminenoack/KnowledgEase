@@ -11,6 +11,11 @@
 
     <nav class="userNav">
       <ul class="nav-right group">
+        <li class="search-bar">
+          <label for="search">Search:</label>
+          <input type="search" name="query" value="" id="search">
+        </li>
+
         <% if current_user %>
           <li>
             <a href="#/users/<%= current_user.id%>">

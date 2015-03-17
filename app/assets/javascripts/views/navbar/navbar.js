@@ -7,7 +7,8 @@ KnowledgEase.Views.Navbar = Backbone.CompositeView.extend({
   events: {
     "click button.sign-in":'signIn',
     "click button.sign-out":'signOut',
-    "click button.sign-up":'signUp'
+    "click button.sign-up":'signUp',
+    "keyup #search":'search'
   },
 
   signIn: function () {
@@ -38,5 +39,9 @@ KnowledgEase.Views.Navbar = Backbone.CompositeView.extend({
     })
     this.$modal.html(signUp.render().$el)
   },
+
+  search: function (event) {
+    console.log($(event.currentTarget).val())
+  }
 
 })
