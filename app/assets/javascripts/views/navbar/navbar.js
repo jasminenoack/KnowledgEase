@@ -44,9 +44,12 @@ KnowledgEase.Views.Navbar = Backbone.CompositeView.extend({
   search: function (event) {
     this.searchResults.fetch({
       data: {query: $(event.currentTarget).val()},
-      success: function () {
-        console.log(arguments)
-      }
+      success: function (resp, results) {
+        this.$el.find("ul.search-results").empty()
+        _(results).each(function (result) {
+          this.$el.find("ul.search-results").append("<li>"+ result.link +"</li>")
+        }.bind(this))
+      }.bind(this)
     })
   }
 

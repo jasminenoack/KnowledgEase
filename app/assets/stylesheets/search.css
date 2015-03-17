@@ -1,0 +1,29 @@
+.search-bar label {
+  padding: 20px;
+  padding-right: 5px;
+  margin: 0px;
+}
+
+.search-bar {
+  position: relative;
+}
+
+.search-results {
+  position: absolute;
+  display: block;
+  width: calc(100% + 2px);
+  margin-left: -1px;
+  z-index: 2;
+  max-height: 500px;
+  overflow-y: auto;
+}
+
+.search-results li {
+  display: block;
+  background: #F6F6F6;
+  font-size: 14px;
+  border: 1px solid #CBCBC1;
+  border-top: 0;
+  float: none;
+  text-overflow: ellipsis;
+}
