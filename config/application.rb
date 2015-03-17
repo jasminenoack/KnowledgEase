@@ -32,7 +32,10 @@ module KnowledgEase
     # config.i18n.default_locale = :de
 
     # Do not swallow errors in after_commit/after_rollback callbacks.
-    PgSearch.multisearch_options = { :using => { :tsearch => {:prefix => true, :dictionary => "english"} } }
+    PgSearch.multisearch_options = {
+      :using => { :tsearch => {:prefix => true, :dictionary => "english"} },
+      order_within_rank: "updated_at DESC"
+      }
 
     config.active_record.raise_in_transactional_callbacks = true
   end
