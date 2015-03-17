@@ -3,12 +3,16 @@ class Question < ActiveRecord::Base
   validates :author, :question, presence: true
   validates :question, uniqueness: true
 
+  include PgSearch
+  multisearchable :against => [:question, :description, :name, :titles], if: proc{|p| true}
+
   belongs_to(
     :author,
     class_name: "User",
     foreign_key: :user_id,
     inverse_of: :questions
   )
+  delegate :name, :to => :author, :touch => true
 
   has_many(
     :answer_requests,
@@ -36,5 +40,8 @@ class Question < ActiveRecord::Base
   has_many :followers, class_name: "Follow", as: :followable
   has_many :users_following, through: :followers, source: :follower
 
+  def titles
+    topics.map(&:title).join(" ")
+  end
 
 end

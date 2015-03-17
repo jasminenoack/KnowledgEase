@@ -3,6 +3,10 @@ class User < ActiveRecord::Base
   validates :password, length: { minimum: 6 }, allow_nil: true
   validate :valid_email, :confirm_password_match, :password_contains_number
 
+  include PgSearch
+  multisearchable :against => [:first_name, :last_name, :username, :email]
+
+
   has_many :sessions, inverse_of: :user
   has_many :questions, inverse_of: :author
   has_many(
@@ -90,6 +94,11 @@ class User < ActiveRecord::Base
     @password_confirmation
   end
 
+  def update_search_documents
+    questions.each { |question| question.update(question: question.question) }
+    answers.each { |answer| answer.update(body: answer.body) }
+  end
+
   private
   def valid_email
     unless self.email =~ /.+@.+\..+/
@@ -108,5 +117,6 @@ class User < ActiveRecord::Base
     return nil if password =~ /\d/ || !password
     errors[:password] << "must contain a number"
   end
+
 
 end

@@ -41,9 +41,6 @@ GEM
       thread_safe (~> 0.3, >= 0.3.4)
       tzinfo (~> 1.1)
     arel (6.0.0)
-    autoprefixer-rails (5.1.7)
-      execjs
-      json
     backbone-on-rails (1.1.2.0)
       actionmailer
       actionpack
@@ -60,9 +57,6 @@ GEM
       rack (>= 0.9.0)
     binding_of_caller (0.7.2)
       debug_inspector (>= 0.0.1)
-    bootstrap-sass (3.3.3)
-      autoprefixer-rails (>= 5.0.0.1)
-      sass (>= 3.2.19)
     builder (3.2.2)
     celluloid (0.16.0)
       timers (~> 4.0.0)
@@ -141,17 +135,16 @@ GEM
       nenv (~> 0.1)
       shellany (~> 0.0)
     pg (0.18.1)
+    pg_search (0.7.9)
+      activerecord (>= 3.1)
+      activesupport (>= 3.1)
+      arel
     pry (0.10.1)
       coderay (~> 1.1.0)
       method_source (~> 0.8.1)
       slop (~> 3.4)
     pry-rails (0.3.3)
       pry (>= 0.9.10)
-    public_activity (1.4.2)
-      actionpack (>= 3.0.0)
-      activerecord (>= 3.0)
-      i18n (>= 0.5.0)
-      railties (>= 3.0.0)
     rack (1.6.0)
     rack-test (0.6.3)
       rack (>= 1.0)
@@ -257,12 +250,10 @@ PLATFORMS
   ruby
 
 DEPENDENCIES
-  autoprefixer-rails
   backbone-on-rails
   bcrypt (~> 3.1.7)
   better_errors
   binding_of_caller
-  bootstrap-sass
   coffee-rails (~> 4.1.0)
   faker
   font-awesome-rails
@@ -271,8 +262,8 @@ DEPENDENCIES
   jquery-rails
   kaminari
   pg
+  pg_search
   pry-rails
-  public_activity
   rails (= 4.2.0)
   rails_12factor
   rspec-rails

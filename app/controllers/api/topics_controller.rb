@@ -20,6 +20,7 @@ class Api::TopicsController < ApplicationController
   def update
     @topic = Topic.find(params[:id])
     if @topic.update(topic_params)
+      @topic.update_search_documents
       render json: @topic
     else
       render json: @topic.errors.full_messages, status: 422

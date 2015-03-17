@@ -24,9 +24,10 @@ class Api::UsersController < ApplicationController
   end
 
   def update
-    @user = User.find(params[:id])
+    @user = User.where(id: params[:id]).includes(:questions, :answers).first
     if @user.update(user_params)
       log_in(@user)
+      @user.update_search_documents
       render :show
     else
       render json: @user.errors.full_messages, status: 422

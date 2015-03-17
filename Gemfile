@@ -14,9 +14,7 @@ gem 'backbone-on-rails'
 gem 'faker'
 gem 'kaminari'
 gem "font-awesome-rails"
-gem 'bootstrap-sass'
-gem 'autoprefixer-rails'
-gem 'public_activity'
+gem "pg_search"
 
 group :development, :test do
   gem 'pry-rails'
