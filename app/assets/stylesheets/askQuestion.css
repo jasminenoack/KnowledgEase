@@ -15,7 +15,8 @@ section.ask-question {
 
 .ask-question input, .ask-question textarea {
   margin: auto;
-  width: 90%;
+  width: 80%;
+  display: block;
 }
 
 .ask-question button {
@@ -51,6 +52,12 @@ section.ask-question {
   background: transparent;
 }
 
+.question-form .failure {
+  margin: auto;
+  width: 400px;
+  margin-bottom: 10px;
+}
+
 .tt-dropdown-menu {
   background: #F6F6F6;
   width: 100%;
@@ -62,4 +69,18 @@ section.ask-question {
 
 .tt-highlight {
   background: #FCECE8;
+}
+
+.topic-list .topic-item {
+  display: inline;
+  padding: 0;
+  margin: 0;
+}
+
+.topic-item button {
+  display: inline;
+  padding: 0;
+  margin: 0;
+  padding-left: 5px;
+  padding-top: 10px;
 }

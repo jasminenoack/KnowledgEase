@@ -39,7 +39,6 @@ KnowledgEase.Views.NewQuestion = Backbone.CompositeView.extend({
   createQuestion: function (event) {
     event.preventDefault();
     var attrs = $(event.currentTarget).serializeJSON()
-    console.log(this.model)
 
     this.model.save(attrs, {
       success: function (json) {
@@ -106,16 +105,20 @@ KnowledgEase.Views.NewQuestion = Backbone.CompositeView.extend({
 
   addTopic: function (event) {
     if(event.which == 13) {
+      var current_topics = this.model.get("set_topics")
+      var newTopic = $(event.target).val()
       event.preventDefault()
       event.stopPropagation()
 
-      this.model.get("set_topics").push($(event.target).val())
+      if (!_(current_topics).contains(newTopic)) {
+        this.model.get("set_topics").push(newTopic)
 
-      var topicItem =
-        "<li class='topic-item'>" +
-        $(event.target).val() +
-        "<button type='button'> remove</button>, </li>"
-      this.$el.find(".topic-list").append(topicItem)
+        var topicItem =
+          "<li class='topic-item'>" +
+          newTopic +
+          "<button type='button'> remove</button>, </li>"
+        this.$el.find(".topic-list").append(topicItem)
+      }
       $(event.target).val("")
     }
   },
