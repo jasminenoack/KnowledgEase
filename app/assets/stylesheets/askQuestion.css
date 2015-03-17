@@ -50,3 +50,16 @@ section.ask-question {
   width: 100%;
   background: transparent;
 }
+
+.tt-dropdown-menu {
+  background: #F6F6F6;
+  width: 100%;
+}
+
+.tt-dataset-topics {
+  border: 1px solid #CBCBC1;
+}
+
+.tt-highlight {
+  background: #FCECE8;
+}

@@ -67,7 +67,7 @@ class Api::QuestionsController < ApplicationController
 
   private
   def question_params
-    params.require(:question).permit(:question, :description)
+    params.require(:question).permit(:question, :description, set_topics: [])
   end
 
   def require_login

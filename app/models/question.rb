@@ -44,4 +44,16 @@ class Question < ActiveRecord::Base
     topics.map(&:title).join(" ")
   end
 
+  def set_topics=(topics)
+    topics.each do |topic_title|
+      topic = Topic.find_by(title: topic_title)
+      if topic
+        self.topics << topic
+      else
+        self.topics.new(title: topic_title)
+      end
+    end
+    self.save
+  end
+
 end
