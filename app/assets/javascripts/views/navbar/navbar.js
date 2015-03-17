@@ -34,6 +34,9 @@ KnowledgEase.Views.Navbar = Backbone.CompositeView.extend({
         this.collection.add(user, {merge: true})
         this.$userEl.html(JST['navbar/signedOut'])
 
+        fragment = Backbone.history.fragment
+        Backbone.history.fragment = null
+        Backbone.history.navigate(fragment, {trigger: true})
       }.bind(this)
     })
   },

@@ -28,7 +28,11 @@ KnowledgEase.Views.SignUp = Backbone.CompositeView.extend({
         var user = new KnowledgEase.Models.User(json)
         this.collection.add(user)
         this.$userEl.html(JST['navbar/signedIn']({user: user}))
-        this.remove()
+        this.closeView()
+
+        fragment = Backbone.history.fragment
+        Backbone.history.fragment = null
+        Backbone.history.navigate(fragment, {trigger: true})
       }.bind(this),
       error: function (xhr) {
         this.$el.find('.failure').html(JST['errors']({errors: xhr.responseJSON}))
@@ -40,7 +44,7 @@ KnowledgEase.Views.SignUp = Backbone.CompositeView.extend({
   },
 
   closeView: function () {
-    this.$el.remove()
+    this.remove()
     this.$modal.removeClass("active")
   },
 })
