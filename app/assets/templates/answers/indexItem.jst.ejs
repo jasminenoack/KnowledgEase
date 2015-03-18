@@ -1,0 +1,28 @@
+<div class="collapse-card">
+
+  <div class="collapse-card__heading">
+    <div class="collapse-card__title group">
+      <i class="fa fa-question-circle fa-2x fa-fw"></i>
+        <span class="left"> <%= answer.escape("body") %>
+        </span>
+
+        <span class="right">
+          <a href="#users/<%= answer.question().author().id %>">
+            <%= answer.author().escape("name") %>
+          </a>
+        </span>
+
+
+    </div>
+  </div>
+
+  <div class="collapse-card__body clear">
+    <p><%= answer.question().escape("question") %></p>
+    <span class="left">
+      <a href="#/questions/<%= answer.question().id %>">
+        View Question
+      </a>
+    </span>
+  </div>
+
+</div>

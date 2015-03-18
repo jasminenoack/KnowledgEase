@@ -20,53 +20,79 @@ KnowledgEase.Views.UserShow = Backbone.CompositeView.extend({
     return this;
   },
 
+  addIndexItems: function (collection, viewConstructor, selector) {
+    if (collection.length) {
+      _(_.sample(collection.models, 5)).each(function (item) {
+        var topicItem = new viewConstructor({ model: item })
+
+        this.addSubview(selector, topicItem)
+      }.bind(this));
+    }
+  },
+
   addFollowedTopics: function () {
+    this.addIndexItems(
+      this.model.followedTopics(),
+      KnowledgEase.Views.TopicIndexItem,
+      ".following-topics-list"
+    );
   },
 
   addKnownAbout: function () {
+    this.addIndexItems(
+      this.model.knownTopics(),
+      KnowledgEase.Views.TopicIndexItem,
+      ".knows-about-list"
+    );
   },
 
   addFollowers: function () {
+    this.addIndexItems(
+      this.model.followers(),
+      KnowledgEase.Views.UserIndexItem,
+      ".following-users-list"
+    );
   },
 
   addFollowing: function () {
+    this.addIndexItems(
+      this.model.following(),
+      KnowledgEase.Views.UserIndexItem,
+      ".users-following-list"
+    );
   },
 
   addComments: function () {
+    this.addIndexItems(
+      this.model.comments(),
+      KnowledgEase.Views.CommentView,
+      ".commentIndex"
+    );
   },
 
   addQuestions: function () {
+    this.addIndexItems(
+      this.model.questions(),
+      KnowledgEase.Views.QuestionIndexItem,
+      ".questions"
+    );
   },
 
   addAnswers: function () {
+    this.addIndexItems(
+      this.model.answers(),
+      KnowledgEase.Views.AnswerIndexItem,
+      ".tab-pane.answers"
+    );
   },
 
   addAnswerRequests: function () {
+    this.addIndexItems(
+      this.model.answerRequests(),
+      KnowledgEase.Views.QuestionIndexItem,
+      ".tab-pane.answer-requests"
+    );
   },
-
-  // addQuestions: function () {
-  //   var questionIndexView = new KnowledgEase.Views.QuestionIndex({
-  //     collection: this.model.questions()
-  //   })
-  //
-  //   this.addSubview("section.questions", questionIndexView)
-  // },
-  //
-  // addComments: function () {
-  //   var commentIndex = new KnowledgEase.Views.CommentIndex({
-  //     collection: this.model.comments(),
-  //     parent: this.model
-  //   })
-  //   this.addSubview("ul.commentIndex", commentIndex)
-  // },
-
-  // addTopics: function () {
-  //   var topicIndex = new KnowledgEase.Views.TopicIndex({
-  //     collection: this.model.topics(),
-  //     parent: this.model
-  //   })
-  //   this.addSubview("section.topics", topicIndex)
-  // },
 
   addFollowButton: function () {
     var followButton = new KnowledgEase.Views.FollowButton({
