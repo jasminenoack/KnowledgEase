@@ -11,7 +11,7 @@ class Api::TopicsController < ApplicationController
 
   def index
     if params[:query] == "all"
-      @topics = Topic.all
+      @topics = Topic.all.includes(:users_following)
     elsif params[:query] == "cloud"
       render json: Topic.word_cloud_array
     else

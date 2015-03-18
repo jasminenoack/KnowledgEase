@@ -8,16 +8,15 @@ KnowledgEase.Views.Home = Backbone.CompositeView.extend({
   template: JST["home/home"],
 
   events: {
-    "click .tab.topics":"addTopicCloud"
+    "click .tab.topics":"addTopicCloud",
+    "click .tab.questions":"addQuestionIndex",
+    "click .tab.feed":"addFeed",
+    "click .tab.users":"addUserIndex",
   },
 
 
   render: function () {
     this.$el.html(this.template())
-
-    this.addQuestionIndex()
-    this.addUserIndex()
-    // this.addTopicCloud()
     this.addFeed()
     return this
   },

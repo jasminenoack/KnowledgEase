@@ -18,5 +18,4 @@ KnowledgEase.Collections.Users = Backbone.Collection.extend({
   },
 })
 
-KnowledgEase.users = new KnowledgEase.Collections.Users
-KnowledgEase.users.fetch()
+KnowledgEase.users = new KnowledgEase.Collections.Users;

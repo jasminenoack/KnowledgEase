@@ -40,7 +40,7 @@ class Api::QuestionsController < ApplicationController
         .page(params[:page])
     else
       @questions = Question
-        .all.includes(:author, :answer_requesters, :answers)
+        .all.includes(:author, :answer_requesters, :answers, :users_following)
         .order(id: :desc)
         .page(params[:page])
     end
