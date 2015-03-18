@@ -10,7 +10,6 @@ KnowledgEase.Views.EditTopics = Backbone.CompositeView.extend({
   template: JST['topics/editTopics'],
 
   render: function() {
-    // console.log("render")
     this.$el.html(this.template({ topic: this.model}))
     this.addDropdowns()
     return this

@@ -58,8 +58,12 @@ KnowledgEase.Routers.AppRouter = Backbone.Router.extend({
 
   userEdit: function (id) {
     var user = this.users.getOrFetch(id)
-    var userEditView = new KnowledgEase.Views.UserEdit({model: user})
-    this._swapContent(userEditView)
+    var userEditView = new KnowledgEase.Views.UserEdit({
+      model: user,
+      $modal: this.$modal
+    })
+    this.$modal.html(userEditView.render().$el)
+    this.$modal.addClass("active")
   },
 
   startNavbar: function () {

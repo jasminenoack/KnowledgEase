@@ -97,7 +97,6 @@ KnowledgEase.Models.User = Backbone.Model.extend({
     if (payload.questions) {
       this.questions().set(payload.questions, {parse: true})
       delete payload.questions
-      console.log(this.questions())
     }
 
     if (payload.answers) {
@@ -112,4 +111,8 @@ KnowledgEase.Models.User = Backbone.Model.extend({
 
     return payload
   },
+
+  toJSON: function (options) {
+    return {user: _.clone(this.attributes)}
+  }
 })

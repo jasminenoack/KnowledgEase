@@ -34,7 +34,6 @@ KnowledgEase.Views.TopicShow = Backbone.CompositeView.extend({
   },
 
   editForm: function () {
-    console.log(this.model)
     var TopicForm = new KnowledgEase.Views.Topicform({
       model: this.model
     })

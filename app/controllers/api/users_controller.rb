@@ -61,10 +61,22 @@ class Api::UsersController < ApplicationController
   end
 
   def remove_knows_about
-    @knows_about = KnowsAbout.where(
-      user_id: params[:user_id],
-      topic_id: params[:topic_id]).first
-    @knows_about.destroy
+    known_topics = KnowsAbout.where(
+      user_id: current_user.id)
+
+    if params[:topic_id]
+      @knows_about = known_topics.where(topic_id: params[:topic_id]).first
+    else
+      topic = Topic.find_by(title: params[:title])
+      @knows_about = known_topics.where(topic_id: topic.id).first
+    end
+
+    if @knows_about
+      @knows_about.destroy
+    end
+
+
+    p @knows_about
     render json: @knows_about
   end
 
@@ -95,7 +107,8 @@ class Api::UsersController < ApplicationController
       :location,
       :biography,
       :password,
-      :password_confirmation
+      :password_confirmation,
+      set_known_topics: []
     )
   end
 end

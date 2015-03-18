@@ -1,15 +1,34 @@
 <form class="edit-user">
-<label for="first_name">First Name</label>
+  <h1>Edit <%= user.escape("name") %></h1>
+<p class="group"><label for="first_name">First Name</label>
 <input id="first_name" type="text" name="first_name" value="<%= user.escape("first_name") %>">
+</p>
 
-<label for="last_name">Last Name</label>
+<p class="group"><label for="last_name">Last Name</label>
 <input id="last_name" type="text" name="last_name" value="<%= user.escape("last_name") %>">
+</p>
 
-<label for="location">Location</label>
+<p class="group"><label for="profile_picture">Profile Picture</label>
+<input id="profile_picture" type="file" name="profile_picture">
+</p>
+
+<p class="group"><label for="location">Location</label>
 <input id="location" type="text" name="location" value="<%= user.escape("location") %>">
+</p>
 
-<label for="biography">Biography</label>
+<p class="group"><label for="biography">Biography</label>
 <textarea id="biography" type="text" name="biography"><%= user.escape("biography") %></textarea>
+</p>
 
-<button>Update</button>
+<p class="group"><label for="set_topics">Known Topics</label>
+  <input id="set_topics" type="text" name="set_topics">
+</p>
+<ul class="known-topics"></ul>
+
+<p class="group"><button>Update</button></p>
+<button class="close" type="button">X</button>
 </form>
+
+
+need to edit
+picture

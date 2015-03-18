@@ -99,6 +99,18 @@ class User < ActiveRecord::Base
     answers.each { |answer| answer.update(body: answer.body) }
   end
 
+  def set_known_topics=(topics)
+    topics.each do |topic_title|
+      topic = Topic.find_by(title: topic_title)
+      if topic
+        self.known_topics << topic
+      else
+        self.known_topics.new(title: topic_title)
+      end
+    end
+    self.save
+  end
+
   private
   def valid_email
     unless self.email =~ /.+@.+\..+/
@@ -117,6 +129,8 @@ class User < ActiveRecord::Base
     return nil if password =~ /\d/ || !password
     errors[:password] << "must contain a number"
   end
+
+
 
 
 end

@@ -14,11 +14,17 @@ section.modal.active {
 
 section.modal > div {
   position: relative;
-  text-align: center;
+  /*text-align: center;*/
   display: block;
   margin: auto;
   top: 50%;
-  transform: translateY(-50%)
+  transform: translateY(-50%);
+}
+
+section.modal > div > form {
+  margin: auto;
+  display: block;
+  width: 600px;
 }
 
 .modal form h1 {
@@ -32,15 +38,34 @@ section.modal > div {
   position: relative;
 }
 
-.modal input {
+.modal input, .modal textarea{
   display: inline-block;
   margin: 10px;
+  width: 400px;
   text-align: left;
+  float: right;
+}
+
+.modal textarea{
+  height: 100px;
+}
+
+.modal label {
+  display: inline-block;
+  margin: 10px;
+  text-align: right;
+  float: left;
+  width: 100px;
+}
+
+.modal button{
+  clear: both;
 }
 
 .modal .failure {
   text-align: left;
 }
+
 
 .modal .close {
   position: absolute;
