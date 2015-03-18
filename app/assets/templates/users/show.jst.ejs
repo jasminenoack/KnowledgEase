@@ -1,23 +1,73 @@
-<h1><%= user.escape("name") %></h1>
-<p><%= user.escape("biography") %></p>
-<p><%= user.escape("location") %></p>
+<article class="profile-page">
 
-<% if (user.get("current_user")) { %>
-  <a href="#/users/<%= user.id %>/edit">edit</a>
-:p
-<% } else { %>
-  <section class="follow-button"></section>
-<% } %>
+  <sidebar class="user-sidebar">
+    <section class="sidebar-list following-topics">
+      <h2>Following Topics:</h2>
+      <ul class="following-topics-list"></ul>
+    </section>
+    <section class="sidebar-list knows-about">
+      <h2>Knows About:</h2>
+      <ul class="knows-about-list"></ul>
+    </section>
+    <section class="sidebar-list following-users">
+      <h2>Following Users:</h2>
+      <ul class="following-users-list"></ul>
+    </section>
+  </sidebar>
 
-<h1>Questions</h1>
-<section class="questions">
-</section>
+  <main class="non-sidebar">
+  <h1><%= user.escape("name") %></h1>
+  <section class="group">
+    <section class="profile-picture">Picture goes here</section>
 
-Known Topics
-<section class="topics"></section>
+    <section class="profile-information">
+      About:
+      <p>Biography: <%= user.escape("biography") %></p>
+      <p>Location: <%= user.escape("location") %></p>
+      <% if (user.get("current_user")) { %>
+        <a href="#/users/<%= user.id %>/edit">edit</a>
+      :p
+      <% } else { %>
+        <section class="follow-button"></section>
+      <% } %>
+    </section>
+  </section>
 
-<h1>Comments</h1>
-<ul class="commentIndex">
-</ul>
+  <div class="wrapper">
+    <main id="content-tabs">
+      <ul class="tabs group">
+        <li class="tab">Comments</li>
+        <li class="tab">Questions</li>
+        <li class="tab">Answers</li>
+        <li class="tab">Answer-Requests</li>
+      </ul>
 
-<a href="javascript:history.back()">back</a>
+      <article class="tab-pane comments">
+        <h1>Comments</h1>
+        <ul class="commentIndex">
+        </ul>
+      </article>
+
+      <article class="tab-pane questions">
+        <h1>Questions</h1>
+        <section class="questions">
+        </section>
+      </article>
+
+      <article class="tab-pane answers">
+      </article>
+
+      <article class="tab-pane answer-requests">
+      </article>
+    </main>
+  </div>
+
+  <a href="javascript:history.back()">back</a>
+
+</main>
+
+<script>
+  $(function() {
+    $('#content-tabs').Tabs();
+  })
+</script>
