@@ -31,7 +31,6 @@ KnowledgEase.Views.UserEdit = Backbone.CompositeView.extend({
     var that = this;
 
 		fileReader.onloadend = function () {
-      debugger
 			that.model.set("picture", fileReader.result);
 			that.previewPic(fileReader.result);
 		};
