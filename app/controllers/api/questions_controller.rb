@@ -50,9 +50,9 @@ class Api::QuestionsController < ApplicationController
     @topicing = Topicing.where(
       question_id: params[:question_id],
       topic_id: params[:topic_id]).first
+    @topicing.destroy
     @question = Question.find(params[:question_id])
     @question.update(question: @question.question)
-    @topicing.destroy
     render json: @topicing
   end
 
@@ -60,9 +60,9 @@ class Api::QuestionsController < ApplicationController
     @topicing = Topicing.new(
       question_id: params[:question_id],
       topic_id: params[:topic_id])
-    @question = Question.find(params[:question_id])
-    @question.update(question: @question.question)
     if @topicing.save
+      @question = Question.find(params[:question_id])
+      @question.update(question: @question.question)
       render json: @topicing
     else
       render json: @topicing.errors.full_messages, status: 422
