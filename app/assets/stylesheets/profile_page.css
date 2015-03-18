@@ -97,3 +97,15 @@
   margin: 20px 15px 0 0;
   width: 604px;
 }
+
+.profile-page .new-comment-form {
+  margin: 10px 0px;
+  border: 0;
+  border-radius: 0;
+  width: 100%;
+}
+
+.profile-page .new-comment-form textarea{
+  margin: 10px 0px;
+  width: 100%;
+}
