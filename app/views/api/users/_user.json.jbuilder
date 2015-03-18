@@ -1,4 +1,5 @@
 json.extract! user, :name, :location, :biography, :id, :first_name, :last_name
+json.pictureUrl user.picture.url(:profile)
 
 if user.users_following.include?(current_user)
   json.followed true

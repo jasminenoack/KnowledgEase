@@ -1,4 +1,4 @@
-<form class="edit-user">
+<form class="edit-user" enctype="multipart/form-data">
   <h1>Edit <%= user.escape("name") %></h1>
 <p class="group"><label for="first_name">First Name</label>
 <input id="first_name" type="text" name="first_name" value="<%= user.escape("first_name") %>">
@@ -25,10 +25,8 @@
 </p>
 <ul class="known-topics"></ul>
 
+<img src="" id="picture-preview">
+
 <p class="group"><button>Update</button></p>
 <button class="close" type="button">X</button>
 </form>
-
-
-need to edit
-picture

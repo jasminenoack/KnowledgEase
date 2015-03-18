@@ -18,6 +18,7 @@ section.modal > div {
   display: block;
   margin: auto;
   top: 50%;
+  max-height: 80%;
   transform: translateY(-50%);
 }
 
@@ -80,4 +81,8 @@ section.modal > div > form {
 
 .close:hover {
   background: #FCECE8;
+}
+
+#picture-preview {
+  width: 300px
 }

@@ -106,6 +106,7 @@ class Api::UsersController < ApplicationController
       :username,
       :location,
       :biography,
+      :picture,
       :password,
       :password_confirmation,
       set_known_topics: []

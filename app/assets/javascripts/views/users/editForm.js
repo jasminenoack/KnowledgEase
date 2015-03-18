@@ -10,6 +10,7 @@ KnowledgEase.Views.UserEdit = Backbone.CompositeView.extend({
     "click .close": "closeView",
     "keypress input#set_topics":"addTopic",
     "click .topic-item button":"removeTopic",
+    "change #profile_picture":"readFile"
   },
 
   template: JST['users/editform'],
@@ -21,6 +22,26 @@ KnowledgEase.Views.UserEdit = Backbone.CompositeView.extend({
 
     return this;
   },
+
+  readFile: function (event) {
+    console.log("read")
+    var file = event.currentTarget.files[0];
+
+    var fileReader = new FileReader ();
+    var that = this;
+
+		fileReader.onloadend = function () {
+      debugger
+			that.model.set("picture", fileReader.result);
+			that.previewPic(fileReader.result);
+		};
+
+    fileReader.readAsDataURL(file);
+  },
+
+  previewPic: function (src) {
+		this.$("#picture-preview").attr("src", src);
+	},
 
   update: function (event) {
     event.preventDefault()

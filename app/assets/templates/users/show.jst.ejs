@@ -25,7 +25,7 @@
   <main class="non-sidebar">
   <h1><%= user.escape("name") %></h1>
   <section class="group">
-    <section class="profile-picture">Picture goes here</section>
+    <section class="profile-picture"><img src="<%= user.get("pictureUrl")%>"></section>
 
     <section class="profile-information">
 

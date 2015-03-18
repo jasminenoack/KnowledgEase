@@ -15,6 +15,9 @@ gem 'faker'
 gem 'kaminari'
 gem "font-awesome-rails"
 gem "pg_search"
+gem 'paperclip'
+gem 'figaro'
+gem 'aws-sdk'
 
 group :development, :test do
   gem 'pry-rails'
