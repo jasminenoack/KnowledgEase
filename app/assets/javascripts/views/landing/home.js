@@ -7,15 +7,30 @@ KnowledgEase.Views.Home = Backbone.CompositeView.extend({
 
   template: JST["home/home"],
 
+  events: {
+    "click .tab.topics":"addTopicCloud"
+  },
+
+
   render: function () {
     this.$el.html(this.template())
 
     this.addQuestionIndex()
     this.addUserIndex()
-    this.addTopicIndex()
+    // this.addTopicCloud()
     this.addFeed()
-
     return this
+  },
+
+
+
+  addTopicCloud: function () {
+    $.ajax({
+      url: "api/topics?query=cloud",
+      success: function (json) {
+        this.$el.find("#cloud").jQCloud(json);
+      }.bind(this)
+    })
   },
 
   addFeed: function () {
@@ -44,11 +59,5 @@ KnowledgEase.Views.Home = Backbone.CompositeView.extend({
     this.addSubview(".tab-pane.users", userIndexView)
   },
 
-  addTopicIndex: function () {
-    var topicIndexView = new KnowledgEase.Views.TopicIndex({
-      collection: this.topics
-    })
 
-    this.addSubview(".tab-pane.topics", topicIndexView)
-  }
 })

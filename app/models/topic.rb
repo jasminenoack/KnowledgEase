@@ -16,4 +16,20 @@ class Topic < ActiveRecord::Base
      questions.each { |question| question.update(question: question.question) }
    end
 
+   def self.word_cloud_array
+     word_cloud = Hash.new {|h,k| h[k] = {text: false, weight: 0, link: ""} }
+
+     Topic.joins(:topicings).each do |topic|
+       if word_cloud[topic][:text]
+         word_cloud[topic][:weight] += 1
+       else
+         word_cloud[topic][:weight] += 1
+         word_cloud[topic][:link] = "topics/#{topic.id}"
+         word_cloud[topic][:text] = topic.title
+       end
+     end
+
+     word_cloud.values
+   end
+
 end

@@ -17,6 +17,7 @@
 //= require question_ease
 //= require serializeJSON
 //= require typeahead
+//= require jqcloud
 //= require paper-collapse
 //= require_tree ./utils
 //= require_tree ../templates

@@ -12,6 +12,8 @@ class Api::TopicsController < ApplicationController
   def index
     if params[:query] == "all"
       @topics = Topic.all
+    elsif params[:query] == "cloud"
+      render json: Topic.word_cloud_array
     else
       @topics = Topic.all.order("title").page(params[:page])
     end
