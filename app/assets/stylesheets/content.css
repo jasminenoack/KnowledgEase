@@ -1,8 +1,5 @@
 .content{
-  width: 860px;
+  width: 900px;
   margin: 20px auto;
-  background: #FCECE8;
-  border: 2px solid #CBCBC1;
-  border-radius: 20px;
-  padding: 20px;
+  padding: 0;
 }
