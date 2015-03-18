@@ -67,23 +67,17 @@ section.modal > div > form {
 }
 
 
-.modal .close {
+.close {
   position: absolute;
   top: 5px;
   left: 5px;
   border: 1px solid #E7512D;
   height: 20px;
   width: 20px;
+  padding: 0px;
   text-align: center;
 }
 
-.modal .close:hover {
-  position: absolute;
-  top: 5px;
-  left: 5px;
-  border: 1px solid #E7512D;
-  height: 20px;
-  width: 20px;
-  text-align: center;
+.close:hover {
   background: #FCECE8;
 }

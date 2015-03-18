@@ -15,15 +15,31 @@ section.ask-question {
 }
 
 .ask-question input, .ask-question textarea {
-  margin: auto;
-  width: 60%;
-  display: block;
+  display: inline-block;
+  margin: 10px;
+  width: 400px;
+  text-align: left;
   float: right;
-  margin-right: 20px;
+}
+
+.ask-question textarea {
+  height: 100px;
+}
+
+.ask-question label{
+  display: inline-block;
+  margin: 10px;
+  text-align: right;
+  float: left;
+  width: 100px;
 }
 
 .ask-question button {
   padding: 5px 10px;
+}
+
+.ask-question p {
+  display: block;
 }
 
 .ask-question h1 {
@@ -40,14 +56,11 @@ section.ask-question {
 }
 .ask-question .close {
   padding:0;
-  top: 10px;
-  right: 10px;
-  display: block;
-  position: absolute;
-  width:20px;
-  height: 20px;
-  border: 1px solid #E7512D;
-  text-align: center;
+  margin: -20px -10px;
+}
+
+.ask-question button.close:hover {
+  background: #CBCBC1;
 }
 
 .question-form form {
@@ -89,4 +102,20 @@ section.ask-question {
   margin: 0;
   padding-left: 5px;
   padding-top: 10px;
+}
+
+.twitter-typeahead {
+  display: inline-block;
+  margin: 10px;
+  width: 400px;
+  text-align: left;
+  float: right;
+}
+
+.twitter-typeahead input {
+  display: inline-block;
+  margin: 0;
+  width: 400px;
+  text-align: left;
+  float: right;
 }
