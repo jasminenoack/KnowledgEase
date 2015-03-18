@@ -2,7 +2,7 @@
 
   <div class="collapse-card__heading">
     <div class="collapse-card__title group">
-      <i class="fa fa-question-circle fa-2x fa-fw"></i>
+      <i><img class="thumb" src="<%= question.author().get("thumbUrl")%>"></i>
         <span class="left"> <%= question.escape("question") %>
           <section class="follow-button-question-index"></section>
         </span>
@@ -11,6 +11,7 @@
           <a href="#users/<%= question.author().id %>">
             <%= question.author().escape("name") %>
           </a>
+
         </span>
 
 
