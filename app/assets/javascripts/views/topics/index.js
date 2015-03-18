@@ -1,6 +1,5 @@
 KnowledgEase.Views.TopicIndex = Backbone.CompositeView.extend({
   initialize: function (options) {
-    this.collection.fetch()
     this.listenTo(this.collection, "sync", this.render);
     this.page()
     this.parent = options.parent
