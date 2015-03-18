@@ -88,3 +88,13 @@
   padding: 10px;
   margin-bottom: 10px;
 }
+
+.profile-page .tab-pane {
+  border:1px solid #CBCBC1;
+  border-top: 0;
+}
+
+.profile-page .wrapper {
+  margin: 20px 15px 0 0;
+  width: 604px;
+}
