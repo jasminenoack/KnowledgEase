@@ -4,11 +4,44 @@ KnowledgEase.Views.UserShow = Backbone.CompositeView.extend({
   },
 
   template: JST['users/show'],
+  topicSidebarTemplate: JST['users/topicSidebarItem'],
 
   render: function () {
-    this.$el.html(this.template({user: this.model}))
-    this.addFollowButton()
-    return this
+    this.$el.html(this.template({user: this.model}));
+    this.addFollowButton();
+    this.addFollowedTopics();
+    this.addKnownAbout();
+    this.addFollowers();
+    this.addFollowing();
+    this.addComments();
+    this.addQuestions();
+    this.addAnswers();
+    this.addAnswerRequests();
+    return this;
+  },
+
+  addFollowedTopics: function () {
+  },
+
+  addKnownAbout: function () {
+  },
+
+  addFollowers: function () {
+  },
+
+  addFollowing: function () {
+  },
+
+  addComments: function () {
+  },
+
+  addQuestions: function () {
+  },
+
+  addAnswers: function () {
+  },
+
+  addAnswerRequests: function () {
   },
 
   // addQuestions: function () {
