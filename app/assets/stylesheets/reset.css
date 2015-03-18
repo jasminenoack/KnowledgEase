@@ -8,6 +8,7 @@ ul, li, h1, h2, h3, h4, h5, h6, p, div, section, article, a, body, html, button,
   background: transparent;
   text-align: inherit;
   text-decoration: none;
+  box-sizing: inherit;
 }
 
 button, a {
@@ -22,6 +23,10 @@ button, a {
 
 ul {
   list-style: none;
+}
+
+body: {
+  box-sizing: content-box
 }
 
 

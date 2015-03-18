@@ -1,5 +1,12 @@
-.navbar {
+.nav {
   background: #CBCBC1;
+}
+
+.navbar {
+  border-left: 1px solid #B6AEA1;
+  border-right: 1px solid #B6AEA1;
+  width: 900px;
+  margin: auto;
 }
 
 .nav-right {

@@ -92,4 +92,9 @@ footer {
   text-align: right;
 }
 
+footer .footer-content {
+  width: 900px;
+  margin: auto;
+}
+
 /* white #F6F6F6 light gray #CBCBC1 medium #B6AEA1 brown #9a5c29 #72441E red #E7512D*/

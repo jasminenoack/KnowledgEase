@@ -1,8 +1,7 @@
 .question-form {
   background: yellow;
   width: 600px;
-  margin: auto;
-  margin-top: 20px;
+  margin: 20px auto;
   padding: 10px;
   border-radius: 20px;
   background: #FCECE8;
@@ -11,12 +10,16 @@
 }
 
 section.ask-question {
+  margin: auto;
+  position: relative;
 }
 
 .ask-question input, .ask-question textarea {
   margin: auto;
-  width: 80%;
+  width: 60%;
   display: block;
+  float: right;
+  margin-right: 20px;
 }
 
 .ask-question button {
@@ -25,6 +28,8 @@ section.ask-question {
 
 .ask-question h1 {
   padding: 5px 10px;
+  float: left;
+  font-size: 20px;
 }
 
 .ask-question .create {
@@ -48,6 +53,7 @@ section.ask-question {
 .question-form form {
   padding: 0;
   border: 0;
+  margin: 0;
   width: 100%;
   background: transparent;
 }
