@@ -1,22 +1,22 @@
-<article class="profile-page">
+<article class="profile-page group">
 
-  <sidebar class="user-sidebar">
+  <sidebar class="user-sidebar group">
     <section class="sidebar-list following-topics">
       <h2>Following Topics:</h2>
       <ul class="following-topics-list"></ul>
     </section>
 
-    <section class="sidebar-list knows-about">
+    <section class="sidebar-list knows-about group">
       <h2>Knows About:</h2>
       <ul class="knows-about-list"></ul>
     </section>
 
-    <section class="sidebar-list users-following">
+    <section class="sidebar-list users-following group">
       <h2>Users Following:</h2>
       <ul class="users-following-list"></ul>
     </section>
 
-    <section class="sidebar-list following-users">
+    <section class="sidebar-list following-users group">
       <h2>Following Users:</h2>
       <ul class="following-users-list"></ul>
     </section>
@@ -28,16 +28,17 @@
     <section class="profile-picture">Picture goes here</section>
 
     <section class="profile-information">
-      About:
-      <p>Biography: <%= user.escape("biography") %></p>
-      <p>Location: <%= user.escape("location") %></p>
+
+      <p><h2>Biography:</h2> <%= user.escape("biography") %></p>
+      <p><h2>Location:</h2> <%= user.escape("location") %></p>
       <% if (user.get("current_user")) { %>
-        <a href="#/users/<%= user.id %>/edit">edit</a>
-      :p
+        <a href="#/users/<%= user.id %>/edit">Edit</a>
       <% } else { %>
         <section class="follow-button"></section>
       <% } %>
+      <a href="javascript:history.back()">Back</a>
     </section>
+
   </section>
 
   <div class="wrapper">
@@ -63,7 +64,7 @@
     </main>
   </div>
 
-  <a href="javascript:history.back()">back</a>
+
 
 </main>
 

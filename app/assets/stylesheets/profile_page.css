@@ -10,14 +10,14 @@
   width: 619px;
   /*background: pink;*/
   z-index: 100px;
-  position: relative;
+  float: left;
 }
 
 .user-sidebar {
-  position: absolute;
-  width: 220px;
+  display: block;
+  float: right;
+  width: 210px;
   border-left: 1px solid #CBCBC1;
-  height: 100%;
   right: 0;
   top:0;
   padding-left: 20px;
@@ -28,13 +28,63 @@
   width: 200px;
   background: black;
   float: left;
+  margin-top: 10px;
+  margin-right: 10px;
+  float: left;
+  border-radius: 5px;
+  overflow: hidden;
+}
+
+.profile-information {
+  margin-top: 10px;
+  float: left;
+  width: 400px;
+}
+
+.profile-information h2 {
+  margin-bottom: 5px;
+  margin-top: 10px;
+}
+
+.profile-information a {
+  margin-top: 10px;
+  display: block;
 }
 
 .sidebar-list {
-  padding: 20px 10px;
+  padding: 20px 0;
   border-bottom: 2px solid #CBCBC1;
+  position: relative;
 }
 
-/*.profile-page ul {
-  list-style: none;
-}*/
+.sidebar-list li{
+  padding: 5px;
+  border-top: 1px solid #CBCBC1;
+}
+
+.sidebar-list li:hover{
+  background: #E7512D;
+}
+
+.sidebar-list li:hover a{
+  color: #72441E;
+}
+
+.profile-page h2 {
+  font-weight: 700;
+  font-size: 18px;
+}
+
+.profile-page .tab {
+  font-size: 16px;
+  padding: 10px;
+  border-top-left-radius: 10px;
+  border-top-right-radius: 10px;
+  border:1px solid #CBCBC1;
+}
+
+.comments li {
+  background: white;
+  padding: 10px;
+  margin-bottom: 10px;
+}
