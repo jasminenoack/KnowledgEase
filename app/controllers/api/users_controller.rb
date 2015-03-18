@@ -8,7 +8,33 @@ class Api::UsersController < ApplicationController
   def show
     @user = User
       .where(id: params[:id])
-      .includes({questions: [:users_following, :answer_requesters, {answers: :author}]}, {comments: :author}, :known_topics, :users_following)
+      .includes(
+        {followed_topics: :users_following},
+        {known_topics: :users_following},
+        {users_following: :users_following},
+        {followed_users: :users_following},
+        {comments: :author},
+        {questions:
+          [:users_following,
+          :answer_requesters,
+          {answers: :author}
+          ]
+        },
+        {answers:
+          [{question:
+            [:users_following,
+            :answer_requesters,
+            {answers: :author}
+            ]
+          },
+          :author]
+        },
+        {followed_questions:
+          [:users_following,
+          :answer_requesters,
+          {answers: :author}]
+        }
+      )
       .first
     render :show
   end

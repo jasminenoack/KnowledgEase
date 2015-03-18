@@ -18,6 +18,8 @@ u6 = User.create(
   biography: bs
 )
 
+end
+
 u1 = User.create(
   email: "jasmine@example.com",
   first_name: "jasmine",
@@ -83,9 +85,3 @@ u6 = User.create(
   location: "Dark Places",
   biography: "Meow Hello Meow"
 )
-
-
-
-
-
-end

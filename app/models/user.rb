@@ -23,11 +23,11 @@ class User < ActiveRecord::Base
     inverse_of: :answerer
   )
 
-  has_many(
-    :question_answer_requests,
-    through: :wanted_answers,
-    source: :question
-  )
+  # has_many(
+  #   :question_answer_requests,
+  #   through: :wanted_answers,
+  #   source: :question
+  # )
 
   has_many(
     :questions_requested_to_answer,
