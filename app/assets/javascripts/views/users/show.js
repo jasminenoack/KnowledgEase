@@ -7,38 +7,33 @@ KnowledgEase.Views.UserShow = Backbone.CompositeView.extend({
 
   render: function () {
     this.$el.html(this.template({user: this.model}))
-
-    this.addQuestions()
-    this.addComments()
-    this.addTopics()
     this.addFollowButton()
-
     return this
   },
 
-  addQuestions: function () {
-    var questionIndexView = new KnowledgEase.Views.QuestionIndex({
-      collection: this.model.questions()
-    })
+  // addQuestions: function () {
+  //   var questionIndexView = new KnowledgEase.Views.QuestionIndex({
+  //     collection: this.model.questions()
+  //   })
+  //
+  //   this.addSubview("section.questions", questionIndexView)
+  // },
+  //
+  // addComments: function () {
+  //   var commentIndex = new KnowledgEase.Views.CommentIndex({
+  //     collection: this.model.comments(),
+  //     parent: this.model
+  //   })
+  //   this.addSubview("ul.commentIndex", commentIndex)
+  // },
 
-    this.addSubview("section.questions", questionIndexView)
-  },
-
-  addComments: function () {
-    var commentIndex = new KnowledgEase.Views.CommentIndex({
-      collection: this.model.comments(),
-      parent: this.model
-    })
-    this.addSubview("ul.commentIndex", commentIndex)
-  },
-
-  addTopics: function () {
-    var topicIndex = new KnowledgEase.Views.TopicIndex({
-      collection: this.model.topics(),
-      parent: this.model
-    })
-    this.addSubview("section.topics", topicIndex)
-  },
+  // addTopics: function () {
+  //   var topicIndex = new KnowledgEase.Views.TopicIndex({
+  //     collection: this.model.topics(),
+  //     parent: this.model
+  //   })
+  //   this.addSubview("section.topics", topicIndex)
+  // },
 
   addFollowButton: function () {
     var followButton = new KnowledgEase.Views.FollowButton({
