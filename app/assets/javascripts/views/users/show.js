@@ -1,6 +1,8 @@
 KnowledgEase.Views.UserShow = Backbone.CompositeView.extend({
   initialize: function () {
     this.listenTo(this.model, "sync change:current_user", this.render)
+    this.listenTo(this.model.comments(), "add sync", this.addComments)
+
   },
 
   template: JST['users/show'],
@@ -20,7 +22,7 @@ KnowledgEase.Views.UserShow = Backbone.CompositeView.extend({
     return this;
   },
 
-  addIndexItems: function (collection, viewConstructor, selector) {
+  addIndexItemsSidebar: function (collection, viewConstructor, selector) {
     if (collection.length) {
       _(_.sample(collection.models, 20)).each(function (item) {
         var topicItem = new viewConstructor({ model: item })
@@ -30,8 +32,18 @@ KnowledgEase.Views.UserShow = Backbone.CompositeView.extend({
     }
   },
 
+  addIndexItemsTabs: function (collection, viewConstructor, selector) {
+    if (collection.length) {
+      _(collection.models.slice(0,20)).each(function (item) {
+        var topicItem = new viewConstructor({ model: item })
+
+        this.addSubview(selector, topicItem)
+      }.bind(this));
+    }
+  },
+
   addFollowedTopics: function () {
-    this.addIndexItems(
+    this.addIndexItemsSidebar(
       this.model.followedTopics(),
       KnowledgEase.Views.TopicIndexItem,
       ".following-topics-list"
@@ -39,7 +51,7 @@ KnowledgEase.Views.UserShow = Backbone.CompositeView.extend({
   },
 
   addKnownAbout: function () {
-    this.addIndexItems(
+    this.addIndexItemsSidebar(
       this.model.knownTopics(),
       KnowledgEase.Views.TopicIndexItem,
       ".knows-about-list"
@@ -47,7 +59,7 @@ KnowledgEase.Views.UserShow = Backbone.CompositeView.extend({
   },
 
   addFollowers: function () {
-    this.addIndexItems(
+    this.addIndexItemsSidebar(
       this.model.followers(),
       KnowledgEase.Views.UserIndexItem,
       ".following-users-list"
@@ -55,7 +67,7 @@ KnowledgEase.Views.UserShow = Backbone.CompositeView.extend({
   },
 
   addFollowing: function () {
-    this.addIndexItems(
+    this.addIndexItemsSidebar(
       this.model.following(),
       KnowledgEase.Views.UserIndexItem,
       ".users-following-list"
@@ -63,15 +75,26 @@ KnowledgEase.Views.UserShow = Backbone.CompositeView.extend({
   },
 
   addComments: function () {
-    this.addIndexItems(
-      this.model.comments(),
+    this.$el.find(".tab-pane.comments").empty()
+
+    this.addCommentform();
+    this.addIndexItemsTabs(
+      this.model.comments().sort(),
       KnowledgEase.Views.CommentView,
       ".tab-pane.comments"
     );
   },
 
+  addCommentform: function () {
+    var commentForm = new KnowledgEase.Views.NewComment({
+      parent: this.model,
+      collection: this.model.comments()
+    })
+    this.addSubview(".tab-pane.comments", commentForm)
+  },
+
   addQuestions: function () {
-    this.addIndexItems(
+    this.addIndexItemsTabs(
       this.model.questions(),
       KnowledgEase.Views.QuestionIndexItem,
       ".tab-pane.questions"
@@ -79,7 +102,7 @@ KnowledgEase.Views.UserShow = Backbone.CompositeView.extend({
   },
 
   addAnswers: function () {
-    this.addIndexItems(
+    this.addIndexItemsTabs(
       this.model.answers(),
       KnowledgEase.Views.AnswerIndexItem,
       ".tab-pane.answers"
@@ -87,7 +110,7 @@ KnowledgEase.Views.UserShow = Backbone.CompositeView.extend({
   },
 
   addAnswerRequests: function () {
-    this.addIndexItems(
+    this.addIndexItemsTabs(
       this.model.answerRequests(),
       KnowledgEase.Views.QuestionIndexItem,
       ".tab-pane.answer-requests"
