@@ -1,6 +1,7 @@
 KnowledgEase.Views.AnswerIndexItem = Backbone.CompositeView.extend({
   initialize: function () {
     this.listenTo(this.model, "sync", this.render)
+    console.log(this.model, this.model.question(), this.model.question().escape("question"))
   },
 
   template: JST['answers/indexItem'],

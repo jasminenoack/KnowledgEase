@@ -22,7 +22,7 @@ KnowledgEase.Views.UserShow = Backbone.CompositeView.extend({
 
   addIndexItems: function (collection, viewConstructor, selector) {
     if (collection.length) {
-      _(_.sample(collection.models, 5)).each(function (item) {
+      _(_.sample(collection.models, 20)).each(function (item) {
         var topicItem = new viewConstructor({ model: item })
 
         this.addSubview(selector, topicItem)
@@ -66,7 +66,7 @@ KnowledgEase.Views.UserShow = Backbone.CompositeView.extend({
     this.addIndexItems(
       this.model.comments(),
       KnowledgEase.Views.CommentView,
-      ".commentIndex"
+      ".tab-pane.comments"
     );
   },
 
@@ -74,7 +74,7 @@ KnowledgEase.Views.UserShow = Backbone.CompositeView.extend({
     this.addIndexItems(
       this.model.questions(),
       KnowledgEase.Views.QuestionIndexItem,
-      ".questions"
+      ".tab-pane.questions"
     );
   },
 

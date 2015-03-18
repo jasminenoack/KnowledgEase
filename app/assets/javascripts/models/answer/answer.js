@@ -35,7 +35,7 @@ KnowledgEase.Models.Answer = Backbone.Model.extend({
     }
 
     if (payload.question) {
-      this.question().set(payload.comments, {parse: true})
+      this.question().set(payload.question, {parse: true})
       delete payload.question
     }
 

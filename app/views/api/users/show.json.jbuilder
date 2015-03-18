@@ -40,7 +40,9 @@ end
 json.answers do
   json.array!(@user.answers) do |answer|
     json.partial! "api/answers/answer", answer: answer
-    json.partial! "api/questions/question", question: answer.question
+    json.question do
+      json.partial! "api/questions/question", question: answer.question
+    end
   end
 end
 
