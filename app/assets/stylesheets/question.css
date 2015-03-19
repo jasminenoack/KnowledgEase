@@ -5,109 +5,58 @@
   border-radius: 20px;
   padding: 20px;
 }
-/*
-.non-sidebar {
-  width: 619px;
-  /*background: pink;
-  z-index: 100px;
-  float: left;
-}
 
-.user-sidebar {
-  display: block;
-  float: right;
-  width: 210px;
-  border-left: 1px solid #CBCBC1;
-  right: 0;
-  top:0;
-  padding-left: 20px;
-}
-
-.profile-picture {
-  width: 200px;
-  height: auto;
-  float: left;
-  margin-top: 10px;
-  margin-right: 10px;
-  float: left;
-  border-radius: 5px;
-  overflow: hidden;
-}
-
-.profile-information {
-  margin-top: 10px;
-  float: left;
-  width: 400px;
-}
-
-.profile-information h2 {
+.question-page h1 {
   margin-bottom: 5px;
-  margin-top: 10px;
 }
 
-.profile-information a {
-  margin-top: 10px;
-  display: block;
+.question-page h2 {
+  margin-bottom: 5px;
 }
 
-.sidebar-list {
-  padding: 20px 0;
-  border-bottom: 2px solid #CBCBC1;
-  position: relative;
+.question-page p {
+  margin-bottom: 5px;
 }
 
-.sidebar-list li{
-  padding: 5px;
-  border-top: 1px solid #CBCBC1;
+.question-page button {
+  margin-bottom: 5px;
 }
 
-.sidebar-list li:hover{
-  background: #E7512D;
-}
-
-.sidebar-list li:hover a{
-  color: #72441E;
-}
-
-.profile-page h2 {
-  font-weight: 700;
-  font-size: 18px;
-}
-
-.profile-page .tab {
-  font-size: 16px;
-  padding: 10px;
-  border-top-left-radius: 10px;
-  border-top-right-radius: 10px;
-  border:1px solid #CBCBC1;
-}
-
-.comments li {
-  background: white;
-  padding: 10px;
-  margin-bottom: 10px;
-}
-
-.profile-page .tab-pane {
-  border:1px solid #CBCBC1;
-  border-top: 0;
-}
-
-.profile-page .wrapper {
-  margin: 20px 15px 0 0;
+.question-page .non-sidebar{
+  padding-right: 20px;
   width: 604px;
 }
 
-.profile-page .new-comment-form {
-  margin: 10px 0px;
-  border: 0;
-  border-radius: 0;
-  display: block;
+.question-page .thumb {
+  display: inline-block;
 }
 
-.profile-page .new-comment-form textarea{
+.question-page .new-comment{
+  margin: 0px;
+  border: 0;
+  padding: 0;
+  border-radius: 0;
+  background: transparent;
+  display: block;
+  float: left;
+  width: 100%;
+}
+
+.question-page .new-comment textarea{
   margin: 0px;
   margin-bottom: 10px;
   display: block;
   width: calc(100% - 15px);
-}*/
+}
+
+.question-page .create-answer {
+  width: 100%;
+  margin: 0;
+  border: 0;
+  border-radius: 0;
+  width: calc(100% - 20px);
+}
+
+.question-page .create-answer textarea {
+  width: calc(100% - 15px);
+}

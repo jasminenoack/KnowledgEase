@@ -7,8 +7,8 @@ KnowledgEase.Views.AnswerForm = Backbone.CompositeView.extend({
     "submit form.create-answer": "createAnswer"
   },
 
-  template: JST['answers/answerButton'],
-  formTemplate: JST['answers/answerForm'],
+  // template: JST['answers/answerButton'],
+  template: JST['answers/answerForm'],
 
   render: function () {
     this.$el.html(this.template())

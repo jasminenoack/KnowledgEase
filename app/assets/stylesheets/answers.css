@@ -23,8 +23,8 @@ ul.answers{
   -webkit-box-shadow: 0 8px 17px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.18824);
   box-shadow: 0 8px 17px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.18824);
   z-index: 200;
-  margin: 1rem -1rem;
+  /*margin: 1rem -1rem;*/
   cursor: pointer;
-  padding: 1rem;
+  padding: 10px;
   position: relative;
 }
