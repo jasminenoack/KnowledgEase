@@ -134,7 +134,7 @@ class User < ActiveRecord::Base
     return nil if password =~ /\d/ || !password
     errors[:password] << "must contain a number"
   end
-
+ 
   def setup_activation
     self.activation_digest = SecureRandom::urlsafe_base64
     self.activated = false
