@@ -4,11 +4,10 @@
     <section class="sidebar-list following-topics">
       <ul class="actions-list">
         <li><section class="follow-button"></section></li>
-        <li><% if (question.author().get("current_user")) { %>
-          <a href="#questions/<%= question.id %>/edit">Edit</a>
-        <% } else { %>
-        <article class="request" ></article>
-        <% } %></li>
+        <% if (question.author().get("current_user")) { %>
+          <li><a href="#questions/<%= question.id %>/edit">Edit</a></li>
+        <% } %>
+        <li><article class="request" ></article></li>
         <li><a href="javascript:history.back()">Back</a></li>
       </ul>
     </section>

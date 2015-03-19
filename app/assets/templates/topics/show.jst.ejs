@@ -1,11 +1,28 @@
-<h1><%= topic.escape("title") %></h1>
+<article class="topic-page group">
 
-<button class="edit-topic">Edit Topic</button>
-<section class="topic-form"></section>
+  <sidebar class="user-sidebar group">
+    <section class="sidebar-list following-topics">
+      <ul class="actions-list">
+        <li><section class="follow-button"></section></li>
+        <li>know about</li>
+        <li><button class="edit-topic">Edit Topic</button></li>
+        <li><a href="javascript:history.back()">Back</a></li>
+      </ul>
+    </section>
 
-<p><%= topic.escape("description") %></p>
-<section class="follow-button-topic"></section>
-<a href="javascript:history.back()">back</a>
+    <section class="sidebar-list users-following group">
+      <h2>Users Following:</h2>
+      <ul class="following">
+      </ul>
+    </section>
+  </sidebar>
 
-<section class="questions">
-</section>
+<main class="non-sidebar group">
+  <section class="topic-information">
+    <h1><%= topic.escape("title") %></h1>
+    <p><%= topic.escape("description") %></p>
+
+    <h2>Questions:</h2>
+    <section class="questions">
+    </section>
+</main>

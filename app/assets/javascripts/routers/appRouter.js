@@ -100,11 +100,11 @@ KnowledgEase.Routers.AppRouter = Backbone.Router.extend({
 
   questionEdit: function (id) {
     var question = this.questions.getOrFetch(id)
-    var editQuestionView = new KnowledgEase.Views.EditQuestion({
+    var editQuestion = new KnowledgEase.Views.EditQuestion({
       model: question,
     })
-
-    this.$content.html(editQuestionView.render().$el)
+    this.$modal.html(editQuestion.render().$el)
+    this.$modal.addClass("active")
   },
 
   answerQuestions: function () {

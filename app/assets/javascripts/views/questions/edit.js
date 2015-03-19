@@ -6,7 +6,8 @@ KnowledgEase.Views.EditQuestion = Backbone.CompositeView.extend({
   template: JST['questions/form'],
 
   events: {
-    "submit .question-form-edit": "createQuestion"
+    "submit .question-form-edit": "createQuestion",
+    "click .close": "closeView",
   },
 
   render: function () {
@@ -28,5 +29,11 @@ KnowledgEase.Views.EditQuestion = Backbone.CompositeView.extend({
         this.$el.find('.failure').html(JST['errors']({errors: xhr.responseJSON}))
       }.bind(this)
     })
-  }
+  },
+
+  closeView: function () {
+    this.$el.remove()
+    $(".modal").removeClass("active")
+    Backbone.history.navigate("questions/"+ this.model.id)
+  },
 })
