@@ -1,4 +1,8 @@
-
+#cloud {
+  height: 400px;
+  width: 760px;
+  margin: auto;
+}
 
 .w10 a{
   font-size: 36px;

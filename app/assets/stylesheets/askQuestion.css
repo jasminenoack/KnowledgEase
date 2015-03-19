@@ -2,7 +2,7 @@
   background: yellow;
   width: 600px;
   margin: 20px auto;
-  padding: 10px;
+  padding: 20px;
   border-radius: 20px;
   background: #FCECE8;
   border: 2px solid #CBCBC1;
@@ -56,7 +56,7 @@ section.ask-question {
 }
 .ask-question .close {
   padding:0;
-  margin: -20px -10px;
+  margin: -25px -15px;
 }
 
 .ask-question button.close:hover {
@@ -90,7 +90,7 @@ section.ask-question {
   background: #FCECE8;
 }
 
-.topic-list .topic-item {
+.topic-item {
   display: inline;
   padding: 0;
   margin: 0;

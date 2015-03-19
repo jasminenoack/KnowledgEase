@@ -29,7 +29,11 @@ section.modal > div > form {
   max-height: 80%;
   overflow-y: auto;
   top: 50%;
-  transform:translate(0, -50%) 
+  transform:translate(0, -50%)
+}
+
+.modal .known-topics {
+  text-align: left;
 }
 
 .modal form h1 {
