@@ -5,7 +5,7 @@ class Api::SessionsController < ApplicationController
 
   def create
     @user = User.find_user(params[:username], params[:password])
-    if @user
+    if @user && @user.activated
       log_in(@user)
       render "api/users/show"
     else

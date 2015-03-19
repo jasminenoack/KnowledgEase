@@ -6,7 +6,7 @@ class Api::FeedsController < ApplicationController
       all_feed = Follow.feed(current_user)
       @feed= all_feed[(start_item)...start_item + 25]
     else
-      render json: ["not signed in"]
+      head :ok
     end
   end
 
@@ -47,7 +47,7 @@ class Api::FeedsController < ApplicationController
       @feed.reverse!
       render :index
     else
-      render json: ["not signed in"]
+      head :ok
     end
   end
 

@@ -138,7 +138,6 @@ class User < ActiveRecord::Base
   def setup_activation
     self.activation_digest = SecureRandom::urlsafe_base64
     self.activated = false
+    true
   end
-
-
 end

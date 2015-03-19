@@ -6,5 +6,5 @@
   Welcome to the KnowledgEase! Click on the link below to activate your account:
 </p>
 
-<a href="/api/account_activations/<%= @user.id %>/edit/<%= @user.activation_digest %>/<%= @user.email %>">
+<a href="/api/account_activations/<%= @user.id %>/edit?activation=<%= @user.activation_digest %>&email=<%= @user.email %>">
 Activate!</a>
