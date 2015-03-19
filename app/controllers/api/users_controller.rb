@@ -79,14 +79,9 @@ class Api::UsersController < ApplicationController
   end
 
   def add_knows_about
-    @knows_about = KnowsAbout.new(
-      user_id: params[:user_id],
-      topic_id: params[:topic_id])
-    if @knows_about.save
-      render json: @knows_about
-    else
-      render json: @knows_about.errors.full_messages, status: 422
-    end
+    @topic = Topic.find(params[:topic_id])
+    @topic.knowledgable_users << current_user
+    render json: @topic
   end
 
   private

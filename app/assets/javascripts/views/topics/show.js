@@ -16,6 +16,7 @@ KnowledgEase.Views.TopicShow = Backbone.CompositeView.extend({
     this.addQuestions()
     this.addFollowers()
     this.addKnowledgable()
+    this.addKnownButton()
     this.addFollowButton()
     return this
   },
@@ -33,6 +34,13 @@ KnowledgEase.Views.TopicShow = Backbone.CompositeView.extend({
       model: this.model
     })
     this.addSubview("section.follow-button", followButton)
+  },
+
+  addKnownButton: function () {
+    var knownButton = new KnowledgEase.Views.KnowsAboutButton({
+      model: this.model
+    })
+    this.addSubview("section.known-button", knownButton)
   },
 
   editForm: function () {
