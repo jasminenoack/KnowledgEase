@@ -26,7 +26,8 @@ KnowledgEase.Routers.AppRouter = Backbone.Router.extend({
     'questions/:id': "questionShow",
     'questions/:id/edit':"questionEdit",
     'answer_questions':"answerQuestions",
-    'topics/:id':'showTopic'
+    'topics/:id':'showTopic',
+    'topics/:id/edit':'editTopic'
   },
 
   home: function () {
@@ -118,6 +119,14 @@ KnowledgEase.Routers.AppRouter = Backbone.Router.extend({
     var topicShowView = new KnowledgEase.Views.TopicShow({model: topic})
 
     this._swapContent(topicShowView)
+  },
+
+  editTopic: function (id) {
+    var topic = this.topics.getOrFetch(id)
+    var topicEditView = new KnowledgEase.Views.Topicform({model: topic})
+
+    this.$modal.html(topicEditView.render().$el)
+    this.$modal.addClass("active")
   },
 
   _swapContent: function (view) {

@@ -6,10 +6,9 @@ KnowledgEase.Views.Topicform = Backbone.CompositeView.extend({
   template: JST['topics/topic_form'],
 
   events: {
-    "submit": "saveTopic"
+    "submit form": "saveTopic",
+    "click .close": "closeView",
   },
-
-  tagName: "form",
 
   render: function () {
     this.$el.html(this.template({topic: this.model}));
@@ -19,14 +18,22 @@ KnowledgEase.Views.Topicform = Backbone.CompositeView.extend({
 
   saveTopic: function (event) {
     event.preventDefault();
+
     var attrs = $(event.currentTarget).serializeJSON()
     this.model.save(attrs, {
       success: function () {
         Backbone.history.navigate("#topics/" + this.model.id, { trigger: true })
+        this.closeView()
       }.bind(this),
       error: function (event, xhr) {
         this.$el.find('.failure').html(JST['errors']({errors: xhr.responseJSON}))
       }.bind(this)
     })
-  }
+  },
+
+  closeView: function () {
+    this.$el.remove()
+    $(".modal").removeClass("active")
+    Backbone.history.navigate("topics/"+ this.model.id)
+  },
 })
