@@ -7,7 +7,7 @@ KnowledgEase.Routers.AppRouter = Backbone.Router.extend({
     this.$navbar = this.$rootEl.find(".navbar")
 
     this.users = KnowledgEase.users
-    // this.topics = new KnowledgEase.topics
+    this.topics = KnowledgEase.topics
     this.questions = new KnowledgEase.Collections.Questions
 
     this.startNavbar()

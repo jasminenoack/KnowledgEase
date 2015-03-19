@@ -24,7 +24,7 @@ class Topic < ActiveRecord::Base
          word_cloud[topic][:weight] += 1
        else
          word_cloud[topic][:weight] += 1
-         word_cloud[topic][:link] = "#/topics/#{topic.id}"
+         word_cloud[topic][:link] = "#topics/#{topic.id}"
          word_cloud[topic][:text] = topic.title
        end
      end
