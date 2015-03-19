@@ -66,3 +66,15 @@
   border: 0;
   background: transparent;
 }
+
+.question-page .twitter-typeahead {
+  float: none;
+  margin: 0;
+  width: 210px;
+}
+
+.question-page .twitter-typeahead input{
+  float: none;
+  margin: 0;
+  width: 190px;
+}

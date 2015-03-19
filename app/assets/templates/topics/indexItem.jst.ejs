@@ -1,3 +1,6 @@
-<a href="#topics/<%= topic.id %>">
+<a href="#topics/<%= topic.id %>" class="left">
   <%= topic.escape("title") %>
 </a>
+<% if (parent) { %>
+  <button class="remove right">X</button>
+<% } %>

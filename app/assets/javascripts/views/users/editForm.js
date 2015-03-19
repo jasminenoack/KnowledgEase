@@ -45,7 +45,11 @@ KnowledgEase.Views.UserEdit = Backbone.CompositeView.extend({
   update: function (event) {
     event.preventDefault()
     var attrs = $(event.currentTarget).serializeJSON();
-    this.model.save(attrs);
+    this.model.save(attrs, {
+      success: function () {
+        KnowledgEase.topics.fetch()
+      }
+    });
     this.closeView();
     Backbone.history.navigate("#/users/" + this.model.id, {trigger: true})
   },
@@ -99,7 +103,6 @@ KnowledgEase.Views.UserEdit = Backbone.CompositeView.extend({
   },
 
   addTopic: function (event) {
-    console.log("event")
     if(event.which == 13) {
       var current_topics = this.model.get("set_known_topics")
       var newTopic = $(event.target).val()
@@ -126,7 +129,6 @@ KnowledgEase.Views.UserEdit = Backbone.CompositeView.extend({
     this.model.set("set_know_topics", _.without(current_topics, topic))
     $(event.target).parent().remove()
 
-    console.log("remove")
     $.ajax({
       url: "/api/users/remove_knows_about",
       method: "delete",

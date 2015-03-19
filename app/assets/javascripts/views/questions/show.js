@@ -6,6 +6,12 @@ KnowledgEase.Views.QuestionShow = Backbone.CompositeView.extend({
 
   template: JST['questions/show'],
 
+  events: {
+    "click #set-topics": "clear",
+    "keypress input#set-topics":"addTopic",
+    "click .topic-item button":"removeTopic",
+  },
+
   render: function () {
     this.$el.html(this.template({question: this.model}))
     this.addTopics()
@@ -50,7 +56,10 @@ KnowledgEase.Views.QuestionShow = Backbone.CompositeView.extend({
   addIndexItemsSidebar: function (collection, viewConstructor, selector) {
     if (collection.length) {
       _(_.sample(collection.models, 20)).each(function (item) {
-        var topicItem = new viewConstructor({ model: item })
+        var topicItem = new viewConstructor({
+          model: item,
+          parent: this.model 
+        })
 
         this.addSubview(selector, topicItem)
       }.bind(this));
@@ -58,11 +67,52 @@ KnowledgEase.Views.QuestionShow = Backbone.CompositeView.extend({
   },
 
   addTopics: function () {
+    this.$el.find()
     this.addIndexItemsSidebar(
       this.model.topics(),
       KnowledgEase.Views.TopicIndexItem,
       ".topics-list"
     );
+    this.addTopicsField()
+  },
+
+  addTopicToList: function (topic) {
+    var topicItem = new KnowledgEase.Views.TopicIndexItem({
+      model: topic,
+      parent: this.model,
+    })
+    this.addSubview(".topics-list", topicItem)
+  },
+
+  addTopicsField: function () {
+    var topics = _.map(KnowledgEase.topics.models, function (topic) {
+      return topic.get("title")
+    })
+
+    this.$el.find("#set-topics").typeahead({
+        hint: false,
+        highlight: true,
+        minLength: 1
+      },
+      {
+        name: 'topics',
+        displayKey: 'value',
+        source: this.substringMatcher(topics)
+    })
+  },
+
+  substringMatcher: function(strs) {
+    return function findMatches(q, cb) {
+      var matches, substrRegex;
+      matches = [];
+      substrRegex = new RegExp(q, 'i');
+      $.each(strs, function(i, str) {
+        if (substrRegex.test(str)) {
+          matches.push({ value: str });
+        }
+      });
+      cb(matches);
+    };
   },
 
   addFollowers: function () {
@@ -79,4 +129,35 @@ KnowledgEase.Views.QuestionShow = Backbone.CompositeView.extend({
       this.addSubview(".answers", answerView)
     }.bind(this))
   },
+
+  clear: function (event) {
+    $(event.currentTarget).val("")
+  },
+
+  addTopic: function () {
+    if(event.which == 13) {
+      var newTopic = $(event.target).val()
+      event.preventDefault()
+      event.stopPropagation()
+
+      if (!_(this.model.topics()).contains(newTopic)) {
+        $.ajax({
+          url: "/api/questions/add_topic",
+          method: "post",
+          data: {
+            question_id: this.model.id,
+            title: newTopic
+          },
+          success: function (topic) {
+            topic = new KnowledgEase.Models.Topic(topic)
+            this.model.topics().add(topic)
+            this.addTopicToList(topic)
+            KnowledgEase.topics.add(topic)
+          }.bind(this)
+        })
+      }
+      $(event.target).val("")
+    }
+  },
+
 })
