@@ -19,7 +19,7 @@ class WantAnswer < ActiveRecord::Base
   belongs_to :question, inverse_of: :answer_requests
 
   def self.all_requests
-    questions = Question.joins(:users_following).includes(:author, :users_following, :answers)
+    questions = Question.all.includes(:author, :users_following, :answers)
     requests = Hash.new { |hash, key| hash[key] = [] }
 
     questions.each do |question|
