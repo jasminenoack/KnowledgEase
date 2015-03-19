@@ -14,6 +14,13 @@ KnowledgEase.Routers.AppRouter = Backbone.Router.extend({
 
     this.startNavbar()
     this.questionNew()
+    this.bind( "all", function () {
+      $(".flash").addClass("active")
+      setTimeout(function () {
+        $(".flash").removeClass("active")
+        $(".flash").empty()
+      }, 5000)
+    })
   },
 
   routes: {

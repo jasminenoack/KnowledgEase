@@ -98,6 +98,15 @@ footer .footer-content {
   width: auto;
 }
 
+.flash {
+  display: none;
+}
+
+.flash.active{
+  text-align: center;
+  display: block;
+}
+
 
 
 /* white #F6F6F6 light gray #CBCBC1 medium #B6AEA1 brown #9a5c29 #72441E red #E7512D*/

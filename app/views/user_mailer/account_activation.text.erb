@@ -2,5 +2,5 @@ Hi <%= @user.name %>,
 
 Welcome to the KnowledgEase! Click on the link below to activate your account:
 
-<a href="/api/account_activations/<%= @user.id %>/edit?activation=<%= @user.activation_digest %>&email=<%= @user.email %>">
+<a href="knowledgease.herokuapp.com/api/account_activations/<%= @user.id %>/edit?activation=<%= @user.activation_digest %>&email=<%= @user.email %>">
 Activate!</a>
