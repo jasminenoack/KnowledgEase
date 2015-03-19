@@ -15,6 +15,7 @@ KnowledgEase.Views.TopicShow = Backbone.CompositeView.extend({
     this.$el.html(this.template({topic: this.model}))
     this.addQuestions()
     this.addFollowers()
+    this.addKnowledgable()
     this.addFollowButton()
     return this
   },
@@ -61,7 +62,14 @@ KnowledgEase.Views.TopicShow = Backbone.CompositeView.extend({
     );
   },
 
-  
+  addKnowledgable: function () {
+    this.addIndexItemsSidebar(
+      this.model.followers(),
+      KnowledgEase.Views.UserIndexItem,
+      ".knowledgable"
+    );
+  },
+
 })
 
 

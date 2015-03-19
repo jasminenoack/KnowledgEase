@@ -30,7 +30,7 @@ class Api::TopicsController < ApplicationController
   end
 
   def show
-    @topic = Topic.where(id: params[:id]).includes(:users_following).first
+    @topic = Topic.where(id: params[:id]).includes(:users_following, :knowledgable_users).first
     @questions = @topic.questions.includes(:author, :users_following).page(params[:page])
   end
 
