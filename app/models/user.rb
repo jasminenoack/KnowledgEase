@@ -2,6 +2,7 @@ class User < ActiveRecord::Base
   validates :email, :username, presence: true, uniqueness: true
   validates :password, length: { minimum: 6 }, allow_nil: true
   validate :valid_email, :confirm_password_match, :password_contains_number
+  before_create :setup_activation
 
   include PgSearch
   multisearchable :against => [:first_name, :last_name, :username, :email]
@@ -134,7 +135,10 @@ class User < ActiveRecord::Base
     errors[:password] << "must contain a number"
   end
 
-
+  def setup_activation
+    self.activation_digest = SecureRandom::urlsafe_base64
+    self.activated = false
+  end
 
 
 end

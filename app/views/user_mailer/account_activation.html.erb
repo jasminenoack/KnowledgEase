@@ -1,0 +1,10 @@
+<h1>KnowledgEase</h1>
+
+<p>Hi <%= @user.name %>,</p>
+
+<p>
+  Welcome to the KnowledgEase! Click on the link below to activate your account:
+</p>
+
+<a href="/api/account_activations/<%= @user.id %>/edit/<%= @user.activation_digest %>/<%= @user.email %>">
+Activate!</a>

@@ -18,6 +18,7 @@ Rails.application.routes.draw do
     post "questions/add_topic", to: "questions#add_topic"
     post "toggle_follow", to: "feeds#toggle_follow"
     get "search", to: "static_pages#search"
+    resources :account_activations, only: [:edit]
   end
 
   root 'static_pages#index'
