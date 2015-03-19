@@ -12,3 +12,43 @@ li.feed-item main {
   background: #eaeae6;
   padding: 5px
 }
+
+nav .notifications {
+  position: absolute;
+  display: none;
+  height: 600px;
+  overflow: auto;
+}
+
+li.notifs:hover .notifications {
+  display: block;
+  z-index: 100
+
+}
+
+nav .notifications li{
+  display: block;
+  width: 600px;
+  padding: 10px;
+  margin: 0;
+  background: white;
+  float: none;
+  border-bottom: 1px solid #B6AEA1;
+  font-size: 14px;
+}
+
+nav .notifications li:hover{
+  background: #F6F6F6;
+}
+
+nav .notifications li header{
+  padding: 0px;
+  margin: 0;
+  font-size: 14px;
+}
+
+nav .notifications li a{
+  padding: 0px;
+  margin: 0;
+  font-size: 14px;
+}

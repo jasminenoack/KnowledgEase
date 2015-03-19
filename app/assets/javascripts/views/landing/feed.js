@@ -13,7 +13,6 @@ KnowledgEase.Views.Feed = Backbone.CompositeView.extend({
   },
 
   render: function () {
-    console.log("render")
     this.createContent()
     this.handleButtons()
     return this

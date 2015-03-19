@@ -17,13 +17,11 @@ Users
 
 Questions
 - [X] View questions
-- [ ] Can be listed as anonomous
 - [X] Have answers and comments
 
 Answers
 - [X] Can have comments
 - [X] Are accessed nested under questions
-- [ ] User can choose the best answer
 
 Comments
 - [X] Can be on users, questions, or answers
@@ -39,7 +37,6 @@ Search
 - [X] Users can search by topic
 - [X] Users can search by user
 - [X] Users can search by question content
-- [ ] Users can complete an advanced search
 
 ## Bonus Features
 
@@ -47,6 +44,7 @@ Improvements
 - [ ] Text can be inputed in markdown with a preview
 - [ ] Pages show tips indicating additional features
 - [ ] Users can post links and pictures
+- [ ] Can be listed as anonomous
 - [ ] Creates seperate user feeds for trending, following, etc.
 
 Votes
@@ -54,6 +52,7 @@ Votes
 - [ ] Users have credits based on the number of votes they get
 - [ ] Users user credits to request answers from other users
 - [ ] Users have stats based on votes
+- [ ] User can choose the best answer
 
 Views
 - [ ] Users have stats based on when their pages are viewed.

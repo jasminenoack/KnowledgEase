@@ -4,10 +4,11 @@
   <nav class="navbar group">
     <ul class="nav-left group">
       <li><a href="#">KnowledgEase</a></li>
-      <li><a href="#/users">Users</a></li>
-
       <li><a href="#/answer_questions">Answer</a></li>
-      <!-- <li>Notifications</li> -->
+      <li class="notifs"><button>Notifs. <badge></badge></button>
+        <ul class="notifications">
+        </ul>
+      </li>
     </ul>
 
     <nav class="userNav">
@@ -15,7 +16,7 @@
       <ul class="nav-right group">
         <li class="search-bar">
           <label for="search">Search:</label>
-          <input type="search" name="query" value="" id="search">
+          <input type="text" name="query" value="" id="search">
           <ul class="search-results">
           </ul>
         </li>

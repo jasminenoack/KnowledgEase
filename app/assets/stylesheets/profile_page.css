@@ -9,7 +9,7 @@
 .non-sidebar {
   width: 619px;
   /*background: pink;*/
-  z-index: 100px;
+  z-index: 100;
   float: left;
 }
 

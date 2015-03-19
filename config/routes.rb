@@ -8,6 +8,8 @@ Rails.application.routes.draw do
     resources :comments, only: :create
     resources :topics, only: [:create, :index, :show, :update]
     resources :feeds, only: :index
+    post "update_checked", to: "feeds#update_checked"
+    get "notifications", to: "feeds#notification"
     delete "users/remove_knows_about", to: "users#remove_knows_about"
     post "users/add_knows_about", to: "users#add_knows_about"
     get "want_answers/specific", to: 'want_answers#show_specific'

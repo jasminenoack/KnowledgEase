@@ -6,7 +6,7 @@ class Api::FeedsController < ApplicationController
       all_feed = Follow.feed(current_user)
       @feed= all_feed[(start_item)...start_item + 25]
     else
-      render json: ["not signed in"], status: 422
+      render json: ["not signed in"]
     end
   end
 
@@ -24,11 +24,38 @@ class Api::FeedsController < ApplicationController
       else
         render json: @follow.errors.full_messages, status: 422
       end
-      
+
     else
       @follow.destroy_all
       render json: @follow
     end
+  end
+
+  def notification
+    if current_user
+      all_feed = Follow.feed(current_user)
+      if current_user.time_checked
+        all_feed = Follow.feed(current_user)
+        @feed = all_feed
+        .select{ |item| item.time > current_user.time_checked  }
+        .sort_by{ |item| item.time }
+      p @feed.map(&:time)
+      p @feed.length
+      else
+        @feed = all_feed[0..4]
+      end
+      @feed.reverse!
+      render :index
+    else
+      render json: ["not signed in"]
+    end
+  end
+
+  def update_checked
+    user = current_user
+    user.time_checked = Time.parse(params[:time_checked]) + 1.second
+    user.save!
+    render json: user
   end
 
 
