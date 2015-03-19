@@ -60,3 +60,9 @@
 .question-page .create-answer textarea {
   width: calc(100% - 15px);
 }
+
+.question-page .submit-answer-request {
+  margin: 0;
+  border: 0;
+  background: transparent;
+}
