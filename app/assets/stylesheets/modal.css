@@ -1,8 +1,10 @@
 section.modal {
   display: none;
   position: fixed;
-  height: 100%;
-  width: 100%;
+  top:0;
+  bottom: 0;
+  right: 0;
+  left: 0;
   background: rgba(142,142,135, 0.5);
   z-index: 10;
   top: 0;
@@ -16,17 +18,18 @@ section.modal > div {
   position: relative;
   /*text-align: center;*/
   display: block;
-  margin: auto;
-  top: 50%;
-  transform: translateY(-50%);
+  height: 100%;
+  width: 100%;
 }
 
 section.modal > div > form {
   margin: auto;
   display: block;
   width: 600px;
-  max-height: 600px;
-  overflow-y: auto
+  max-height: 80%;
+  overflow-y: auto;
+  top: 50%;
+  transform:translate(0, -50%) 
 }
 
 .modal form h1 {
