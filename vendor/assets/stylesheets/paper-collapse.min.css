@@ -43,6 +43,22 @@
   padding: 1rem;
   position: relative;
 }
+
+.collapse-card__heading i {
+  /*float: left;*/
+  display: inline-block;
+}
+
+.collapse-card__heading span.left {
+  margin-left: 0px;
+    overflow:auto;
+    display:inline-block;
+    width: 500px;
+    margin: auto;
+    padding-left: 20px;
+}
+
+
 .collapse-card__heading .left {
   color: #72441E;
 }
@@ -60,7 +76,7 @@
   color: #72441E;
   font-family: 'FontAwesome';
   font-size: 1rem;
-  line-height: 2rem;
+  line-height: normal;
   padding-left: .4rem;
   position: absolute;
   right: 1rem;
@@ -69,11 +85,11 @@
 
 .collapse-card__title {
   font-size: 1rem;
-  line-height: 2rem;
+  line-height: normal;
   margin: 0 2rem 0 0;
   overflow: hidden;
-  text-overflow: ellipsis;
-  white-space: nowrap;
+  /*text-overflow: ellipsis;*/
+  /*white-space: nowrap;*/
 }
 
 .collapse-card__body {
