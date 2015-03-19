@@ -18,23 +18,15 @@ class WantAnswer < ActiveRecord::Base
 
   belongs_to :question, inverse_of: :answer_requests
 
-  def self.all_requests(page = 1)
-    questions = Question
-      .joins(:answer_requests)
-      .select("questions.*, COUNT(want_answers.*) as request_count")
-      .group("questions.id")
-      .order("request_count DESC")
-      .page(page)
-      .includes(:author, :answer_requesters)
-
+  def self.all_requests
+    questions = Question.joins(:users_following).includes(:author, :users_following, :answers)
     requests = Hash.new { |hash, key| hash[key] = [] }
 
     questions.each do |question|
-      requests[question] = question.answer_requesters
+      requests[question] = question.users_following
     end
 
     return requests
-
   end
 
   def self.specific_requests(current_user)

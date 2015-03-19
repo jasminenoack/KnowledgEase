@@ -1,14 +1,14 @@
-.profile-page {
+.question-page {
   position: relative;
   background: #FCECE8;
   border: 2px solid #CBCBC1;
   border-radius: 20px;
   padding: 20px;
 }
-
+/*
 .non-sidebar {
   width: 619px;
-  /*background: pink;*/
+  /*background: pink;
   z-index: 100px;
   float: left;
 }
@@ -65,7 +65,7 @@
   background: #E7512D;
 }
 
-.sidebar-list li:hover a, .sidebar-list li:hover button{
+.sidebar-list li:hover a{
   color: #72441E;
 }
 
@@ -110,4 +110,4 @@
   margin-bottom: 10px;
   display: block;
   width: calc(100% - 15px);
-}
+}*/

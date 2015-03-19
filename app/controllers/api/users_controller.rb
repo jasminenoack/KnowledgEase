@@ -16,7 +16,6 @@ class Api::UsersController < ApplicationController
         {comments: :author},
         {questions:
           [:users_following,
-          :answer_requesters,
           {answers: :author}
           ]
         },
@@ -31,7 +30,6 @@ class Api::UsersController < ApplicationController
         },
         {followed_questions:
           [:users_following,
-          :answer_requesters,
           {answers: :author}]
         }
       )

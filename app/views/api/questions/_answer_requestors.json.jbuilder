@@ -1,5 +1,5 @@
 json.askers do
-  json.array!(question.answer_requesters) do |asker|
+  json.array!(question.users_following) do |asker|
     p asker
     json.extract! asker, :name, :id
   end

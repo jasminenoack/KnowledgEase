@@ -1,34 +1,46 @@
-<h1><%= question.escape("question") %></h1>
-<a href="#users/<%= question.author().id %>">
-  <%= question.author().escape("name") %>
-</a>
-<p><%= question.escape("description") %></p>
+<article class="question-page group">
 
-<p class="comments"></p>
-<% if (question.author().get("current_user")) { %>
-  :p
-  <a href="#questions/<%= question.id %>/edit">edit</a>
-<% } else { %>
-<article class="request" ></article>
-<% } %>
-<article class="answer-form" ></article>
+  <sidebar class="user-sidebar group">
+    <section class="sidebar-list following-topics">
+      <ul class="actions-list">
+        <li><section class="follow-button"></section></li>
+        <li><% if (question.author().get("current_user")) { %>
+          <a href="#questions/<%= question.id %>/edit">Edit</a>
+        <% } else { %>
+        <article class="request" ></article>
+        <% } %></li>
+        <li><a href="javascript:history.back()">Back</a></li>
+      </ul>
+    </section>
 
-<a href="javascript:history.back()">back</a>
+    <section class="sidebar-list topics">
+      <h2>Topics:</h2>
+      <ul class="topics-list">
+        <li>add topics</li>
+      </ul>
+    </section>
 
-<ul class="requestors group">
-Unique Users Requesting Answers:
-<br>
-  <% question.askers().each( function (asker) { %>
-    <a href="#users/<%= asker.id %>">
-      <li class="left"><%= asker.get("name") %></li>
-    </a>
-  <% }) %>
-</ul>
+    <section class="sidebar-list users-following group">
+      <h2>Users Who Want Answers:</h2>
+      <ul class="want-answers">
+      </ul>
+    </section>
+  </sidebar>
 
-Topics
-<section class="topics"></section>
+<main class="non-sidebar group">
+  <section class="question-information">
+    <h1><%= question.escape("question") %></h1>
+    <p><%= question.escape("description") %></p>
+    <p><img class="thumb" src="<%= question.author().get("thumbUrl") %>">
+      <a href="#users/<%= question.author().id %>">
+        <%= question.author().escape("name") %>
+      </a>
+    <p>
+  </section>
+  <p class="comments"></p>
+    <article class="answer-form" ></article>
+    <h3><%= question.escape("answer_count") %> Answers</h3>
 
-<h3><%= question.escape("answer_count") %> Answers</h3>
-
-<ul class="answers">
-</ul>
+    <ul class="answers">
+    </ul>
+</main>

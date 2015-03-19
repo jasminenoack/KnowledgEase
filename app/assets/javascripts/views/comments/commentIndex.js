@@ -1,17 +1,17 @@
 KnowledgEase.Views.CommentIndex = Backbone.CompositeView.extend({
   initialize: function (options) {
     // this.listenTo(this.collection, "sync", this.render);
-    this.listenTo(this.collection, "add", this.addComments)
+    this.listenTo(this.collection, "add sync", this.addComments)
     this.parent = options.parent
   },
 
   template: JST['comments/commentIndex'],
+  formTemplate: JST['comments/commentForm'],
 
   events: {
     "submit .new-comment": "createComment",
     "click .new-comment": "stop",
     "click .comment-button button": 'toggleComments',
-
   },
 
   stop: function (event) {
@@ -53,8 +53,9 @@ KnowledgEase.Views.CommentIndex = Backbone.CompositeView.extend({
   },
 
   addComments: function () {
-    this.$el.find("ul.comments").empty()
-    this.collection.each(function (comment) {
+    this.$el.find("ul.comments").html(this.formTemplate())
+
+    this.collection.sort().each(function (comment) {
       var commentView = new KnowledgEase.Views.CommentView({model: comment})
       this.addSubview("ul.comments", commentView)
     }.bind(this))
