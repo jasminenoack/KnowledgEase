@@ -1,6 +1,9 @@
 class SessionsController < ApplicationController
 
   def create
+    10.times do
+      p "create"
+    end
     hash = request.env['omniauth.auth']
     user = User.find_by(provider: hash[:provider], uid: hash[:uid])
     unless user
