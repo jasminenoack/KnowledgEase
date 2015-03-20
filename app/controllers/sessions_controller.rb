@@ -8,12 +8,11 @@ class Api::SessionsController < ApplicationController
     end
     unless user
       password = SecureRandom::urlsafe_base64
-      user = User.new({
-        username: hash[:nickname],
-        email: hash[:email]),
-        password: password,
-        password_confirmation: password
-      })
+      user = User.new
+      user.username = hash[:nickname]
+      user.email =  hash[:email]
+      user.password = password
+      user.password_confirmation = password
     end
     log_in(user)
     user.activated = true
