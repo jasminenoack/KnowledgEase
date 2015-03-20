@@ -47,7 +47,7 @@ KnowledgEase.Views.CommentIndex = Backbone.CompositeView.extend({
   },
 
   render: function () {
-    this.$el.html(this.template())
+    this.$el.html(this.template({comments: this.collection}))
 
     return this
   },
