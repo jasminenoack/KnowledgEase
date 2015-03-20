@@ -1,4 +1,4 @@
-class Api::SessionsController < ApplicationController
+class SessionsController < ApplicationController
 
   def create
     hash = request.env['omniauth.auth']
