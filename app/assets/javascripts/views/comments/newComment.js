@@ -6,7 +6,7 @@ KnowledgEase.Views.NewComment = Backbone.CompositeView.extend({
   template: JST['comments/commentForm'],
 
   events: {
-    "submit .new-comment-form": "createComment",
+    "submit .new-comment": "createComment",
   },
 
   createComment: function (event) {
