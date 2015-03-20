@@ -5,10 +5,8 @@ class ApplicationController < ActionController::Base
   helper_method :current_user, :logged_in?, :current_session
 
   def current_session
-    p "token #{session[:token]}"
     if session[:token]
       @current_session ||= Session.find_by(session_token: session[:token])
-      p "current session #{@current_session.session_token}"
       @current_session
     end
   end
