@@ -118,5 +118,11 @@ footer .footer-content {
   width: auto;
 }
 
+.guests button {
+  float: none;
+  text-align: center;
+  display: block;
+  margin: auto;
+}
 
 /* white #F6F6F6 light gray #CBCBC1 medium #B6AEA1 brown #9a5c29 #72441E red #E7512D*/

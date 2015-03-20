@@ -4,8 +4,9 @@
   margin: 0px;
 }
 
-.search-bar {
+.nav-right li.search-bar {
   position: relative;
+  border-left: 0;
 }
 
 .search-results {
