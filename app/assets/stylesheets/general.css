@@ -107,6 +107,16 @@ footer .footer-content {
   display: block;
 }
 
+.navbar .logo {
+  margin: 0;
+  padding: 0;
+  height: 58px;
+}
+
+.logo img{
+  height: 58px;
+  width: auto;
+}
 
 
 /* white #F6F6F6 light gray #CBCBC1 medium #B6AEA1 brown #9a5c29 #72441E red #E7512D*/
