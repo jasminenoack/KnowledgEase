@@ -5,8 +5,11 @@ class ApplicationController < ActionController::Base
   helper_method :current_user, :logged_in?, :current_session
 
   def current_session
+    p "token #{session[:token]}"
     if session[:token]
       @current_session ||= Session.find_by(session_token: session[:token])
+      p "current session #{@current_session.session_token}"
+      @current_session
     end
   end
 
@@ -25,8 +28,7 @@ class ApplicationController < ActionController::Base
     return if current_user
     @current_session = user.sessions.new
     @current_user = user
-
-    @current_session .save()
+    @current_session.save
     session[:token] = @current_session.session_token
   end
 
