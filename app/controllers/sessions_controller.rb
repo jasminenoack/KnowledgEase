@@ -11,7 +11,7 @@ class Api::SessionsController < ApplicationController
       user = User.new(
         username: hash[:nickname],
         email: hash[:email]),
-        password: password
+        password: password,
         password_confirmation: password
       )
     end
