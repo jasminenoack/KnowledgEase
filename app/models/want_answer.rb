@@ -30,7 +30,6 @@ class WantAnswer < ActiveRecord::Base
   end
 
   def self.specific_requests(current_user)
-    current_user = User.first
     if current_user
       want_answers = WantAnswer
         .all
