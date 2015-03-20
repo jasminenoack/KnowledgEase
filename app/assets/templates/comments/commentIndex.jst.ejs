@@ -1,5 +1,6 @@
 <section class="comment-button">
-  <button>See <%= comments.length %> Comments</button>
+  <button>See
+  <% if (comments) { %> <%= comments.length %> <% } %> Comments</button>
 </section>
 
 <ul class="comments">
