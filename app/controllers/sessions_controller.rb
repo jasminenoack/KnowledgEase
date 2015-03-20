@@ -2,13 +2,11 @@ class SessionsController < ApplicationController
 
   def create
     hash = request.env['omniauth.auth']
-
-p hash[:provider]
-p hash[:uid]
     user = User.find_by(provider: hash[:provider], uid: hash[:uid])
     unless user
-p "email #{hash[:info][:email]}"
       user = User.find_by(email: hash[:info][:email])
+      user.uid = hash[:uid]
+      user.provider = hash[:provider]
     end
     unless user
       password = SecureRandom::urlsafe_base64
@@ -17,7 +15,8 @@ p "email #{hash[:info][:email]}"
       user.email =  hash[:info][:email]
       user.password = password
       user.password_confirmation = password
-p "email #{hash[:info][:nickname]}"
+      user.uid = hash[:uid]
+      user.provider = hash[:provider]
     end
     log_in(user)
     user.activated = true
