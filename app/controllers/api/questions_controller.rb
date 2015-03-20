@@ -32,6 +32,7 @@ class Api::QuestionsController < ApplicationController
   end
 
   def index
+    p "current user #{current_user} question index line 35"
     if params[:user_id]
       @questions = Question
         .where(user_id: params[:user_id])

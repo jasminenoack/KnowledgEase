@@ -23,19 +23,18 @@ KnowledgEase.Views.Guests = Backbone.View.extend ({
     event.preventDefault()
     $.ajax({
       url: "api/sessions",
-      method: "post",
+      type: "post",
       data: {username: username, password: "password1"},
       success: function (json) {
-        var user = new KnowledgEase.Models.User(json)
-        var user = KnowledgEase.users.getOrFetch(json.id)
-        user.set(json)
+        var user = new KnowledgEase.Models.User
+        user.set(user.parse(json))
 
         this.$userEl.html(JST['navbar/signedIn']({user: user}))
         this.closeView()
-
         fragment = Backbone.history.fragment
         Backbone.history.fragment = null
         Backbone.history.navigate("", {trigger: true})
+
       }.bind(this),
     })
   },

@@ -5,6 +5,9 @@ class ApplicationController < ActionController::Base
   helper_method :current_user, :logged_in?, :current_session
 
   def current_session
+    p "session token nnnnnnnnnnnnnnnnnnnnnnaisdfiasdhgkadhskfj;askjgkdsjafljsdkfhdasjkjfk"
+    p session[:token]
+    p "token: #{@current_session && @current_session.session_token}"
     if session[:token]
       @current_session ||= Session.find_by(session_token: session[:token])
       @current_session
@@ -16,6 +19,8 @@ class ApplicationController < ActionController::Base
     if session
       @current_user ||= session.user
     end
+    p @current_user && @current_user.name
+    @current_user
   end
 
   def logged_in?
