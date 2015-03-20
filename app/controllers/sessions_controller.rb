@@ -13,6 +13,7 @@ class SessionsController < ApplicationController
       user.email =  hash[:email]
       user.password = password
       user.password_confirmation = password
+      p user
     end
     log_in(user)
     user.activated = true
