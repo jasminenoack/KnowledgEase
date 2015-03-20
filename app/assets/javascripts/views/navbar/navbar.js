@@ -8,7 +8,7 @@ KnowledgEase.Views.Navbar = Backbone.CompositeView.extend({
     this.notifs.comparator = "updated_at"
     this.updateNotifications()
     $(document).click(this.emptySearch.bind(this))
-    setInterval(this.updateNotifications.bind(this), 1000)
+    setInterval(this.updateNotifications.bind(this), 30000)
   },
 
   events: {
