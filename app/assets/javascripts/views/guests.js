@@ -32,6 +32,10 @@ KnowledgEase.Views.Guests = Backbone.View.extend ({
 
         this.$userEl.html(JST['navbar/signedIn']({user: user}))
         this.closeView()
+
+        fragment = Backbone.history.fragment
+        Backbone.history.fragment = null
+        Backbone.history.navigate("", {trigger: true})
       }.bind(this),
     })
   },
