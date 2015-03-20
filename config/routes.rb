@@ -20,6 +20,6 @@ Rails.application.routes.draw do
     get "search", to: "static_pages#search"
     resources :account_activations, only: [:edit]
   end
-
+  get '/auth/:provider/callback', to: 'sessions#create'
   root 'static_pages#index'
 end

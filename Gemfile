@@ -18,6 +18,11 @@ gem "pg_search"
 gem 'paperclip'
 gem 'figaro'
 gem 'aws-sdk'
+gem 'omniauth-github', :github => 'intridea/omniauth-github'
+gem 'omniauth'
+
+gem 'omniauth-identity'
+
 
 group :development, :test do
   gem 'pry-rails'
