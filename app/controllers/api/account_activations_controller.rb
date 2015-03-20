@@ -6,6 +6,7 @@ class Api::AccountActivationsController < ApplicationController
       flash.now[:message] = "Your account has been authenticated"
       user.activated = true
       user.activated_at = Time.now
+      user.save
       log_in(user)
       redirect_to root_url
     else
