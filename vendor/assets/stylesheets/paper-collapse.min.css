@@ -27,13 +27,6 @@
   margin: 1rem -1rem;
 }
 
-
-.collapse-card.active .collapse-card__heading:hover::after {
-  content: "\f066";
-}
-.collapse-card .collapse-card__heading:hover::after {
-  content: "\f065";
-}
 .collapse-card.active .collapse-card__heading {
   background: #EEEEEE;
 }
@@ -50,12 +43,21 @@
 }
 
 .collapse-card__heading span.left {
-  margin-left: 0px;
-    overflow:auto;
-    display:inline-block;
-    width: 500px;
+    margin-left: 0px;
+    display: block;
+    float: left;
     margin: auto;
     padding-left: 20px;
+}
+
+.collapse-card__heading span.right {
+    margin-left: 0px;
+    overflow:auto;
+    display: block;
+    float: left;
+    margin: auto;
+    padding-left: 20px;
+    width: 500px;
 }
 
 
@@ -101,8 +103,4 @@
 .collapse-card__body p{
   color: #9a5c29;
   padding: 10px
-}
-
-.collapse-card__heading:hover {
-  background: #eaeaea;
 }

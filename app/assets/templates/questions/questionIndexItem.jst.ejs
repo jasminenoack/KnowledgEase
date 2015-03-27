@@ -2,55 +2,26 @@
 
   <div class="collapse-card__heading">
     <div class="collapse-card__title group">
-      <i><img class="thumb" src="<%= question.author().get("thumbUrl")%>"></i>
-        <span class="left"> <%= question.escape("question") %>
-          <section class="follow-button-question-index"></section>
-        </span>
 
-        <span class="right">
+
+        <span class="left">
+          <p><img class="thumb" src="<%= question.author().get("thumbUrl")%>"></p>
           <a href="#users/<%= question.author().id %>">
             <%= question.author().escape("name") %>
           </a>
+        </span>
+
+        <span class="right">
+        <p>
+          <a href="#/questions/<%= question.id %>">
+            <%= question.escape("question") %>
+          </a>
+        </p>
+        <p><%= question.answers().length %> Answers ~ <%= question.askers().length %> Users Requesting Answers </p>
 
         </span>
 
-
     </div>
-  </div>
-
-  <div class="collapse-card__body clear">
-    <p><%= question.escape("description") %></p>
-
-
-
-    <span class="left">
-      <a href="#/questions/<%= question.id %>">
-        View Question
-      </a>
-    </span>
-
-    <% if (question.author().get("current_user")) { %>
-      <span class="right">
-        <a href="#/questions/<%= question.id %>/edit">
-          Edit Question
-        </a>
-      </span>
-    <% } %>
-
-    <h3><%= question.escape("answer_count") %> Answers</h3>
-
-    <ul class="requestors group">
-    Unique Users Requesting Answers:
-    <br>
-      <% question.askers().each( function (asker) { %>
-        <a href="#users/<%= asker.id %>">
-          <li class="left"><%= asker.get("name") %></li>
-        </a>
-      <% }) %>
-    </ul>
-
-    <article class="request-answer">
-    </article>
   </div>
 
 </div>
