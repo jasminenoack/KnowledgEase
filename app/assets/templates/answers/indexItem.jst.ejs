@@ -2,14 +2,15 @@
 
   <div class="collapse-card__heading">
     <div class="collapse-card__title group">
+    <span class="left">
       <i><img class="thumb" src="<%= answer.author().get("thumbUrl")%>"></i>
-        <span class="left"> <%= answer.escape("body") %>
-        </span>
+      <a href="#users/<%= answer.question().author().id %>">
+        <%= answer.author().escape("name") %>
+      </a>
+    </span>
 
-        <span class="right">
-          <a href="#users/<%= answer.question().author().id %>">
-            <%= answer.author().escape("name") %>
-          </a>
+        <span class="right"> <%= answer.escape("body") %>
+
         </span>
 
 

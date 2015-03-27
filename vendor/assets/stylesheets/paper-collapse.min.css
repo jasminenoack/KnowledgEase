@@ -48,16 +48,17 @@
     float: left;
     margin: auto;
     padding-left: 20px;
+    width: 20%;
 }
 
 .collapse-card__heading span.right {
     margin-left: 0px;
     overflow:auto;
     display: block;
-    float: left;
+    float: right;
     margin: auto;
     padding-left: 20px;
-    width: 500px;
+    width: 70%;
 }
 
 
