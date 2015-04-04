@@ -1,3 +1,5 @@
+[![Code Climate](https://codeclimate.com/github/jasminenoack/KnowledgEase/badges/gpa.svg)](https://codeclimate.com/github/jasminenoack/KnowledgEase)
+
 # Question Ease
 
 A question app inspired by Quora.
